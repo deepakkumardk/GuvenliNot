@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="save_password">Şifreyi yaz!</string>
+    <string name="confirm">Onayla</string>
+    <string name="password_check_error">Yanlış!</string>
+    <string name="new_password_check">Yeni şifreyi doğrula</string>
+    <string name="new_password">Yeni şifre</string>
+    <string name="password_check">Şu anki şifre</string>
+    <string name="settings">Ayarlar</string>
+    <string name="note_EditText">Notunu yaz</string>
+    <string name="save_button">Kaydet</string>
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name" translatable="false">Güvenli Not</string>
+    <string name="save_password">Write the password</string>
+    <string name="confirm">Confirm</string>
+    <string name="save_button">Save</string>
+    <string name="note_EditText">Write the note</string>
+    <string name="settings">Settings</string>
+    <string name="password_check">Current password</string>
+    <string name="new_password">New password</string>
+    <string name="new_password_check">Verify new password</string>
+    <string name="password_check_error">Incorrect!</string>
+    <string name="new_password_check_error">Not same!</string>
+    <string name="hashed_password" translatable="false">hashed_password</string>
+    <string name="hashed_note" translatable="false">hashed_note</string>
+</resources>
