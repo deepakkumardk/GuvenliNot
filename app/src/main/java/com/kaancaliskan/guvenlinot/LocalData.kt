@@ -3,7 +3,6 @@ package com.kaancaliskan.guvenlinot
 import android.content.Context
 import android.content.SharedPreferences
 
-
 private const val sharedPref = "preferences"
 
 class LocalData(private val context: Context) {

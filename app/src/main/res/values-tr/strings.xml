@@ -9,4 +9,5 @@
     <string name="settings">Ayarlar</string>
     <string name="note_EditText">Notunu yaz</string>
     <string name="save_button">Kaydet</string>
+    <string name="new_password_check_error">Aynı değiller!</string>
 </resources>

@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        if (LocalData.with(this@LoginActivity.applicationContext).read(getString(R.string.hashed_password)).equals("")){
+        if (LocalData.with(this@LoginActivity.applicationContext).read(getString(R.string.hashed_password))==""){
             LocalData.with(this@LoginActivity.applicationContext).write(getString(R.string.hashed_password),password.sha512())
         }
         save_button.setOnClickListener{
@@ -50,5 +50,5 @@ fun String.sha512(): String {
 private fun String.hashWithAlgorithm(algorithm: String): String {
     val digest = MessageDigest.getInstance(algorithm)
     val bytes = digest.digest(this.toByteArray(Charsets.UTF_8))
-    return bytes.fold("", { str, it -> str + "%02x".format(it) })
+    return bytes.fold("") { str, it -> str + "%02x".format(it) }
 }
