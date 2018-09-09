@@ -5,6 +5,10 @@ import android.content.SharedPreferences
 
 private const val sharedPref = "preferences"
 
+/**
+ * This class makes easier to write SharedPreferences.
+ * @author Hakkı Kaan Çalışkan
+ */
 class LocalData(private val context: Context) {
 
     private val sharedPreferences: SharedPreferences
@@ -15,13 +19,25 @@ class LocalData(private val context: Context) {
         get() {
             return sharedPreferences.edit()
         }
+    /**
+     * This function writes the parameters.
+     */
     fun write(title: String, content: String) {
         editor.putString(title, content).commit()
     }
+    /**
+     * This function reads the parameters.
+     */
     fun read(title: String): String {
         return sharedPreferences.getString(title, "")
     }
+    /**
+     * This is normal companion object. There is no trick :D
+     */
     companion object {
+        /**
+         * Nothing important.
+         */
         fun with(context: Context): LocalData{
             return LocalData(context)
         }

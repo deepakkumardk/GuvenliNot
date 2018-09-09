@@ -11,5 +11,7 @@
     <string name="password_check_error">Incorrect!</string>
     <string name="new_password_check_error">Not same!</string>
     <string name="hashed_password" translatable="false">hashed_password</string>
-    <string name="hashed_note" translatable="false">hashed_note</string>
+    <string name="encoded_note" translatable="false">encoded_note</string>
+    <string name="saved">Saved!</string>
+    <string name="first_login">Default password is \"1234\"</string>
 </resources>
