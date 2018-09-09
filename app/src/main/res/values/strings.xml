@@ -9,7 +9,7 @@
     <string name="new_password">New password</string>
     <string name="new_password_check">Verify new password</string>
     <string name="password_check_error">Incorrect!</string>
-    <string name="new_password_check_error">Not same!</string>
+    <string name="new_password_check_error">Empty or not same!</string>
     <string name="hashed_password" translatable="false">hashed_password</string>
     <string name="encoded_note" translatable="false">encoded_note</string>
     <string name="saved">Saved!</string>

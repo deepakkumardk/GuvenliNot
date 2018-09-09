@@ -16,14 +16,18 @@ class Settings: AppCompatActivity(){
         setSupportActionBar(findViewById(R.id.toolbar))
 
         change_button.setOnClickListener{
+            var a=1
             if (password!=password_check.text.toString()){
                 password_check.error=getString(R.string.password_check_error)
+                a++
             }
-            if (new_password.text.toString()!=new_password_check.text.toString()){
+            if (new_password.text.toString()!=new_password_check.text.toString() || new_password.text.toString()==""){
+                //i didn't check new_password_check for is it empty because unnecessary
                 new_password_check.error=getString(R.string.new_password_check_error)
                 new_password.error=getString(R.string.new_password_check_error)
+                a++
             }
-            else {
+            if (a==1){
                 password=new_password.text.toString().sha512()
                 LocalData.with(this).write(getString(R.string.hashed_password),password)
                 Snackbar.make(change_button, getString(R.string.saved), Snackbar.LENGTH_LONG).show()
