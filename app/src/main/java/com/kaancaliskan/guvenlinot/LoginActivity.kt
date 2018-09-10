@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import java.security.MessageDigest
 
 var password="1234"
+var check_for_intent=0
 
 /**
  * This class is the checkpoint of password. If the password is correct, user can get into deeper in app.
@@ -27,6 +28,9 @@ class LoginActivity : AppCompatActivity() {
         }
         confirm_button.setOnClickListener{
             if (confirm_EditText.text.toString().sha512()==LocalData.with(this).read(getString(R.string.hashed_password))){
+
+                check_for_intent=1 //For restrict accessing without password check.
+
                 val intent = Intent(applicationContext, MainActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -40,7 +44,13 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, Settings::class.java)
             startActivity(intent)
             true
-        } else -> {
+        }
+        R.id.action_about ->{
+            val intent = Intent(applicationContext, About::class.java)
+            startActivity(intent)
+            true
+        }
+        else -> {
             super.onOptionsItemSelected(item)
         }
     }

@@ -13,7 +13,6 @@ class Settings: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings)
-        setSupportActionBar(findViewById(R.id.toolbar))
 
         change_button.setOnClickListener{
             var a=1

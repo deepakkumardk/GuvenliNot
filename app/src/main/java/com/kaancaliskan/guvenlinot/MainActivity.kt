@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import kotlinx.android.synthetic.main.main_activity.*
 import java.util.*
 
@@ -19,6 +20,12 @@ class MainActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         setSupportActionBar(findViewById(R.id.toolbar))
+
+        if(check_for_intent==0){
+            //For restrict accessing without password check.
+            Toast.makeText(this,getString(R.string.restrict_access),Toast.LENGTH_LONG).show()
+            finish()
+        }
 
         val decodedNote = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             Base64.getDecoder().decode(LocalData.with(this).read(getString(R.string.encoded_note)).toByteArray(Charsets.UTF_8))
@@ -44,7 +51,12 @@ class MainActivity: AppCompatActivity(){
             val intent = Intent(applicationContext, Settings::class.java)
             startActivity(intent)
             true
-        } else -> {
+        }
+        R.id.action_about ->{
+            val intent = Intent(applicationContext, About::class.java)
+            startActivity(intent)
+            true
+        }else -> {
             super.onOptionsItemSelected(item)
         }
     }
