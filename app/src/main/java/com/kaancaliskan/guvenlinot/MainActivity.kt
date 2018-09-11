@@ -21,7 +21,7 @@ class MainActivity: AppCompatActivity(){
         setContentView(R.layout.main_activity)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        if(check_for_intent==0){
+        if(!check_for_intent){
             //For restrict accessing without password check.
             Toast.makeText(this,getString(R.string.restrict_access),Toast.LENGTH_LONG).show()
             finish()
