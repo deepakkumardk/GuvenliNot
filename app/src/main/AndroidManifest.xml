@@ -26,7 +26,7 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
@@ -34,7 +34,7 @@
             android:name=".Settings"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
                 <category android:name="android.intent.category.PREFERENCE"/>
             </intent-filter>
         </activity>
@@ -42,7 +42,7 @@
         <activity android:name=".About"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.INFO"/>
             </intent-filter>
         </activity>
