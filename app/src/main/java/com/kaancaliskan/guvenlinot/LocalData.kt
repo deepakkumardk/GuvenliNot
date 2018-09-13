@@ -26,7 +26,7 @@ class LocalData(private val context: Context) {
         editor.putString(title, content).commit()
     }
     /**
-     * This function reads the parameters.
+     * This function reads note.
      */
     fun read(title: String): String {
         return sharedPreferences.getString(title, "")

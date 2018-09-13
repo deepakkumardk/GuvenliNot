@@ -13,7 +13,7 @@
     <string name="hashed_password" translatable="false">hashed_password</string>
     <string name="encoded_note" translatable="false">encoded_note</string>
     <string name="saved">Saved!</string>
-    <string name="first_login">Default password is \"1234\"</string>
+    <string name="first_login">Default password is \"1234</string>
     <string name="restrict_access">Are you kidding me?</string>
     <string name="my_name" translatable="false">Hakkı Kaan Çalışkan</string>
     <string name="source_code">Source code is available on <a href="https://github.com/hakkikaancaliskan/GuvenliNot">GitHub</a></string>

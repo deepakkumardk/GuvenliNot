@@ -9,11 +9,12 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_login.*
 import java.security.MessageDigest
 
-var password = "1234"
+var password="1234"
+var hashed_password = "d404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db" //1234
 var check_for_intent = false
 
 /**
- * This class is the checkpoint of password. If the password is correct, user can get into deeper in app.
+ * This class is the checkpoint of password.
  * @author Hakkı Kaan Çalışkan
  */
 class LoginActivity : AppCompatActivity() {
@@ -22,8 +23,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        if (LocalData.with(this).read(getString(R.string.hashed_password))==""){
-            LocalData.with(this).write(getString(R.string.hashed_password),password.sha512())
+        if (LocalData.with(this).read(getString(R.string.hashed_password)) == hashed_password ){
             Snackbar.make(confirm_EditText, getString(R.string.first_login), Snackbar.LENGTH_LONG).show()
         }
         confirm_button.setOnClickListener{
