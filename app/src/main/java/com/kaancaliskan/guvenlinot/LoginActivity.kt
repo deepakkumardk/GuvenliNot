@@ -23,8 +23,9 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        if (LocalData.with(this).read(getString(R.string.hashed_password)) == hashed_password ){
-            Snackbar.make(confirm_EditText, getString(R.string.first_login), Snackbar.LENGTH_LONG).show()
+        if (LocalData.with(this).read(getString(R.string.hashed_password)) == "" ){
+            LocalData.with(this).write(getString(R.string.hashed_password), password.sha512())
+            Snackbar.make(confirm_EditText, getString(R.string.change_password), Snackbar.LENGTH_LONG).show()
         }
         confirm_button.setOnClickListener{
             if (confirm_EditText.text.toString().sha512()==LocalData.with(this).read(getString(R.string.hashed_password))){
@@ -63,9 +64,7 @@ class LoginActivity : AppCompatActivity() {
  * This function makes easier to hash the password.
  */
 fun String.sha512(): String {
-    return this.hashWithAlgorithm("SHA-512")
-}
-private fun String.hashWithAlgorithm(algorithm: String): String {
+    val algorithm= "SHA-512"
     val digest = MessageDigest.getInstance(algorithm)
     val bytes = digest.digest(this.toByteArray(Charsets.UTF_8))
     return bytes.fold("") { str, it -> str + "%02x".format(it) }
