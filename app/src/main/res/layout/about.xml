@@ -58,11 +58,11 @@
         android:id="@+id/version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/version"
+        android:text="@string/versionName"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
-
+    <!-- @string/versionName could be shown with red but no problem. That string comes from build gradle->application variants. -->
 </android.support.constraint.ConstraintLayout>
