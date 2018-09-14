@@ -24,8 +24,8 @@ final String version= '28.0.0-rc02'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.android.support:appcompat-v7:$version"
     implementation "com.android.support:support-v4:$version"
+    implementation "com.android.support:appcompat-v7:$version"
     implementation "com.android.support:design:$version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

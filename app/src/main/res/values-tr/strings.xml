@@ -9,8 +9,8 @@
     <string name="settings">Ayarlar</string>
     <string name="note_EditText">Notunuzu yazın</string>
     <string name="save_button">Kaydet</string>
-    <string name="new_password_check_error">Aynı değiller!</string>
-    <string name="change_password">Lütfen şifreyi değiştirin. Varsayılan şifre 1234</string>
+    <string name="new_password_check_error">Boş ya da aynı değiller!</string>
+    <string name="change_password">Lütfen ayarlardan şifreyi değiştirin. Varsayılan şifre 1234</string>
     <string name="saved">Kaydedildi!</string>
     <string name="restrict_access">Dalga mı geçiyorsun?</string>
     <string name="about">Hakkında</string>

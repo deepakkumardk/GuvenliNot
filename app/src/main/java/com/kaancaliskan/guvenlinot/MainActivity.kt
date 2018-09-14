@@ -1,7 +1,6 @@
 package com.kaancaliskan.guvenlinot
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -9,7 +8,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import kotlinx.android.synthetic.main.main_activity.*
-import java.util.*
 
 /**
  * This activity saves note and encode/decode note.
@@ -27,22 +25,13 @@ class MainActivity: AppCompatActivity(){
             finish()
         }
 
-        val decodedNote = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Base64.getDecoder().decode(LocalData.with(this).read(getString(R.string.encoded_note)).toByteArray(Charsets.UTF_8))
-        } else {
-            android.util.Base64.decode(LocalData.with(this).read(getString(R.string.encoded_note)).toByteArray(Charsets.UTF_8), android.util.Base64.DEFAULT)
-        }
-        note_EditText.setText(decodedNote.toString(Charsets.UTF_8))
+        val decodedNote=Hash.decode(LocalData.with(this).read(getString(R.string.encoded_note)))
+        note_EditText.setText(decodedNote)
 
         note_save_button.setOnClickListener{
             val newNote=note_EditText.text.toString()
-
-            val encodedNote= if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Base64.getEncoder().encodeToString(newNote.toByteArray(Charsets.UTF_8))
-            } else {
-                android.util.Base64.encodeToString(newNote.toByteArray(Charsets.UTF_8), android.util.Base64.DEFAULT)
-            }
-            LocalData.with(this).write(getString(R.string.encoded_note),encodedNote.toString())
+            val encodedNote= Hash.encode(newNote)
+            LocalData.with(this).write(getString(R.string.encoded_note),encodedNote)
             Snackbar.make(note_save_button, getString(R.string.saved),Snackbar.LENGTH_LONG).show()
         }
     }
