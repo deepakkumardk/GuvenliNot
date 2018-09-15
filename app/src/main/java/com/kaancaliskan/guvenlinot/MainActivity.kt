@@ -25,13 +25,13 @@ class MainActivity: AppCompatActivity(){
             finish()
         }
 
-        val decodedNote=Hash.decode(LocalData.with(this).read(getString(R.string.encoded_note)))
+        val decodedNote=Hash.decode(LocalData.read(this, getString(R.string.encoded_note)))
         note_EditText.setText(decodedNote)
 
         note_save_button.setOnClickListener{
             val newNote=note_EditText.text.toString()
             val encodedNote= Hash.encode(newNote)
-            LocalData.with(this).write(getString(R.string.encoded_note),encodedNote)
+            LocalData.write(this, getString(R.string.encoded_note),encodedNote)
             Snackbar.make(note_save_button, getString(R.string.saved),Snackbar.LENGTH_LONG).show()
         }
     }

@@ -28,7 +28,7 @@ class Settings: AppCompatActivity(){
             }
             if (a==1){
                 password=Hash.sha512(new_password.text.toString())
-                LocalData.with(this).write(getString(R.string.hashed_password),password)
+                LocalData.write(this, getString(R.string.hashed_password),password)
                 Snackbar.make(change_button, getString(R.string.saved), Snackbar.LENGTH_LONG).show()
             }
         }

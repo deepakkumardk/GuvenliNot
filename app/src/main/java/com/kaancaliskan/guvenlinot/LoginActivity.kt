@@ -21,12 +21,13 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        if (LocalData.with(this).read(getString(R.string.hashed_password)) == "" ){
-            LocalData.with(this).write(getString(R.string.hashed_password), Hash.sha512(password))
+        if (LocalData.read(this, getString(R.string.hashed_password)) == "" ){
+            LocalData.write(this, getString(R.string.hashed_password), Hash.sha512(password))
             Snackbar.make(confirm_EditText, getString(R.string.change_password), Snackbar.LENGTH_LONG).show()
         }
+
         confirm_button.setOnClickListener{
-            if (Hash.sha512(confirm_EditText.text.toString())==LocalData.with(this).read(getString(R.string.hashed_password))){
+            if (Hash.sha512(confirm_EditText.text.toString())==LocalData.read(this, getString(R.string.hashed_password))){
                 check_for_intent=true //For restrict accessing without password check.
 
                 val intent = Intent(applicationContext, MainActivity::class.java)
