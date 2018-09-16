@@ -8,13 +8,13 @@
     <string name="password_check">Current password</string>
     <string name="new_password">New password</string>
     <string name="new_password_check">Verify new password</string>
-    <string name="password_check_error">Incorrect!</string>
-    <string name="new_password_check_error">Empty or not same!</string>
+    <string name="password_check_error">Password is wrong!</string>
+    <string name="new_password_check_error">New passwords are empty or not same!</string>
     <string name="hashed_password" translatable="false">hashed_password</string>
     <string name="encoded_note" translatable="false">encoded_note</string>
     <string name="saved">Saved!</string>
-    <string name="change_password">Please change the password from settings. Default password is 1234</string>
-    <string name="restrict_access">Are you kidding me?</string>
+    <string name="change_password">Please change the password from settings. Default password is 1234.</string>
+    <string name="restrict_access">You can\'t access to notes without password!</string>
     <string name="my_name" translatable="false">Hakkı Kaan Çalışkan</string>
     <string name="source_code">Source code is available on <a href="https://github.com/hakkikaancaliskan/GuvenliNot">GitHub</a></string>
     <string name="about">About</string>

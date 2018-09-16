@@ -2,11 +2,11 @@ package com.kaancaliskan.guvenlinot
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.main_activity.*
 
 /**
@@ -21,7 +21,7 @@ class MainActivity: AppCompatActivity(){
 
         if(!check_for_intent){
             //For restrict accessing without password check.
-            Toast.makeText(this,getString(R.string.restrict_access),Toast.LENGTH_LONG).show()
+            Toasty.error(this, getString(R.string.restrict_access), Toast.LENGTH_SHORT, true).show()
             finish()
         }
 
@@ -32,7 +32,7 @@ class MainActivity: AppCompatActivity(){
             val newNote=note_EditText.text.toString()
             val encodedNote= Hash.encode(newNote)
             LocalData.write(this, getString(R.string.encoded_note),encodedNote)
-            Snackbar.make(note_save_button, getString(R.string.saved),Snackbar.LENGTH_LONG).show()
+            Toasty.success(this, getString(R.string.saved), Toast.LENGTH_SHORT, true).show()
         }
     }
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {

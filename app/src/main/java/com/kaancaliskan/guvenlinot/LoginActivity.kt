@@ -3,9 +3,10 @@ package com.kaancaliskan.guvenlinot
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_login.*
 
 var password="1234"
@@ -23,9 +24,8 @@ class LoginActivity : AppCompatActivity() {
 
         if (LocalData.read(this, getString(R.string.hashed_password)) == "" ){
             LocalData.write(this, getString(R.string.hashed_password), Hash.sha512(password))
-            Snackbar.make(confirm_EditText, getString(R.string.change_password), Snackbar.LENGTH_LONG).show()
+            Toasty.info(this, getString(R.string.change_password), Toast.LENGTH_LONG, true).show()
         }
-
         confirm_button.setOnClickListener{
             if (Hash.sha512(confirm_EditText.text.toString())==LocalData.read(this, getString(R.string.hashed_password))){
                 check_for_intent=true //For restrict accessing without password check.
@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else{
-                confirm_EditText.error=getString(R.string.password_check_error)
+                Toasty.error(this, getString(R.string.password_check_error), Toast.LENGTH_SHORT, true).show()
             }
         }
     }

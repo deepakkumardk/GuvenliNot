@@ -2,17 +2,17 @@
 <resources>
     <string name="save_password">Şifreyi yaz!</string>
     <string name="confirm">Onayla</string>
-    <string name="password_check_error">Yanlış!</string>
+    <string name="password_check_error">Şifre yanlış!</string>
     <string name="new_password_check">Yeni şifreyi doğrula</string>
     <string name="new_password">Yeni şifre</string>
     <string name="password_check">Şu anki şifre</string>
     <string name="settings">Ayarlar</string>
     <string name="note_EditText">Notunuzu yazın</string>
     <string name="save_button">Kaydet</string>
-    <string name="new_password_check_error">Boş ya da aynı değiller!</string>
-    <string name="change_password">Lütfen ayarlardan şifreyi değiştirin. Varsayılan şifre 1234</string>
+    <string name="new_password_check_error">Yeni şifreler boş ya da aynı değiller!</string>
+    <string name="change_password">Lütfen ayarlardan şifreyi değiştirin. Varsayılan şifre 1234.</string>
     <string name="saved">Kaydedildi!</string>
-    <string name="restrict_access">Dalga mı geçiyorsun?</string>
+    <string name="restrict_access">Şifre girmeden notlara erişemezsin!</string>
     <string name="about">Hakkında</string>
     <string name="source_code">Kaynak kodu <a href="https://github.com/hakkikaancaliskan/GuvenliNot">Github</a> üzerinde mevcut</string>
 </resources>

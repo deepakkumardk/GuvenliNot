@@ -10,6 +10,10 @@ This app supports 5.0-9.0 Android versions.
 
 Default password is 1234. You can change in app.
 
+Thank you so much for icon and logo [zularizal](https://github.com/zularizal).
+
+I'm using [Toasty](https://github.com/GrenderG/Toasty). Thanks to [GrenderG](https://github.com/GrenderG) for this great library.
+
 <img src="https://github.com/hakkikaancaliskan/GuvenliNot/blob/master/Screenshot/Screenshot_1.png" height="350"><img src="https://github.com/hakkikaancaliskan/GuvenliNot/blob/master/Screenshot/Screenshot_2.png" height="350"><img src="https://github.com/hakkikaancaliskan/GuvenliNot/blob/master/Screenshot/Screenshot_3.png" height="350"><img src="https://github.com/hakkikaancaliskan/GuvenliNot/blob/master/Screenshot/Screenshot_4.png" height="350">
 
 [![Build Status](https://travis-ci.org/hakkikaancaliskan/GuvenliNot.svg?branch=master)](https://travis-ci.org/hakkikaancaliskan/GuvenliNot)
