@@ -1,3 +1,7 @@
+<h1 align=center>
+<img src="Logo/horizontal.png" width=60%>
+</h1>
+
 **Secure Note App for Android**
 
 This app saves your notes locally with Base64 (for notes) and SHA-512 (for password) encoding/encryption.
