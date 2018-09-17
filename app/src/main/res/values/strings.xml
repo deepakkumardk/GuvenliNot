@@ -18,4 +18,8 @@
     <string name="my_name" translatable="false">Hakkı Kaan Çalışkan</string>
     <string name="source_code">Source code is available on <a href="https://github.com/hakkikaancaliskan/GuvenliNot">GitHub</a></string>
     <string name="about">About</string>
+    <string name="licenses">Licenses</string>
+    <string name="toasty_license_link"><a href="https://github.com/GrenderG/Toasty/blob/master/LICENSE">License</a></string>
+    <string name="toasty" translatable="false"><a href="https://github.com/GrenderG/Toasty">Toasty</a></string>
+    <string name="toasty_icon_desc" translatable="false">Toasty Icon</string>
 </resources>

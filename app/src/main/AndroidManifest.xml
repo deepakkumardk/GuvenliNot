@@ -46,5 +46,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Licenses"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.INFO"/>
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>
