@@ -16,10 +16,61 @@
     <string name="change_password">Please change the password from settings. Default password is 1234.</string>
     <string name="restrict_access">You can\'t access to notes without password!</string>
     <string name="my_name" translatable="false">Hakkı Kaan Çalışkan</string>
-    <string name="source_code">Source code is available on <a href="https://github.com/hakkikaancaliskan/GuvenliNot">GitHub</a></string>
     <string name="about">About</string>
     <string name="licenses">Licenses</string>
-    <string name="toasty_license_link"><a href="https://github.com/GrenderG/Toasty/blob/master/LICENSE">License</a></string>
     <string name="toasty" translatable="false"><a href="https://github.com/GrenderG/Toasty">Toasty</a></string>
-    <string name="toasty_icon_desc" translatable="false">Toasty Icon</string>
+    <string name="toasty_license" translatable="false">
+     Copyright &#169; 2017  Daniel Morales\n
+        \n
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.\n
+        \n
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.\n
+        \n
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see https://www.gnu.org/licenses/.</string>
+
+    <string name="about_library" translatable="false"><a href="https://github.com/daniel-stoneuk/material-about-library">material-about-library</a></string>
+    <string name="about_library_license" translatable="false">
+        Copyright &#169; 2016 Daniel Stone\n
+\n
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0\n
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+limitations under the License.
+    </string>
+    <string name="iconics_library" translatable="false"><a href="https://github.com/mikepenz/Android-Iconics">Android Iconics</a></string>
+    <string name="iconics_library_license" translatable="false">
+        Copyright &#169; 2016 Mike Penz\n
+\n
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0\n
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+limitations under the License.
+    </string>
+    <string name="copyright" translatable="false">© 2018 Hakkı Kaan Çalışkan</string>
+    <string name="version">Version</string>
+    <string name="country">Turkey</string>
+    <string name="personal_github">Personal GitHub Link</string>
+    <string name="app_github">App GitHub Link</string>
+    <string name="send_mail">Send an email</string>
+    <string name="my_mail" translatable="false">caliskanhkaan@gmail.com</string>
+    <string name="mail_title">Question concerning Güvenli Not</string>
+    <string name="changelog">Changelog</string>
+    <string name="releases">Releases</string>
 </resources>

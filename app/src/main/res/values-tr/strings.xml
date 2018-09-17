@@ -14,7 +14,13 @@
     <string name="saved">Kaydedildi!</string>
     <string name="restrict_access">Şifre girmeden notlara erişemezsin!</string>
     <string name="about">Hakkında</string>
-    <string name="source_code">Kaynak kodu <a href="https://github.com/hakkikaancaliskan/GuvenliNot">Github</a> üzerinde mevcut</string>
     <string name="licenses">Lisanslar</string>
-    <string name="toasty_license_link"><a href="https://github.com/GrenderG/Toasty/blob/master/LICENSE">Lisans</a></string>
+    <string name="version">Versiyon</string>
+    <string name="country">Türkiye</string>
+    <string name="send_mail">Mail atın</string>
+    <string name="mail_title">Güvenli Not ile alakalı sorular</string>
+    <string name="personal_github">Kişisel GitHub Linki</string>
+    <string name="app_github">Uygulama GitHub Linki</string>
+    <string name="changelog">Değişiklikler</string>
+    <string name="releases">Güncellemeler</string>
 </resources>

@@ -15,7 +15,9 @@ Default password is 1234. You can change in app.
 
 ## Open Source Libraries:
 
--[Toasty](https://github.com/GrenderG/Toasty) for error/success messages
+- [Toasty](https://github.com/GrenderG/Toasty) for error/success messages
+- [material-about-library](https://github.com/daniel-stoneuk/material-about-library) for beautiful about page
+- [Android Iconics](https://github.com/mikepenz/Android-Iconics) for icons
 
 ## Screenshots
 
@@ -23,6 +25,4 @@ Default password is 1234. You can change in app.
 
 ## GüvenliNot Logo
 
-**Güvenli Not** logo is designed by **zularizal**.
-
-[GitHub](https://github.com/zularizal)
+**Güvenli Not** logo is designed by [zularizal](https://github.com/zularizal).

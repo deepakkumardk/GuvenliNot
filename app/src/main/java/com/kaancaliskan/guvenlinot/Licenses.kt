@@ -12,7 +12,8 @@ class Licenses: Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.licences)
 
-        toasty_license.movementMethod=LinkMovementMethod.getInstance()
-        toasty_text.movementMethod=LinkMovementMethod.getInstance()
+        iconics_library.movementMethod=LinkMovementMethod.getInstance()
+        about_library.movementMethod=LinkMovementMethod.getInstance()
+        toasty_library.movementMethod=LinkMovementMethod.getInstance()
     }
 }

@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
             true
         }
         R.id.action_about ->{
-            val intent = Intent(applicationContext, About::class.java)
+            val intent = Intent(applicationContext, AboutActivity::class.java)
             startActivity(intent)
             true
         }
