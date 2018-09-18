@@ -40,7 +40,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Licenses"
+        <activity android:name=".AboutActivity"
+            android:theme="@style/AppTheme.MaterialAboutActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -48,9 +49,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AboutActivity"
-            android:theme="@style/AppTheme.MaterialAboutActivity"
-            android:windowSoftInputMode="stateHidden">
+        <activity android:name=".LicenseActivity"
+            android:theme="@style/AppTheme.MaterialAboutActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.INFO"/>

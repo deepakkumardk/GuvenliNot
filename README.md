@@ -18,6 +18,8 @@ Default password is 1234. You can change in app.
 - [Toasty](https://github.com/GrenderG/Toasty) for error/success messages
 - [material-about-library](https://github.com/daniel-stoneuk/material-about-library) for beautiful about page
 - [Android Iconics](https://github.com/mikepenz/Android-Iconics) for icons
+- [Kotlin](https://github.com/JetBrains/kotlin) written in Kotlin
+- **Android Support Library**, of course
 
 ## Screenshots
 

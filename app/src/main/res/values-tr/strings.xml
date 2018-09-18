@@ -19,8 +19,6 @@
     <string name="country">Türkiye</string>
     <string name="send_mail">Mail atın</string>
     <string name="mail_title">Güvenli Not ile alakalı sorular</string>
-    <string name="personal_github">Kişisel GitHub Linki</string>
-    <string name="app_github">Uygulama GitHub Linki</string>
     <string name="changelog">Değişiklikler</string>
-    <string name="releases">Güncellemeler</string>
+    <string name="dev">Geliştirici</string>
 </resources>
