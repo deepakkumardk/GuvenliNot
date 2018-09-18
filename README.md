@@ -1,4 +1,4 @@
-<h1 align=center>
+﻿<h1 align=center>
 <img src="Logo/horizontal.png" width=60%>
 </h1>
 
@@ -17,9 +17,10 @@ Default password is 1234. You can change in app.
 
 - [Toasty](https://github.com/GrenderG/Toasty) for error/success messages
 - [material-about-library](https://github.com/daniel-stoneuk/material-about-library) for beautiful about page
-- [Android Iconics](https://github.com/mikepenz/Android-Iconics) for icons
-- [Kotlin](https://github.com/JetBrains/kotlin) written in Kotlin
-- **Android Support Library**, of course
+- [Kotlin](https://github.com/JetBrains/kotlin) app is written in Kotlin
+- [AppUpdater](https://github.com/javiersantos/AppUpdater) for update checks
+- [OkHttp](https://github.com/square/okhttp) to help AppUpdater
+- **Android Support Libraries**, of course
 
 ## Screenshots
 

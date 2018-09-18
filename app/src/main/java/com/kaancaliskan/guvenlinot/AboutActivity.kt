@@ -8,12 +8,12 @@ import com.danielstone.materialaboutlibrary.ConvenienceBuilder
 import com.danielstone.materialaboutlibrary.MaterialAboutActivity
 import com.danielstone.materialaboutlibrary.items.MaterialAboutActionItem
 import com.danielstone.materialaboutlibrary.items.MaterialAboutTitleItem
-import com.mikepenz.community_material_typeface_library.CommunityMaterial
-import com.mikepenz.iconics.IconicsDrawable
 import com.danielstone.materialaboutlibrary.model.MaterialAboutList
 import com.danielstone.materialaboutlibrary.util.OpenSourceLicense
 import com.danielstone.materialaboutlibrary.model.MaterialAboutCard
-
+import com.github.javiersantos.appupdater.AppUpdater
+import com.github.javiersantos.appupdater.enums.Display
+import com.github.javiersantos.appupdater.enums.UpdateFrom
 /**
  * This is about activity.
  */
@@ -22,6 +22,16 @@ open class AboutActivity : MaterialAboutActivity() {
      * This function is creating about page components.
      */
     override fun getMaterialAboutList(context: Context): MaterialAboutList {
+
+        val appUpdater = AppUpdater(this)
+        appUpdater.setUpdateFrom(UpdateFrom.GITHUB)
+        appUpdater.setGitHubUserAndRepo(getString(R.string.github_user), getString(R.string.github_repo))
+        appUpdater.setDisplay(Display.SNACKBAR)
+        appUpdater.showAppUpdated(true)
+        appUpdater.setContentOnUpdateAvailable(getString(R.string.update_available))
+        appUpdater.setContentOnUpdateNotAvailable(getString(R.string.update_not_available))
+        appUpdater.setButtonUpdate(getString(R.string.button_update))
+
         val appCardBuilder = MaterialAboutCard.Builder()
 
         appCardBuilder.addItem(MaterialAboutTitleItem.Builder()
@@ -30,42 +40,39 @@ open class AboutActivity : MaterialAboutActivity() {
                 .icon(R.mipmap.ic_launcher_round)
                 .build())
 
-        appCardBuilder.addItem(ConvenienceBuilder.createVersionActionItem(context,
-                IconicsDrawable(context)
-                        .icon(CommunityMaterial.Icon2.cmd_information_outline)
-                        .color(ContextCompat.getColor(context, R.color.colorAccent))
-                        .sizeDp(18),
-                getString(R.string.version),
-                false))
+        appCardBuilder.addItem(MaterialAboutActionItem.Builder()
+                .text(getString(R.string.version))
+                .subText(BuildConfig.VERSION_NAME)
+                .icon(getDrawable(R.drawable.update))
+                .setOnClickAction { appUpdater.start() }
+                .build())
 
         appCardBuilder.addItem(MaterialAboutActionItem.Builder()
                 .text(getString(R.string.github))
-                .icon(IconicsDrawable(context)
-                        .icon(CommunityMaterial.Icon.cmd_github_circle)
-                        .color(ContextCompat.getColor(context, R.color.colorAccent))
-                        .sizeDp(18))
+                .icon(getDrawable(R.drawable.github_circle))
                 .setOnClickAction(ConvenienceBuilder.createWebsiteOnClickAction(context, Uri.parse("https://github.com/hakkikaancaliskan/guvenlinot")))
                 .build())
 
         appCardBuilder.addItem(MaterialAboutActionItem.Builder()
                 .text(getString(R.string.changelog))
-                .icon(IconicsDrawable(context)
-                        .icon(CommunityMaterial.Icon2.cmd_history)
-                        .color(ContextCompat.getColor(context, R.color.colorAccent))
-                        .sizeDp(18))
+                .icon(getDrawable(R.drawable.radar))
                 .setOnClickAction (ConvenienceBuilder.createWebViewDialogOnClickAction(context, getString(R.string.changelog), "https://github.com/hakkikaancaliskan/guvenlinot/releases", true, false))
                 .build())
 
         appCardBuilder.addItem(MaterialAboutActionItem.Builder()
                 .text(getString(R.string.licenses))
-                .icon(IconicsDrawable(context)
-                        .icon(CommunityMaterial.Icon.cmd_book)
-                        .color(ContextCompat.getColor(context, R.color.colorAccent))
-                        .sizeDp(18))
+                .icon(getDrawable(R.drawable.book))
                 .setOnClickAction {
                     val intent = Intent(context, LicenseActivity::class.java)
                     context.startActivity(intent)
                 }
+                .build())
+
+        appCardBuilder.addItem( MaterialAboutActionItem.Builder()
+                .text(R.string.report_issue)
+                .subText(R.string.report_issue_sub)
+                .icon(ContextCompat.getDrawable(context, R.drawable.bug))
+                .setOnClickAction(ConvenienceBuilder.createWebsiteOnClickAction(context, Uri.parse("https://github.com/hakkikaancaliskan/GuvenliNot/issues/new/choose")))
                 .build())
 
         val authorCardBuilder = MaterialAboutCard.Builder()
@@ -74,26 +81,17 @@ open class AboutActivity : MaterialAboutActivity() {
         authorCardBuilder.addItem(MaterialAboutActionItem.Builder()
                 .text(getString(R.string.dev_name))
                 .subText(getString(R.string.country))
-                .icon(IconicsDrawable(context)
-                        .icon(CommunityMaterial.Icon.cmd_account)
-                        .color(ContextCompat.getColor(context, R.color.colorAccent))
-                        .sizeDp(18))
+                .icon(getDrawable(R.drawable.account))
                 .build())
 
         authorCardBuilder.addItem(MaterialAboutActionItem.Builder()
                 .text(getString(R.string.github))
-                .icon(IconicsDrawable(context)
-                        .icon(CommunityMaterial.Icon.cmd_github_circle)
-                        .color(ContextCompat.getColor(context, R.color.colorAccent))
-                        .sizeDp(18))
+                .icon(getDrawable(R.drawable.github_circle))
                 .setOnClickAction(ConvenienceBuilder.createWebsiteOnClickAction(context, Uri.parse("https://github.com/hakkikaancaliskan")))
                 .build())
 
         authorCardBuilder.addItem(ConvenienceBuilder.createEmailItem(context,
-                IconicsDrawable(context)
-                        .icon(CommunityMaterial.Icon.cmd_email)
-                        .color(ContextCompat.getColor(context, R.color.colorAccent))
-                        .sizeDp(18),
+                getDrawable(R.drawable.email),
                 getString(R.string.send_mail),
                 true,
                 getString(R.string.dev_mail),
@@ -102,50 +100,54 @@ open class AboutActivity : MaterialAboutActivity() {
     }
 
     companion object {
-
+        /**
+         * This function creates our license cards.
+         */
         fun createMaterialAboutLicenseList(c: Context): MaterialAboutList {
 
             val materialAboutLibraryLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                IconicsDrawable(c)
-                        .icon(CommunityMaterial.Icon.cmd_book)
-                        .color(ContextCompat.getColor(c, R.color.colorAccent))
-                        .sizeDp(18),
-                "material-about-library", "2016", "Daniel Stone",
-                OpenSourceLicense.APACHE_2)
-
-            val androidIconicsLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                IconicsDrawable(c)
-                        .icon(CommunityMaterial.Icon.cmd_book)
-                        .color(ContextCompat.getColor(c, R.color.colorAccent))
-                        .sizeDp(18),
-                "Android Iconics", "2014", "Mike Penz",
-                OpenSourceLicense.APACHE_2)
+                    ContextCompat.getDrawable(c, R.drawable.book),
+                    "material-about-library",
+                    "2016",
+                    "Daniel Stone",
+                    OpenSourceLicense.APACHE_2)
 
             val toastyLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                IconicsDrawable(c)
-                        .icon(CommunityMaterial.Icon.cmd_book)
-                        .color(ContextCompat.getColor(c, R.color.colorAccent))
-                        .sizeDp(18),
-                "Toasty", "2017", "Daniel Morales",
-                OpenSourceLicense.GNU_GPL_3)
+                    ContextCompat.getDrawable(c, R.drawable.book),
+                    "Toasty",
+                    "2017",
+                    "Daniel Morales",
+                    OpenSourceLicense.GNU_GPL_3)
 
             val supportLibraryLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                    IconicsDrawable(c)
-                            .icon(CommunityMaterial.Icon.cmd_book)
-                            .color(ContextCompat.getColor(c, R.color.colorAccent))
-                            .sizeDp(18),
-                    "AOSP Support Library", "2011", "The Android Open Source Project",
+                    ContextCompat.getDrawable(c, R.drawable.book),
+                    "AOSP Support Libraries",
+                    "2011",
+                    "The Android Open Source Project",
                     OpenSourceLicense.APACHE_2)
 
             val kotlinLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                    IconicsDrawable(c)
-                            .icon(CommunityMaterial.Icon.cmd_book)
-                            .color(ContextCompat.getColor(c, R.color.colorAccent))
-                            .sizeDp(18),
-                    "Kotlin Library", "2010", "JetBrains s.r.o",
+                    ContextCompat.getDrawable(c, R.drawable.book),
+                    "Kotlin",
+                    "2010",
+                    "JetBrains s.r.o",
                     OpenSourceLicense.APACHE_2)
 
-        return MaterialAboutList(materialAboutLibraryLicenseCard, androidIconicsLicenseCard, toastyLicenseCard, supportLibraryLicenseCard, kotlinLicenseCard)
+            val appUpdaterLicenseCard = ConvenienceBuilder.createLicenseCard(c,
+                    ContextCompat.getDrawable(c, R.drawable.book),
+                    "AppUpdater",
+                    "2016",
+                    "Javier Santos",
+                    OpenSourceLicense.APACHE_2)
+
+            val okHttpLicenseCard = ConvenienceBuilder.createLicenseCard(c,
+                    ContextCompat.getDrawable(c, R.drawable.book),
+                    "OkHttp",
+                    "2012",
+                    "Jesse Wilson",
+                    OpenSourceLicense.APACHE_2)
+
+        return MaterialAboutList(materialAboutLibraryLicenseCard, toastyLicenseCard, supportLibraryLicenseCard, kotlinLicenseCard, appUpdaterLicenseCard, okHttpLicenseCard)
     }}
     /**
      * This function names the activity.

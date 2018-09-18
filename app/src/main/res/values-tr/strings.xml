@@ -15,10 +15,15 @@
     <string name="restrict_access">Şifre girmeden notlara erişemezsin!</string>
     <string name="about">Hakkında</string>
     <string name="licenses">Lisanslar</string>
-    <string name="version">Versiyon</string>
+    <string name="version">Şu anki versiyon</string>
     <string name="country">Türkiye</string>
     <string name="send_mail">Mail atın</string>
     <string name="mail_title">Güvenli Not ile alakalı sorular</string>
     <string name="changelog">Değişiklikler</string>
     <string name="dev">Geliştirici</string>
+    <string name="report_issue">Sorun bildir</string>
+    <string name="report_issue_sub">Bir sorun mu var? Haberdar edin.</string>
+    <string name="update_available">Güncelleme mevcut!</string>
+    <string name="update_not_available">Şu an en son sürümdesiniz.</string>
+    <string name="button_update">Güncelle</string>
 </resources>

@@ -18,7 +18,7 @@
     <string name="about">About</string>
     <string name="licenses">Licenses</string>
     <string name="copyright" translatable="false">© 2018 Hakkı Kaan Çalışkan</string>
-    <string name="version">Version</string>
+    <string name="version">Current App Version</string>
     <string name="country">Turkey</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="send_mail">Send an email</string>
@@ -27,4 +27,11 @@
     <string name="mail_title">Question concerning Güvenli Not</string>
     <string name="changelog">Changelog</string>
     <string name="dev">Developer</string>
+    <string name="report_issue">Report an issue</string>
+    <string name="report_issue_sub">Having an issue? Let me know.</string>
+    <string name="update_available">Update available!</string>
+    <string name="update_not_available">You\'re on the latest version.</string>
+    <string name="button_update">Update</string>
+    <string name="github_user" translatable="false">hakkikaancaliskan</string>
+    <string name="github_repo" translatable="false">GuvenliNot</string>
 </resources>
