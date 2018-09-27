@@ -10,7 +10,7 @@
     <string name="note_EditText">Notunuzu yazın</string>
     <string name="save_button">Kaydet</string>
     <string name="new_password_check_error">Yeni şifreler boş ya da aynı değiller!</string>
-    <string name="change_password">Lütfen ayarlardan şifreyi değiştirin. Varsayılan şifre 1234.</string>
+    <string name="change_password">Lütfen bir şifre seçin.</string>
     <string name="saved">Kaydedildi!</string>
     <string name="restrict_access">Şifre girmeden notlara erişemezsin!</string>
     <string name="about">Hakkında</string>
@@ -26,4 +26,6 @@
     <string name="update_available">Güncelleme mevcut!</string>
     <string name="update_not_available">Şu an en son sürümdesiniz.</string>
     <string name="button_update">Güncelle</string>
+    <string name="write_password">Şifreyi yaz</string>
+    <string name="confirm_password">Şifreyi doğrula</string>
 </resources>

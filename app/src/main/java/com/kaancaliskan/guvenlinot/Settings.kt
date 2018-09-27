@@ -15,6 +15,8 @@ class Settings: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings)
 
+        var password="1234"
+
         change_button.setOnClickListener{
             var a=1
             if (password!=password_check.text.toString()){

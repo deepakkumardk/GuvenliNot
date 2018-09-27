@@ -9,7 +9,6 @@ import android.widget.Toast
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_login.*
 
-var password="1234"
 var check_for_intent = false
 
 /**
@@ -23,8 +22,8 @@ class LoginActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         if (LocalData.read(this, getString(R.string.hashed_password)) == "" ){
-            LocalData.write(this, getString(R.string.hashed_password), Hash.sha512(password))
-            Toasty.info(this, getString(R.string.change_password), Toast.LENGTH_LONG, true).show()
+            val intent= Intent(applicationContext, FirstLogin::class.java)
+            startActivity(intent)
         }
         confirm_button.setOnClickListener{
             if (Hash.sha512(confirm_EditText.text.toString())==LocalData.read(this, getString(R.string.hashed_password))){

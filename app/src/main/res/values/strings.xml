@@ -13,7 +13,7 @@
     <string name="hashed_password" translatable="false">hashed_password</string>
     <string name="encoded_note" translatable="false">encoded_note</string>
     <string name="saved">Saved!</string>
-    <string name="change_password">Please change the password from settings. Default password is 1234.</string>
+    <string name="change_password">Please select a password.</string>
     <string name="restrict_access">You can\'t access to notes without password!</string>
     <string name="about">About</string>
     <string name="licenses">Licenses</string>
@@ -34,4 +34,7 @@
     <string name="button_update">Update</string>
     <string name="github_user" translatable="false">hakkikaancaliskan</string>
     <string name="github_repo" translatable="false">GuvenliNot</string>
+    <string name="write_password">Write the password</string>
+    <string name="confirm_password">Confirm the password</string>
+    <string name="cant_save">Can\'t saved!</string>
 </resources>

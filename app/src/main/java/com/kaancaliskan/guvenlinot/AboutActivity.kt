@@ -30,7 +30,6 @@ open class AboutActivity : MaterialAboutActivity() {
         appUpdater.showAppUpdated(true)
         appUpdater.setContentOnUpdateAvailable(getString(R.string.update_available))
         appUpdater.setContentOnUpdateNotAvailable(getString(R.string.update_not_available))
-        appUpdater.setButtonUpdate(getString(R.string.button_update))
 
         val appCardBuilder = MaterialAboutCard.Builder()
 
@@ -99,9 +98,10 @@ open class AboutActivity : MaterialAboutActivity() {
         return MaterialAboutList(appCardBuilder.build(), authorCardBuilder.build())
     }
 
+
     companion object {
         /**
-         * This function creates our license cards.
+         * This function identifies our license cards.
          */
         fun createMaterialAboutLicenseList(c: Context): MaterialAboutList {
 

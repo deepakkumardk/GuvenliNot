@@ -8,7 +8,6 @@ import android.view.MenuItem
 import android.widget.Toast
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.main_activity.*
-
 /**
  * This activity saves note and encode/decode note.
  * @author Hakkı Kaan Çalışkan
@@ -19,19 +18,19 @@ class MainActivity: AppCompatActivity(){
         setContentView(R.layout.main_activity)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        if(!check_for_intent){
+        if (!check_for_intent) {
             //For restrict accessing without password check.
             Toasty.error(this, getString(R.string.restrict_access), Toast.LENGTH_SHORT, true).show()
             finish()
         }
 
-        val decodedNote=Hash.decode(LocalData.read(this, getString(R.string.encoded_note)))
+        val decodedNote = Hash.decode(LocalData.read(this, getString(R.string.encoded_note)))
         note_EditText.setText(decodedNote)
 
-        note_save_button.setOnClickListener{
-            val newNote=note_EditText.text.toString()
-            val encodedNote= Hash.encode(newNote)
-            LocalData.write(this, getString(R.string.encoded_note),encodedNote)
+        note_save_button.setOnClickListener {
+            val newNote = note_EditText.text.toString()
+            val encodedNote = Hash.encode(newNote)
+            LocalData.write(this, getString(R.string.encoded_note), encodedNote)
             Toasty.success(this, getString(R.string.saved), Toast.LENGTH_SHORT, true).show()
         }
     }
@@ -49,6 +48,7 @@ class MainActivity: AppCompatActivity(){
             super.onOptionsItemSelected(item)
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
