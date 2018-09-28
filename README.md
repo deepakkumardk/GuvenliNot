@@ -11,8 +11,6 @@ This app saves your notes **locally** with Base64 (for notes) and SHA-512 (for p
 
 This app supports 5.0-9.0 Android versions.
 
-Default password is 1234. You can change in app.
-
 ## Open Source Libraries:
 
 - [Toasty](https://github.com/GrenderG/Toasty) for error/success messages
@@ -20,6 +18,7 @@ Default password is 1234. You can change in app.
 - [Kotlin](https://github.com/JetBrains/kotlin) app is written in Kotlin
 - [AppUpdater](https://github.com/javiersantos/AppUpdater) for update checks
 - [OkHttp](https://github.com/square/okhttp) to help AppUpdater
+- [Anko](https://github.com/Kotlin/anko) for database
 - **Android Support Libraries**, of course
 
 ## Screenshots

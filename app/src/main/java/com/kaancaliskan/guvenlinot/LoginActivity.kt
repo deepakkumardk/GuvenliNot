@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
         if (LocalData.read(this, getString(R.string.hashed_password)) == "" ){
             val intent= Intent(applicationContext, FirstLogin::class.java)
             startActivity(intent)
+            finish()
         }
         confirm_button.setOnClickListener{
             if (Hash.sha512(confirm_EditText.text.toString())==LocalData.read(this, getString(R.string.hashed_password))){

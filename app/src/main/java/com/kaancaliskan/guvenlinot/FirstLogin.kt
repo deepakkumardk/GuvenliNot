@@ -22,6 +22,7 @@ class FirstLogin: AppCompatActivity(){
                 check_for_intent=true
                 val intent=Intent(applicationContext, MainActivity::class.java)
                 startActivity(intent)
+                finish()
             }
             else{
                 Toasty.error(this, getString(R.string.cant_save), Toast.LENGTH_LONG).show()

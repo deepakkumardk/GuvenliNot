@@ -47,7 +47,7 @@ open class AboutActivity : MaterialAboutActivity() {
                 .build())
 
         appCardBuilder.addItem(MaterialAboutActionItem.Builder()
-                .text(getString(R.string.github))
+                .text(getString(R.string.project_github))
                 .icon(getDrawable(R.drawable.github_circle))
                 .setOnClickAction(ConvenienceBuilder.createWebsiteOnClickAction(context, Uri.parse("https://github.com/hakkikaancaliskan/guvenlinot")))
                 .build())
@@ -79,12 +79,12 @@ open class AboutActivity : MaterialAboutActivity() {
 
         authorCardBuilder.addItem(MaterialAboutActionItem.Builder()
                 .text(getString(R.string.dev_name))
-                .subText(getString(R.string.country))
+                .subText(getString(R.string.dev_country))
                 .icon(getDrawable(R.drawable.account))
                 .build())
 
         authorCardBuilder.addItem(MaterialAboutActionItem.Builder()
-                .text(getString(R.string.github))
+                .text(getString(R.string.kaan_github))
                 .icon(getDrawable(R.drawable.github_circle))
                 .setOnClickAction(ConvenienceBuilder.createWebsiteOnClickAction(context, Uri.parse("https://github.com/hakkikaancaliskan")))
                 .build())
@@ -95,6 +95,18 @@ open class AboutActivity : MaterialAboutActivity() {
                 true,
                 getString(R.string.dev_mail),
                 getString(R.string.mail_title)))
+
+        authorCardBuilder.addItem(MaterialAboutActionItem.Builder()
+                .text(getString(R.string.dev1_name))
+                .subText(getString(R.string.dev1_country))
+                .icon(getDrawable(R.drawable.account))
+                .build())
+
+        authorCardBuilder.addItem(MaterialAboutActionItem.Builder()
+                .text(getString(R.string.deepak_github))
+                .icon(getDrawable(R.drawable.github_circle))
+                .setOnClickAction(ConvenienceBuilder.createWebsiteOnClickAction(context, Uri.parse("https://github.com/deepakkumardk")))
+                .build())
         return MaterialAboutList(appCardBuilder.build(), authorCardBuilder.build())
     }
 
@@ -147,7 +159,14 @@ open class AboutActivity : MaterialAboutActivity() {
                     "Jesse Wilson",
                     OpenSourceLicense.APACHE_2)
 
-        return MaterialAboutList(materialAboutLibraryLicenseCard, toastyLicenseCard, supportLibraryLicenseCard, kotlinLicenseCard, appUpdaterLicenseCard, okHttpLicenseCard)
+            val ankoLicenseCard: MaterialAboutCard = ConvenienceBuilder.createLicenseCard(c,
+                    ContextCompat.getDrawable(c, R.drawable.book),
+                    "Anko",
+                    "2014",
+                    "Kotlin",
+                    OpenSourceLicense.APACHE_2)
+
+        return MaterialAboutList(materialAboutLibraryLicenseCard, toastyLicenseCard, supportLibraryLicenseCard, kotlinLicenseCard, appUpdaterLicenseCard, okHttpLicenseCard, ankoLicenseCard)
     }}
     /**
      * This function names the activity.

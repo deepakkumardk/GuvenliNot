@@ -6,21 +6,21 @@
     <string name="new_password_check">Yeni şifreyi doğrula</string>
     <string name="new_password">Yeni şifre</string>
     <string name="password_check">Şu anki şifre</string>
-    <string name="settings">Ayarlar</string>
+    <string name="change_password_menu">Şifreyi değiştir</string>
     <string name="note_EditText">Notunuzu yazın</string>
     <string name="save_button">Kaydet</string>
     <string name="new_password_check_error">Yeni şifreler boş ya da aynı değiller!</string>
-    <string name="change_password">Lütfen bir şifre seçin.</string>
+    <string name="change_password">Lütfen bir şifre seç</string>
     <string name="saved">Kaydedildi!</string>
     <string name="restrict_access">Şifre girmeden notlara erişemezsin!</string>
     <string name="about">Hakkında</string>
     <string name="licenses">Lisanslar</string>
     <string name="version">Şu anki versiyon</string>
-    <string name="country">Türkiye</string>
-    <string name="send_mail">Mail atın</string>
+    <string name="dev_country">Türkiye</string>
+    <string name="send_mail">Kaan\'a mail atın</string>
     <string name="mail_title">Güvenli Not ile alakalı sorular</string>
     <string name="changelog">Değişiklikler</string>
-    <string name="dev">Geliştirici</string>
+    <string name="dev">Geliştiriciler</string>
     <string name="report_issue">Sorun bildir</string>
     <string name="report_issue_sub">Bir sorun mu var? Haberdar edin.</string>
     <string name="update_available">Güncelleme mevcut!</string>
@@ -28,4 +28,6 @@
     <string name="button_update">Güncelle</string>
     <string name="write_password">Şifreyi yaz</string>
     <string name="confirm_password">Şifreyi doğrula</string>
+    <string name="cant_save">Kaydedilemedi!</string>
+    <string name="dev1_country">Hindistan</string>
 </resources>
