@@ -19,17 +19,19 @@ const val NOTE_CONTENT = "NOTE_CONTENT"
  * Activity to update the existing notes
  */
 class UpdateNoteActivity : AppCompatActivity() {
-    private var id: Int = 0
-    private var title: String? = null
-    private var content: String? = null
+    private var noteId: Int = 0
+    private var noteTitle: String? = null
+    private var noteContent: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_note)
 
-        id = intent.getIntExtra(NOTE_ID,0)
-        title = intent?.getStringExtra(NOTE_TITLE).toString()
-        content = intent?.getStringExtra(NOTE_CONTENT).toString()
+        setSupportActionBar(find(R.id.toolbar))
+
+        noteId = intent.getIntExtra(NOTE_ID, 0)
+        noteTitle = intent?.getStringExtra(NOTE_TITLE).toString()
+        noteContent = intent?.getStringExtra(NOTE_CONTENT).toString()
 
         loadNoteInfo()
     }
@@ -39,17 +41,18 @@ class UpdateNoteActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem) : Boolean  {
-        when(item.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.action_save_note -> updateNote()
+            R.id.action_delete_note -> deleteNote()
             else -> return false
         }
-        return  super.onOptionsItemSelected(item)
+        return super.onOptionsItemSelected(item)
     }
 
     private fun loadNoteInfo() {
-        update_note_title.setText(title)
-        update_note_content.setText(content)
+        update_note_title.setText(noteTitle)
+        update_note_content.setText(noteContent)
         update_note_content.selectionEnd
         update_note_content.requestFocus()
     }
@@ -57,18 +60,30 @@ class UpdateNoteActivity : AppCompatActivity() {
     private fun updateNote() {
         val title = update_note_title.text.toString()
         val content = update_note_content.text.toString()
-        val note = Note(id,title,content)
-        if (validateInput(title,content)) {
+        val note = Note(noteId, title, content)
+        if (validateInput(title, content)) {
             NotesRepository(application).updateNote(note)
-            Toasty.success(applicationContext,"Notes updated successfully...", Toast.LENGTH_SHORT,true).show()
+            Toasty.success(applicationContext, "Note updated successfully...", Toast.LENGTH_SHORT, true).show()
             finish()
             startActivity<MainActivity>()
-        }else {
-            Toasty.info(applicationContext,"Field is Empty...", Toast.LENGTH_SHORT,true).show()
+        } else {
+            Toasty.error(applicationContext, "Field is Empty...", Toast.LENGTH_SHORT, true).show()
         }
     }
 
-    private fun validateInput(title: String,content: String): Boolean {
+    private fun deleteNote() {
+        alert("Are you sure you want to delete?") {
+            yesButton {
+                val note = Note(noteId, noteTitle.toString(),noteContent.toString())
+                finish()
+                NotesRepository(application).deleteNote(note)
+                Toasty.info(applicationContext, "Note deleted successfully...", Toast.LENGTH_SHORT, true).show()
+            }
+            noButton { it.dismiss() }
+        }.show()
+    }
+
+    private fun validateInput(title: String, content: String): Boolean {
         return !(title.isEmpty() && content.isEmpty())
     }
 
@@ -76,7 +91,10 @@ class UpdateNoteActivity : AppCompatActivity() {
         val title = update_note_title.text.toString()
         val content = update_note_content.text.toString()
 
-        if (title.isNotEmpty() || content.isNotEmpty()) {
+        if (title == noteTitle && content == noteContent) {
+            finish()
+            super.onBackPressed()
+        }else if (title.isNotEmpty() || content.isNotEmpty()) {
             alert("Are you sure you want to discard your changes?") {
                 yesButton {
                     finish()

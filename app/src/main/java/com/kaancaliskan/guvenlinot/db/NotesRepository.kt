@@ -10,10 +10,11 @@ import org.jetbrains.anko.doAsync
  * The repository class to manage all the CRUD operations
  */
 class NotesRepository(context: Context) {
-    private var database : GuvenliNotDatabase? = GuvenliNotDatabase.getInstance(context)
-    private lateinit var noteList : List<Note>
+    private var database: GuvenliNotDatabase? = GuvenliNotDatabase.getInstance(context)
+    private lateinit var noteList: List<Note>
 
-    /*
+    @Suppress("ImplicitThis")
+/*
      * fetch all notes from database
      */
     fun getAllNotes(): List<Note> {
