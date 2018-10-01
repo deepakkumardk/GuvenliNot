@@ -10,7 +10,7 @@ import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_new_note.*
 import org.jetbrains.anko.*
 
-/*
+/**
  * Activity to write new notes and save it
  */
 class NewNoteActivity : AppCompatActivity() {
@@ -18,7 +18,6 @@ class NewNoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_note)
-
         setSupportActionBar(find(R.id.toolbar))
     }
 
@@ -43,11 +42,10 @@ class NewNoteActivity : AppCompatActivity() {
         val note = Note(noteTitle = title, noteContent = content)
         if (validateInput(title, content)) {
             NotesRepository(application).insertNote(note)
-            Toasty.success(applicationContext, "Note inserted successfully...").show()
+            Toasty.success(applicationContext, getString(R.string.insert_note)).show()
             finish()
-            startActivity<MainActivity>()
         } else {
-            Toasty.info(applicationContext, "Field is Empty...").show()
+            Toasty.info(applicationContext, getString(R.string.field_empty)).show()
         }
     }
 
@@ -65,7 +63,7 @@ class NewNoteActivity : AppCompatActivity() {
         val content = note_content.text.toString()
 
         if (title.isNotEmpty() || content.isNotEmpty()) {
-            alert("Are you sure you want to discard your changes?") {
+            alert(getString(R.string.discard_changes)) {
                 yesButton {
                     finish()
                     super.onBackPressed()

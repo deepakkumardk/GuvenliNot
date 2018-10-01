@@ -17,7 +17,6 @@ import org.jetbrains.anko.startActivity
 
 /**
  * This activity saves note and encode/decode note.
- * @author Hakkı Kaan Çalışkan
  */
 class MainActivity : AppCompatActivity() {
     private lateinit var adapter: GuvenliNotAdapter
@@ -26,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-
         setSupportActionBar(findViewById(R.id.toolbar))
 
         if (!check_for_intent) {
@@ -49,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onItemClick(note: Note?) {
-        val id = note?.id
+        val id = note?.Id
         val title = note?.noteTitle.toString()
         val content = note?.noteContent.toString()
 

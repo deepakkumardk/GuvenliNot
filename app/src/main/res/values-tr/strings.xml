@@ -7,7 +7,6 @@
     <string name="new_password">Yeni şifre</string>
     <string name="password_check">Şu anki şifre</string>
     <string name="change_password_menu">Şifreyi değiştir</string>
-    <string name="note_EditText">Notunuzu yazın</string>
     <string name="save_button">Kaydet</string>
     <string name="new_password_check_error">Yeni şifreler boş ya da aynı değiller!</string>
     <string name="change_password">Lütfen bir şifre seç</string>
@@ -25,9 +24,19 @@
     <string name="report_issue_sub">Bir sorun mu var? Haberdar edin.</string>
     <string name="update_available">Güncelleme mevcut!</string>
     <string name="update_not_available">Şu an en son sürümdesiniz.</string>
-    <string name="button_update">Güncelle</string>
     <string name="write_password">Şifreyi yaz</string>
     <string name="confirm_password">Şifreyi doğrula</string>
     <string name="cant_save">Kaydedilemedi!</string>
     <string name="dev1_country">Hindistan</string>
+    <string name="note_title">Not Başlığı</string>
+    <string name="note_content">Not İçeriği</string>
+    <string name="update_success">Not başarıyla güncellendi!</string>
+    <string name="field_empty">Alan boş!</string>
+    <string name="ask_delete">Silmek istediğinize emin misiniz?</string>
+    <string name="note_delete_success">Not başarıyla silindi!</string>
+    <string name="discard_changes">Değişiklikleri iptal etmek istediğinize emin misiniz?</string>
+    <string name="insert_note">Not başarıyla girildi!</string>
+    <string name="delete">Sil</string>
+    <string name="new_note">Yeni Not</string>
+    <string name="update_note">Notu Güncelle</string>
 </resources>

@@ -15,7 +15,7 @@ const val NOTE_ID = "NOTE_ID"
 const val NOTE_TITLE = "NOTE_TITLE"
 const val NOTE_CONTENT = "NOTE_CONTENT"
 
-/*
+/**
  * Activity to update the existing notes
  */
 class UpdateNoteActivity : AppCompatActivity() {
@@ -26,7 +26,6 @@ class UpdateNoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_note)
-
         setSupportActionBar(find(R.id.toolbar))
 
         noteId = intent.getIntExtra(NOTE_ID, 0)
@@ -63,21 +62,20 @@ class UpdateNoteActivity : AppCompatActivity() {
         val note = Note(noteId, title, content)
         if (validateInput(title, content)) {
             NotesRepository(application).updateNote(note)
-            Toasty.success(applicationContext, "Note updated successfully...", Toast.LENGTH_SHORT, true).show()
+            Toasty.success(applicationContext, getString(R.string.update_success), Toast.LENGTH_SHORT, true).show()
             finish()
-            startActivity<MainActivity>()
         } else {
-            Toasty.error(applicationContext, "Field is Empty...", Toast.LENGTH_SHORT, true).show()
+            Toasty.error(applicationContext, getString(R.string.field_empty), Toast.LENGTH_SHORT, true).show()
         }
     }
 
     private fun deleteNote() {
-        alert("Are you sure you want to delete?") {
+        alert(getString(R.string.ask_delete)) {
             yesButton {
                 val note = Note(noteId, noteTitle.toString(),noteContent.toString())
                 finish()
                 NotesRepository(application).deleteNote(note)
-                Toasty.info(applicationContext, "Note deleted successfully...", Toast.LENGTH_SHORT, true).show()
+                Toasty.info(applicationContext, getString(R.string.note_delete_success), Toast.LENGTH_SHORT, true).show()
             }
             noButton { it.dismiss() }
         }.show()
@@ -95,7 +93,7 @@ class UpdateNoteActivity : AppCompatActivity() {
             finish()
             super.onBackPressed()
         }else if (title.isNotEmpty() || content.isNotEmpty()) {
-            alert("Are you sure you want to discard your changes?") {
+            alert(getString(R.string.discard_changes)) {
                 yesButton {
                     finish()
                     super.onBackPressed()
