@@ -16,9 +16,10 @@ This app supports 5.0-9.0 Android versions.
 - [Toasty](https://github.com/GrenderG/Toasty) for error/success messages
 - [material-about-library](https://github.com/daniel-stoneuk/material-about-library) for beautiful about page
 - [Kotlin](https://github.com/JetBrains/kotlin) app is written in Kotlin
-- [AppUpdater](https://github.com/javiersantos/AppUpdater) for update checks
+- [AppUpdater](https://github.com/javiersantos/AppUpdater) for checking updates
 - [OkHttp](https://github.com/square/okhttp) to help AppUpdater
-- [Anko](https://github.com/Kotlin/anko) for database
+- [Anko](https://github.com/Kotlin/anko) for Pleasant Android Development
+- [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) for robust Database handling
 - **Android Support Libraries**, of course
 
 ## Screenshots

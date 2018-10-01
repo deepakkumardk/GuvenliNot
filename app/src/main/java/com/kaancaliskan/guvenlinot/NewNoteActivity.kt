@@ -18,37 +18,46 @@ class NewNoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_note)
+
+        setSupportActionBar(find(R.id.toolbar))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.note_menu, menu)
+        menu.findItem(R.id.action_delete_note).isVisible = false
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem) : Boolean  {
-        when(item.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.action_save_note -> insertNote()
+            R.id.action_delete_note -> insertNote()
             else -> return false
         }
-        return  super.onOptionsItemSelected(item)
+        return super.onOptionsItemSelected(item)
     }
 
     private fun insertNote() {
         val title = note_title.text.toString()
         val content = note_content.text.toString()
-        val note = Note(noteTitle = title,noteContent = content)
-        if (validateInput(title,content)) {
+        val note = Note(noteTitle = title, noteContent = content)
+        if (validateInput(title, content)) {
             NotesRepository(application).insertNote(note)
-            Toasty.success(applicationContext,"Notes inserted successfully...").show()
+            Toasty.success(applicationContext, "Note inserted successfully...").show()
             finish()
             startActivity<MainActivity>()
-        }else {
-            Toasty.info(applicationContext,"Field is Empty...").show()
+        } else {
+            Toasty.info(applicationContext, "Field is Empty...").show()
         }
     }
 
     private fun validateInput(title: String, content: String): Boolean {
-        return !(title.isEmpty() && content.isEmpty())
+        return !(title.isEmpty() || content.isEmpty())
+    }
+
+    override fun onResume() {
+        super.onResume()
+        invalidateOptionsMenu()
     }
 
     override fun onBackPressed() {
@@ -63,6 +72,8 @@ class NewNoteActivity : AppCompatActivity() {
                 }
                 noButton { it.dismiss() }
             }.show()
+        }else {
+            finish()
         }
     }
 }

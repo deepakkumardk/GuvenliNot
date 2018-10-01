@@ -1,21 +1,32 @@
 package com.kaancaliskan.guvenlinot
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.kaancaliskan.guvenlinot.db.GuvenliNotDatabase
+import com.kaancaliskan.guvenlinot.db.Note
+import com.kaancaliskan.guvenlinot.db.NotesRepository
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.main_activity.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
+
 /**
  * This activity saves note and encode/decode note.
  * @author Hakkı Kaan Çalışkan
  */
-class MainActivity: AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
+    private lateinit var adapter: GuvenliNotAdapter
+    private lateinit var noteList: List<Note>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+
         setSupportActionBar(findViewById(R.id.toolbar))
 
         if (!check_for_intent) {
@@ -24,27 +35,59 @@ class MainActivity: AppCompatActivity(){
             finish()
         }
 
-        val decodedNote = Hash.decode(LocalData.read(this, getString(R.string.encoded_note)))
-        note_EditText.setText(decodedNote)
+        noteList = NotesRepository(application).getAllNotes()
 
-        note_save_button.setOnClickListener {
-            val newNote = note_EditText.text.toString()
-            val encodedNote = Hash.encode(newNote)
-            LocalData.write(this, getString(R.string.encoded_note), encodedNote)
-            Toasty.success(this, getString(R.string.saved), Toast.LENGTH_SHORT, true).show()
-        }
+        val itemDecoration = DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL)
+        recycler_view.addItemDecoration(itemDecoration)
+        recycler_view.layoutManager = LinearLayoutManager(applicationContext)
+        recycler_view.hasFixedSize()
+        adapter = GuvenliNotAdapter(noteList) { note -> onItemClick(note) }
+        recycler_view.adapter = adapter
+        adapter.notifyDataSetChanged()
+
+        fab.onClick { startActivity<NewNoteActivity>() }
     }
+
+    private fun onItemClick(note: Note?) {
+        val id = note?.id
+        val title = note?.noteTitle.toString()
+        val content = note?.noteContent.toString()
+
+        startActivity<UpdateNoteActivity>(NOTE_ID to id, NOTE_TITLE to title, NOTE_CONTENT to content)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshRecyclerView()
+    }
+
+    private fun refreshRecyclerView() {
+        noteList = NotesRepository(application).getAllNotes()
+        adapter = GuvenliNotAdapter(noteList) { note -> onItemClick(note) }
+        recycler_view.adapter = adapter
+        adapter.notifyDataSetChanged()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        GuvenliNotDatabase.destroyInstance()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_settings -> {
-            val intent = Intent(applicationContext, Settings::class.java)
-            startActivity(intent)
+            startActivity<Settings>()
             true
         }
-        R.id.action_about ->{
-            val intent = Intent(applicationContext, AboutActivity::class.java)
-            startActivity(intent)
+        R.id.action_about -> {
+            startActivity<AboutActivity>()
             true
-        }else -> {
+        }
+        else -> {
             super.onOptionsItemSelected(item)
         }
     }

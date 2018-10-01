@@ -25,8 +25,8 @@ class GuvenliNotAdapter(private val noteList: List<Note>, private val listener: 
      */
     override fun onBindViewHolder(viewHolder: MyViewHolder, position: Int) {
         val note = noteList[position]
-        viewHolder.noteTitle?.text = note.noteTitle
-        viewHolder.noteContent?.text = note.noteContent
+        viewHolder.noteTitle.text = note.noteTitle
+        viewHolder.noteContent.text = note.noteContent
         viewHolder.itemView.setOnClickListener { listener(note) }
     }
 
@@ -39,7 +39,7 @@ class GuvenliNotAdapter(private val noteList: List<Note>, private val listener: 
     ViewHolder class to cache the views for fast accessing
      */
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var noteTitle: TextView? = itemView.find(R.id.item_note_title) as TextView
-        var noteContent: TextView? = itemView.find(R.id.item_note_content) as TextView
+        var noteTitle: TextView = itemView.find(R.id.item_note_title)
+        var noteContent: TextView = itemView.find(R.id.item_note_content)
     }
 }
