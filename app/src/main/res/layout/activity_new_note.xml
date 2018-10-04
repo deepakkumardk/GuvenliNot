@@ -1,40 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".NewNoteActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="?android:attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:visibility="visible"
-        app:popupTheme="@style/ThemeOverlay.AppCompat"/>
+    <include layout="@layout/toolbar" />
 
     <EditText
         android:id="@+id/note_title"
+        style="@style/TitleEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/note_title"
-        android:maxLines="1"
-        android:layout_margin="4dp"
-        style="@style/EditTextStyle"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill"
+        tools:text="Note Title" />
 
     <EditText
         android:id="@+id/note_content"
+        style="@style/ContentEditText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="start"
         android:hint="@string/note_content"
-        android:layout_margin="4dp"
-        style="@style/EditTextStyle"
         tools:ignore="Autofill" />
 </LinearLayout>
