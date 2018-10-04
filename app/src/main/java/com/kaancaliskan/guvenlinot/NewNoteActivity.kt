@@ -30,7 +30,6 @@ class NewNoteActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_save_note -> insertNote()
-            R.id.action_delete_note -> insertNote()
             else -> return false
         }
         return super.onOptionsItemSelected(item)
@@ -70,7 +69,7 @@ class NewNoteActivity : AppCompatActivity() {
                 }
                 noButton { it.dismiss() }
             }.show()
-        }else {
+        } else {
             finish()
         }
     }

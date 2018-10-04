@@ -4,7 +4,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 import android.support.annotation.NonNull
 
-/*
+/**
  * Note model class using the Room-persistence
  */
 @Entity(tableName = "guvenli_not")

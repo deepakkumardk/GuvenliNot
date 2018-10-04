@@ -12,6 +12,7 @@ import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.main_activity.*
+import org.jetbrains.anko.find
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        setSupportActionBar(find(R.id.toolbar))
 
         if (!check_for_intent) {
             //For restrict accessing without password check.
