@@ -163,7 +163,7 @@ open class AboutActivity : MaterialAboutActivity() {
                     ContextCompat.getDrawable(c, R.drawable.book),
                     "Anko",
                     "2014",
-                    "Kotlin",
+                    "JetBrains s.r.o",
                     OpenSourceLicense.APACHE_2)
 
         return MaterialAboutList(materialAboutLibraryLicenseCard, toastyLicenseCard, supportLibraryLicenseCard, kotlinLicenseCard, appUpdaterLicenseCard, okHttpLicenseCard, ankoLicenseCard)

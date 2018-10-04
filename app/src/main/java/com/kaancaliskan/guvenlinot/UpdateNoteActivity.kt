@@ -29,8 +29,8 @@ class UpdateNoteActivity : AppCompatActivity() {
         setSupportActionBar(find(R.id.toolbar))
 
         noteId = intent.getIntExtra(NOTE_ID, 0)
-        noteTitle = intent?.getStringExtra(NOTE_TITLE).toString()
-        noteContent = intent?.getStringExtra(NOTE_CONTENT).toString()
+        noteTitle = Hash.decode(intent?.getStringExtra(NOTE_TITLE).toString())
+        noteContent = Hash.decode(intent?.getStringExtra(NOTE_CONTENT).toString())
 
         loadNoteInfo()
     }
@@ -57,8 +57,8 @@ class UpdateNoteActivity : AppCompatActivity() {
     }
 
     private fun updateNote() {
-        val title = update_note_title.text.toString()
-        val content = update_note_content.text.toString()
+        val title = Hash.encode(update_note_title.text.toString())
+        val content = Hash.encode(update_note_content.text.toString())
         val note = Note(noteId, title, content)
         if (validateInput(title, content)) {
             NotesRepository(application).updateNote(note)
@@ -75,7 +75,7 @@ class UpdateNoteActivity : AppCompatActivity() {
                 val note = Note(noteId, noteTitle.toString(),noteContent.toString())
                 finish()
                 NotesRepository(application).deleteNote(note)
-                Toasty.info(applicationContext, getString(R.string.note_delete_success), Toast.LENGTH_SHORT, true).show()
+                Toasty.success(applicationContext, getString(R.string.note_delete_success), Toast.LENGTH_SHORT, true).show()
             }
             noButton { it.dismiss() }
         }.show()

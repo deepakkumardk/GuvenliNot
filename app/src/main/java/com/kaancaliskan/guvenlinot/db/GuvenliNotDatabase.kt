@@ -5,17 +5,17 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 
-/*
+/**
  * The abstract class to create the instance of the Database which extends the RoomDatabase
  */
 @Database(entities = [Note::class], version = 1)
 abstract class GuvenliNotDatabase : RoomDatabase() {
-    /*
+    /**
      * Abstract Dao method
      */
     abstract fun noteDao(): NoteDao
 
-    /*
+    /**
      * It behaves like a singleton in java to restrict the access of database instance to only one
      */
     companion object {
@@ -29,7 +29,7 @@ abstract class GuvenliNotDatabase : RoomDatabase() {
             return INSTANCE
         }
 
-        /*
+        /**
          * Destroy the instance when activity get destroyed
          */
         fun destroyInstance() {

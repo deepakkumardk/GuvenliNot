@@ -36,15 +36,15 @@ class NewNoteActivity : AppCompatActivity() {
     }
 
     private fun insertNote() {
-        val title = note_title.text.toString()
-        val content = note_content.text.toString()
+        val title = Hash.encode(note_title.text.toString())
+        val content = Hash.encode(note_content.text.toString())
         val note = Note(noteTitle = title, noteContent = content)
         if (validateInput(title, content)) {
             NotesRepository(application).insertNote(note)
             Toasty.success(applicationContext, getString(R.string.insert_note)).show()
             finish()
         } else {
-            Toasty.info(applicationContext, getString(R.string.field_empty)).show()
+            Toasty.warning(applicationContext, getString(R.string.field_empty)).show()
         }
     }
 

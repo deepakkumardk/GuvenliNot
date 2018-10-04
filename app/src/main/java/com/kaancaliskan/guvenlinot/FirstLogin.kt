@@ -1,11 +1,12 @@
 package com.kaancaliskan.guvenlinot
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.first_login.*
+import org.jetbrains.anko.startActivity
+
 /**
  * This class helps us to take the first password.
  */
@@ -20,8 +21,7 @@ class FirstLogin: AppCompatActivity(){
                 Toasty.success(this, getString(R.string.saved), Toast.LENGTH_LONG).show()
 
                 check_for_intent=true
-                val intent=Intent(applicationContext, MainActivity::class.java)
-                startActivity(intent)
+                startActivity<MainActivity>()
                 finish()
             }
             else{

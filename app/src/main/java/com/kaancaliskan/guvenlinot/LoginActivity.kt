@@ -1,6 +1,5 @@
 package com.kaancaliskan.guvenlinot
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -8,6 +7,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.startActivity
 
 var check_for_intent = false
 
@@ -22,16 +22,13 @@ class LoginActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         if (LocalData.read(this, getString(R.string.hashed_password)) == "" ){
-            val intent= Intent(applicationContext, FirstLogin::class.java)
-            startActivity(intent)
+            startActivity<FirstLogin>()
             finish()
         }
         confirm_button.setOnClickListener{
             if (Hash.sha512(confirm_EditText.text.toString())==LocalData.read(this, getString(R.string.hashed_password))){
                 check_for_intent=true //For restrict accessing without password check.
-
-                val intent = Intent(applicationContext, MainActivity::class.java)
-                startActivity(intent)
+                startActivity<MainActivity>()
                 finish()
             } else{
                 Toasty.error(this, getString(R.string.password_check_error), Toast.LENGTH_SHORT, true).show()
@@ -40,13 +37,11 @@ class LoginActivity : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_settings -> {
-            val intent = Intent(applicationContext, Settings::class.java)
-            startActivity(intent)
+            startActivity<Settings>()
             true
         }
         R.id.action_about ->{
-            val intent = Intent(applicationContext, AboutActivity::class.java)
-            startActivity(intent)
+            startActivity<AboutActivity>()
             true
         }
         else -> {
