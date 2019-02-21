@@ -6,7 +6,6 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View.*
 import android.widget.Toast
 import com.kaancaliskan.guvenlinot.db.GuvenliNotDatabase
 import com.kaancaliskan.guvenlinot.db.Note
@@ -36,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         noteList = NotesRepository(application).getAllNotes()
-        isListEmpty()
 
         val itemDecoration = DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL)
         recycler_view.addItemDecoration(itemDecoration)
@@ -64,20 +62,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun refreshRecyclerView() {
         noteList = NotesRepository(application).getAllNotes()
-        isListEmpty()
         adapter = GuvenliNotAdapter(noteList) { note -> onItemClick(note) }
         recycler_view.adapter = adapter
         adapter.notifyDataSetChanged()
-    }
-
-    private fun isListEmpty() {
-        if (noteList.isEmpty()) {
-            recycler_view.visibility = GONE
-            empty_view.visibility = VISIBLE
-        } else {
-            recycler_view.visibility = VISIBLE
-            empty_view.visibility = GONE
-        }
     }
 
     override fun onBackPressed() {
