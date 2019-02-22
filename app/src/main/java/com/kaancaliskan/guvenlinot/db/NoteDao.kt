@@ -1,6 +1,6 @@
 package com.kaancaliskan.guvenlinot.db
 
-import android.arch.persistence.room.*
+import androidx.room.*
 
 /**
  * Dao interface to contain all the CRUD methods

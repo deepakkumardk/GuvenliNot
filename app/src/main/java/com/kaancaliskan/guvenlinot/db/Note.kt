@@ -1,8 +1,8 @@
 package com.kaancaliskan.guvenlinot.db
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
-import android.support.annotation.NonNull
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.annotation.NonNull
 
 /**
  * Note model class using the Room-persistence

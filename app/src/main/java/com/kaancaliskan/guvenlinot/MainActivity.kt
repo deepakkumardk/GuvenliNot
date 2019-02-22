@@ -1,12 +1,14 @@
 package com.kaancaliskan.guvenlinot
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.kaancaliskan.guvenlinot.db.GuvenliNotDatabase
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         noteList = NotesRepository(application).getAllNotes()
+        isListEmpty()
 
         val itemDecoration = DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL)
         recycler_view.addItemDecoration(itemDecoration)
@@ -62,9 +65,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun refreshRecyclerView() {
         noteList = NotesRepository(application).getAllNotes()
+        isListEmpty()
         adapter = GuvenliNotAdapter(noteList) { note -> onItemClick(note) }
         recycler_view.adapter = adapter
         adapter.notifyDataSetChanged()
+    }
+
+    private fun isListEmpty() {
+        if (noteList.isEmpty()) {
+            recycler_view.visibility = GONE
+            empty_view.visibility = VISIBLE
+        } else {
+            recycler_view.visibility = VISIBLE
+            empty_view.visibility = GONE
+        }
     }
 
     override fun onBackPressed() {

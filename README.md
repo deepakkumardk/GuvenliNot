@@ -20,7 +20,7 @@ This app supports 5.0-9.0 Android versions.
 - [OkHttp](https://github.com/square/okhttp) to help AppUpdater
 - [Anko](https://github.com/Kotlin/anko) for Pleasant Android Development
 - [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) for robust Database handling
-- **Android Support Libraries**, of course
+- **Androidx libraries**, of course
 
 ## Screenshots
 

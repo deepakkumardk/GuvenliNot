@@ -71,7 +71,8 @@
             android:label="@string/new_note" />
         <activity
             android:name=".UpdateNoteActivity"
-            android:label="@string/update_note" />
+            android:label="@string/update_note"
+            android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>

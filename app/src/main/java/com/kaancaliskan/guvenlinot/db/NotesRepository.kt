@@ -1,9 +1,9 @@
 package com.kaancaliskan.guvenlinot.db
 
 import android.content.Context
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
 import org.jetbrains.anko.doAsync
 
 /**
@@ -18,7 +18,7 @@ class NotesRepository(context: Context) {
      */
     fun getAllNotes(): List<Note> {
         runBlocking {
-            async(CommonPool) {
+            async(Dispatchers.Default) {
                 noteList = database?.noteDao()?.getAllNotes()!!
                 return@async noteList
             }.await()
