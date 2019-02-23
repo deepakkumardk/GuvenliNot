@@ -15,11 +15,11 @@ class Settings: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings)
 
-        var password="1234"
+        var password=LocalData.read(this,getString(R.string.hashed_password))
 
         change_button.setOnClickListener{
             var a=1
-            if (password!=password_check.text.toString()){
+            if (password!=Hash.sha512(password_check.text.toString())){
                 Toasty.error(this, getString(R.string.password_check_error), Toast.LENGTH_SHORT, true).show()
                 a++
             } else if (new_password.text.toString()!=new_password_check.text.toString() || new_password.text.toString()==""){
