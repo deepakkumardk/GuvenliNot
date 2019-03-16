@@ -4,11 +4,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 'android-Q'
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.kaancaliskan.guvenlinot"
         minSdkVersion 21
-        targetSdkVersion 'Q'
+        targetSdkVersion 28
         versionCode 1
         versionName "1.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -23,7 +23,7 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-    buildToolsVersion = '29.0.0-rc1'
+    buildToolsVersion = '28.0.3'
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
