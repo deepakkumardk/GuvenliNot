@@ -11,9 +11,6 @@ import com.danielstone.materialaboutlibrary.items.MaterialAboutTitleItem
 import com.danielstone.materialaboutlibrary.model.MaterialAboutList
 import com.danielstone.materialaboutlibrary.util.OpenSourceLicense
 import com.danielstone.materialaboutlibrary.model.MaterialAboutCard
-import com.github.javiersantos.appupdater.AppUpdater
-import com.github.javiersantos.appupdater.enums.Display
-import com.github.javiersantos.appupdater.enums.UpdateFrom
 /**
  * This is about activity.
  */
@@ -22,14 +19,6 @@ open class AboutActivity : MaterialAboutActivity() {
      * This function is creating about page components.
      */
     override fun getMaterialAboutList(context: Context): MaterialAboutList {
-
-        val appUpdater = AppUpdater(this)
-        appUpdater.setUpdateFrom(UpdateFrom.GITHUB)
-        appUpdater.setGitHubUserAndRepo(getString(R.string.github_user), getString(R.string.github_repo))
-        appUpdater.setDisplay(Display.SNACKBAR)
-        appUpdater.showAppUpdated(true)
-        appUpdater.setContentOnUpdateAvailable(getString(R.string.update_available))
-        appUpdater.setContentOnUpdateNotAvailable(getString(R.string.update_not_available))
 
         val appCardBuilder = MaterialAboutCard.Builder()
 
@@ -43,7 +32,6 @@ open class AboutActivity : MaterialAboutActivity() {
                 .text(getString(R.string.version))
                 .subText(BuildConfig.VERSION_NAME)
                 .icon(getDrawable(R.drawable.update))
-                .setOnClickAction { appUpdater.start() }
                 .build())
 
         appCardBuilder.addItem(MaterialAboutActionItem.Builder()
@@ -145,20 +133,6 @@ open class AboutActivity : MaterialAboutActivity() {
                     "JetBrains s.r.o",
                     OpenSourceLicense.APACHE_2)
 
-            val appUpdaterLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                    ContextCompat.getDrawable(c, R.drawable.book),
-                    "AppUpdater",
-                    "2016",
-                    "Javier Santos",
-                    OpenSourceLicense.APACHE_2)
-
-            val okHttpLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                    ContextCompat.getDrawable(c, R.drawable.book),
-                    "OkHttp",
-                    "2012",
-                    "Jesse Wilson",
-                    OpenSourceLicense.APACHE_2)
-
             val ankoLicenseCard: MaterialAboutCard = ConvenienceBuilder.createLicenseCard(c,
                     ContextCompat.getDrawable(c, R.drawable.book),
                     "Anko",
@@ -166,7 +140,7 @@ open class AboutActivity : MaterialAboutActivity() {
                     "JetBrains s.r.o",
                     OpenSourceLicense.APACHE_2)
 
-        return MaterialAboutList(materialAboutLibraryLicenseCard, toastyLicenseCard, supportLibraryLicenseCard, kotlinLicenseCard, appUpdaterLicenseCard, okHttpLicenseCard, ankoLicenseCard)
+        return MaterialAboutList(materialAboutLibraryLicenseCard, toastyLicenseCard, supportLibraryLicenseCard, kotlinLicenseCard, ankoLicenseCard)
     }}
     /**
      * This function names the activity.

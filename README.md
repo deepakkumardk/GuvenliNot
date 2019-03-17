@@ -16,15 +16,13 @@ This app supports 5.0-9.0 Android versions.
 - [Toasty](https://github.com/GrenderG/Toasty) for error/success messages
 - [material-about-library](https://github.com/daniel-stoneuk/material-about-library) for beautiful about page
 - [Kotlin](https://github.com/JetBrains/kotlin) app is written in Kotlin
-- [AppUpdater](https://github.com/javiersantos/AppUpdater) for checking updates
-- [OkHttp](https://github.com/square/okhttp) to help AppUpdater
 - [Anko](https://github.com/Kotlin/anko) for Pleasant Android Development
 - [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) for robust Database handling
 - **Androidx libraries**, of course
 
 ## Screenshots
 
-<img src="Screenshot/Screenshot_1.png" width=25%><img src="Screenshot/Screenshot_2.png" width=25%><img src="Screenshot/Screenshot_3.png" width=25%><img src="Screenshot/Screenshot_4.png" width=25%>
+<img src="Screenshot/1.png" width=10%><img src="Screenshot/2.png" width=10%><img src="Screenshot/3.png" width=10%><img src="Screenshot/4.png" width=10%><img src="Screenshot/5.png" width=10%><img src="Screenshot/6.png" width=10%><img src="Screenshot/7.png" width=10%><img src="Screenshot/8.png" width=10%><img src="Screenshot/9.png" width=10%><img src="Screenshot/10.png" width=10%>
 
 ## GüvenliNot Logo
 

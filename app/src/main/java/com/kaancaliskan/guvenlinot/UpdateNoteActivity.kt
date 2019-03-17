@@ -28,6 +28,9 @@ class UpdateNoteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_update_note)
         setSupportActionBar(find(R.id.toolbar))
 
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+
         noteId = intent.getIntExtra(NOTE_ID, 0)
         noteTitle = Hash.decode(intent?.getStringExtra(NOTE_TITLE).toString())
         noteContent = Hash.decode(intent?.getStringExtra(NOTE_CONTENT).toString())
@@ -42,7 +45,6 @@ class UpdateNoteActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_save_note -> updateNote()
             R.id.action_delete_note -> deleteNote()
             else -> return false
         }
@@ -54,19 +56,6 @@ class UpdateNoteActivity : AppCompatActivity() {
         update_note_content.setText(noteContent)
         update_note_content.selectionEnd
         update_note_content.requestFocus()
-    }
-
-    private fun updateNote() {
-        val title = Hash.encode(update_note_title.text.toString())
-        val content = Hash.encode(update_note_content.text.toString())
-        val note = Note(noteId, title, content)
-        if (validateInput(title, content)) {
-            NotesRepository(application).updateNote(note)
-            Toasty.success(applicationContext, getString(R.string.update_success), Toast.LENGTH_SHORT, true).show()
-            finish()
-        } else {
-            Toasty.error(applicationContext, getString(R.string.field_empty), Toast.LENGTH_SHORT, true).show()
-        }
     }
 
     private fun deleteNote() {
@@ -93,13 +82,20 @@ class UpdateNoteActivity : AppCompatActivity() {
             finish()
             super.onBackPressed()
         }else if (title.isNotEmpty() || content.isNotEmpty()) {
-            alert(getString(R.string.discard_changes)) {
-                yesButton {
-                    finish()
-                    super.onBackPressed()
-                }
-                noButton { it.dismiss() }
-            }.show()
+            val title_save = Hash.encode(update_note_title.text.toString())
+            val content_save = Hash.encode(update_note_content.text.toString())
+            val note = Note(noteId, title_save, content_save)
+            if (validateInput(title_save, content_save)) {
+                NotesRepository(application).updateNote(note)
+                Toasty.success(applicationContext, getString(R.string.update_success), Toast.LENGTH_SHORT, true).show()
+                finish()
+            } else {
+                Toasty.error(applicationContext, getString(R.string.field_empty), Toast.LENGTH_SHORT, true).show()
+            }
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

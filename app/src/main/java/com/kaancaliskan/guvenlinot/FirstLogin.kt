@@ -14,6 +14,7 @@ class FirstLogin: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_login)
+        write_password.requestFocus()
 
         confirm_password_button.setOnClickListener {
             if (write_password.text.toString()==confirm_password.text.toString() &&  write_password.text.toString()!=""){

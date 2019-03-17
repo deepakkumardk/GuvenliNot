@@ -40,4 +40,9 @@ class NotesRepository(context: Context) {
      * delete the note into database
      */
     fun deleteNote(note: Note) = doAsync { database?.noteDao()?.deleteNote(note) }
+
+    /**
+     * delete all notes from database
+     */
+    fun deleteAll() = doAsync{ database?.noteDao()?.deleteAll() }
 }

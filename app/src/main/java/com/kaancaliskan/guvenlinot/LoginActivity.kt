@@ -20,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(confirmdInstanceState)
         setContentView(R.layout.activity_login)
         setSupportActionBar(findViewById(R.id.toolbar))
+        confirm_EditText.requestFocus()
 
         if (LocalData.read(this, getString(R.string.hashed_password)) == "" ){
             startActivity<FirstLogin>()

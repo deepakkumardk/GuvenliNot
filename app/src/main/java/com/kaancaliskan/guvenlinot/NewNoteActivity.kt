@@ -19,33 +19,11 @@ class NewNoteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_note)
         setSupportActionBar(find(R.id.toolbar))
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.note_menu, menu)
-        menu.findItem(R.id.action_delete_note).isVisible = false
-        return true
-    }
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_save_note -> insertNote()
-            else -> return false
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun insertNote() {
-        val title = Hash.encode(note_title.text.toString())
-        val content = Hash.encode(note_content.text.toString())
-        val note = Note(noteTitle = title, noteContent = content)
-        if (validateInput(title, content)) {
-            NotesRepository(application).insertNote(note)
-            Toasty.success(applicationContext, getString(R.string.insert_note)).show()
-            finish()
-        } else {
-            Toasty.warning(applicationContext, getString(R.string.field_empty)).show()
-        }
+        note_title.requestFocus()
     }
 
     private fun validateInput(title: String, content: String): Boolean {
@@ -62,15 +40,22 @@ class NewNoteActivity : AppCompatActivity() {
         val content = note_content.text.toString()
 
         if (title.isNotEmpty() || content.isNotEmpty()) {
-            alert(getString(R.string.discard_changes)) {
-                yesButton {
-                    finish()
-                    super.onBackPressed()
-                }
-                noButton { it.dismiss() }
-            }.show()
+            val title_save = Hash.encode(note_title.text.toString())
+            val content_save = Hash.encode(note_content.text.toString())
+            val note = Note(noteTitle = title_save, noteContent = content_save)
+            if (validateInput(title_save, content_save)) {
+                NotesRepository(application).insertNote(note)
+                Toasty.success(applicationContext, getString(R.string.insert_note)).show()
+                finish()
+            } else {
+                Toasty.warning(applicationContext, getString(R.string.field_empty)).show()
+            }
         } else {
             finish()
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
