@@ -13,5 +13,6 @@ data class Note(
         @NonNull
         var Id: Int = 0,
         var noteTitle: String,
-        var noteContent: String
+        var noteContent: String,
+        var date: String
 )

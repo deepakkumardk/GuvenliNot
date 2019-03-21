@@ -27,6 +27,7 @@ class GuvenliNotAdapter(private val noteList: List<Note>, private val listener: 
         val note = noteList[position]
         viewHolder.noteTitle.text = Hash.decode(note.noteTitle)
         viewHolder.noteContent.text = Hash.decode(note.noteContent)
+        viewHolder.date.text = note.date
         viewHolder.itemView.setOnClickListener { listener(note) }
     }
 
@@ -41,5 +42,6 @@ class GuvenliNotAdapter(private val noteList: List<Note>, private val listener: 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var noteTitle: TextView = itemView.find(R.id.item_note_title)
         var noteContent: TextView = itemView.find(R.id.item_note_content)
+        var date: TextView = itemView.find(R.id.date)
     }
 }

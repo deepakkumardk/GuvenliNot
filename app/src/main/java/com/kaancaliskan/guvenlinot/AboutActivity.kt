@@ -43,7 +43,7 @@ open class AboutActivity : MaterialAboutActivity() {
         appCardBuilder.addItem(MaterialAboutActionItem.Builder()
                 .text(getString(R.string.changelog))
                 .icon(getDrawable(R.drawable.radar))
-                .setOnClickAction (ConvenienceBuilder.createWebViewDialogOnClickAction(context, getString(R.string.changelog), "https://github.com/hakkikaancaliskan/guvenlinot/releases", true, false))
+                .setOnClickAction(ConvenienceBuilder.createWebsiteOnClickAction(context, Uri.parse("https://github.com/hakkikaancaliskan/guvenlinot/releases")))
                 .build())
 
         appCardBuilder.addItem(MaterialAboutActionItem.Builder()

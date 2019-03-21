@@ -10,10 +10,13 @@ import com.kaancaliskan.guvenlinot.db.NotesRepository
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_update_note.*
 import org.jetbrains.anko.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 const val NOTE_ID = "NOTE_ID"
 const val NOTE_TITLE = "NOTE_TITLE"
 const val NOTE_CONTENT = "NOTE_CONTENT"
+const val DATE = "DATE"
 
 /**
  * Activity to update the existing notes
@@ -22,6 +25,7 @@ class UpdateNoteActivity : AppCompatActivity() {
     private var noteId: Int = 0
     private var noteTitle: String? = null
     private var noteContent: String? = null
+    private var date: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +38,7 @@ class UpdateNoteActivity : AppCompatActivity() {
         noteId = intent.getIntExtra(NOTE_ID, 0)
         noteTitle = Hash.decode(intent?.getStringExtra(NOTE_TITLE).toString())
         noteContent = Hash.decode(intent?.getStringExtra(NOTE_CONTENT).toString())
+        date = intent?.getStringExtra(DATE).toString()
 
         loadNoteInfo()
     }
@@ -54,6 +59,7 @@ class UpdateNoteActivity : AppCompatActivity() {
     private fun loadNoteInfo() {
         update_note_title.setText(noteTitle)
         update_note_content.setText(noteContent)
+        date_text.text = date
         update_note_content.selectionEnd
         update_note_content.requestFocus()
     }
@@ -61,7 +67,7 @@ class UpdateNoteActivity : AppCompatActivity() {
     private fun deleteNote() {
         alert(getString(R.string.ask_delete)) {
             yesButton {
-                val note = Note(noteId, noteTitle.toString(),noteContent.toString())
+                val note = Note(noteId, noteTitle.toString(),noteContent.toString(), date.toString())
                 finish()
                 NotesRepository(application).deleteNote(note)
                 Toasty.success(applicationContext, getString(R.string.note_delete_success), Toast.LENGTH_SHORT, true).show()
@@ -82,10 +88,12 @@ class UpdateNoteActivity : AppCompatActivity() {
             finish()
             super.onBackPressed()
         }else if (title.isNotEmpty() || content.isNotEmpty()) {
-            val title_save = Hash.encode(update_note_title.text.toString())
-            val content_save = Hash.encode(update_note_content.text.toString())
-            val note = Note(noteId, title_save, content_save)
-            if (validateInput(title_save, content_save)) {
+            val titleSave = Hash.encode(update_note_title.text.toString())
+            val contentSave = Hash.encode(update_note_content.text.toString())
+            val date = getDate()
+
+            val note = Note(noteId, titleSave, contentSave, date)
+            if (validateInput(titleSave, contentSave)) {
                 NotesRepository(application).updateNote(note)
                 Toasty.success(applicationContext, getString(R.string.update_success), Toast.LENGTH_SHORT, true).show()
                 finish()
@@ -97,5 +105,8 @@ class UpdateNoteActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+    private fun getDate(): String{
+        return SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.ROOT).format(Date()).toString()
     }
 }

@@ -27,21 +27,21 @@ class ChangePassword: AppCompatActivity() {
 
         change_button.setOnClickListener {
             var a = 1
-            val new_pw = Hash.sha512(new_password.text.toString())
-            val new_pw_check = Hash.sha512(new_password_check.text.toString())
+            val newPw = Hash.sha512(new_password.text.toString())
+            val newPwCheck = Hash.sha512(new_password_check.text.toString())
             val pw = Hash.sha512(password_check.text.toString())
             //this one is the pw check
 
             if (password != pw) {
                 Toasty.error(this, getString(R.string.password_check_error), Toast.LENGTH_SHORT, true).show()
                 a++
-            } else if (new_pw != new_pw_check || new_pw == "") {
+            } else if (newPw != newPwCheck || newPw == "") {
                 //I didn't check new_password_check for is it empty because unnecessary
                 Toasty.error(this, getString(R.string.new_password_check_error), Toast.LENGTH_SHORT, true).show()
                 a++
             }
             if (a == 1) {
-                LocalData.write(this, getString(R.string.hashed_password), new_pw)
+                LocalData.write(this, getString(R.string.hashed_password), newPw)
                 Toasty.success(this, getString(R.string.saved), Toast.LENGTH_SHORT, true).show()
             }
         }

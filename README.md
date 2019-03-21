@@ -22,7 +22,7 @@ This app supports 5.0-9.0 Android versions.
 
 ## Screenshots
 
-<img src="Screenshot/1.png" width=10%><img src="Screenshot/2.png" width=10%><img src="Screenshot/3.png" width=10%><img src="Screenshot/4.png" width=10%><img src="Screenshot/5.png" width=10%><img src="Screenshot/6.png" width=10%><img src="Screenshot/7.png" width=10%><img src="Screenshot/8.png" width=10%><img src="Screenshot/9.png" width=10%><img src="Screenshot/10.png" width=10%>
+<img src="Screenshot/1.png" width=20%><img src="Screenshot/2.png" width=20%><img src="Screenshot/3.png" width=20%><img src="Screenshot/4.png" width=20%><img src="Screenshot/5.png" width=20%><img src="Screenshot/6.png" width=20%><img src="Screenshot/7.png" width=20%><img src="Screenshot/8.png" width=20%><img src="Screenshot/9.png" width=20%><img src="Screenshot/20.png" width=20%>
 
 ## GüvenliNot Logo
 

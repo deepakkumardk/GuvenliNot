@@ -23,6 +23,13 @@
             tools:text="GuvenliNot Title" />
 
         <TextView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            tools:text="Date goes here" />
+
+        <TextView
             android:id="@+id/item_note_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

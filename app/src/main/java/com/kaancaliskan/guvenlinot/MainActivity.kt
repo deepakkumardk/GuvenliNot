@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         if (!check_for_intent) {
             //For restrict accessing without password check.
             Toasty.error(this, getString(R.string.restrict_access), Toast.LENGTH_SHORT, true).show()
-            finish()
+            finishAffinity()
         }
 
         noteList = NotesRepository(application).getAllNotes()
@@ -54,8 +54,9 @@ class MainActivity : AppCompatActivity() {
         val id = note?.Id
         val title = note?.noteTitle.toString()
         val content = note?.noteContent.toString()
+        val date = note?.date.toString()
 
-        startActivity<UpdateNoteActivity>(NOTE_ID to id, NOTE_TITLE to title, NOTE_CONTENT to content)
+        startActivity<UpdateNoteActivity>(NOTE_ID to id, NOTE_TITLE to title, NOTE_CONTENT to content, DATE to date)
     }
 
     override fun onResume() {

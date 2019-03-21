@@ -29,10 +29,6 @@
     <string name="dev">Developers</string>
     <string name="report_issue">Report an issue</string>
     <string name="report_issue_sub">Having an issue? Let me know.</string>
-    <string name="update_available">Update available!</string>
-    <string name="update_not_available">You\'re on the latest version.</string>
-    <string name="github_user" translatable="false">hakkikaancaliskan</string>
-    <string name="github_repo" translatable="false">GuvenliNot</string>
     <string name="write_password">Write password</string>
     <string name="confirm_password">Confirm password</string>
     <string name="cant_save">Can\'t saved!</string>
@@ -44,7 +40,6 @@
     <string name="field_empty">Field is empty!</string>
     <string name="ask_delete">Are you sure you want to delete?</string>
     <string name="note_delete_success">Note deleted successfully!</string>
-    <string name="discard_changes">Are you sure you want to discard changes?</string>
     <string name="insert_note">Note inserted successfully!</string>
     <string name="delete">Delete</string>
     <string name="new_note">New Note</string>

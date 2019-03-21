@@ -4,6 +4,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('E:\\imza.jks')
+            storePassword "kaancaliskan38"
+            keyAlias "kaankey1"
+            keyPassword "kaancaliskan38"
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.kaancaliskan.guvenlinot"
@@ -18,6 +26,7 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
         debug {
             signingConfig signingConfigs.debug
@@ -30,6 +39,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             applicationIdSuffix ".alpha"
             versionNameSuffix "-alpha"
+            signingConfig signingConfigs.release
         }
     }
     buildToolsVersion = '28.0.3'
@@ -52,5 +62,5 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.1.0-alpha05'
     kapt 'androidx.room:room-compiler:2.0.0'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha03'
 }

@@ -22,8 +22,6 @@
     <string name="dev">Geliştiriciler</string>
     <string name="report_issue">Sorun bildir</string>
     <string name="report_issue_sub">Bir sorun mu var? Haberdar edin.</string>
-    <string name="update_available">Güncelleme mevcut!</string>
-    <string name="update_not_available">Şu an en son sürümdesiniz.</string>
     <string name="write_password">Şifreyi yaz</string>
     <string name="confirm_password">Şifreyi doğrula</string>
     <string name="cant_save">Kaydedilemedi!</string>
@@ -34,7 +32,6 @@
     <string name="field_empty">Alan boş!</string>
     <string name="ask_delete">Silmek istediğinize emin misiniz?</string>
     <string name="note_delete_success">Not başarıyla silindi!</string>
-    <string name="discard_changes">Değişiklikleri iptal etmek istediğinize emin misiniz?</string>
     <string name="insert_note">Not başarıyla girildi!</string>
     <string name="delete">Sil</string>
     <string name="new_note">Yeni Not</string>
