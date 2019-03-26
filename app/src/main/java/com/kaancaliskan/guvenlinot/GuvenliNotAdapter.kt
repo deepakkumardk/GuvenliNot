@@ -11,10 +11,11 @@ import org.jetbrains.anko.find
 /**
  * Adapter for the recyclerView to be shown in the main activity
  */
-class GuvenliNotAdapter(private val noteList: List<Note>, private val listener: (Note) -> Unit) : RecyclerView.Adapter<GuvenliNotAdapter.MyViewHolder>() {
+class GuvenliNotAdapter(private val noteList: MutableList<Note>, private val listener: (Note) -> Unit) : RecyclerView.Adapter<GuvenliNotAdapter.MyViewHolder>() {
     /**
      * override the onCreateViewHolder method
      */
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): MyViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_note, viewGroup, false)
         return MyViewHolder(view)

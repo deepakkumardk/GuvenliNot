@@ -48,15 +48,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/write_password" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/confirm_password_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/button"
         android:backgroundTint="@color/colorAccent"
-        android:drawingCacheQuality="high"
-        android:elevation="3dp"
         android:text="@string/confirm"
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"

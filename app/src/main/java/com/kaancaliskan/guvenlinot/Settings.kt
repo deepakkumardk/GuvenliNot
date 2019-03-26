@@ -2,12 +2,14 @@ package com.kaancaliskan.guvenlinot
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
-import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.settings.*
-import org.jetbrains.anko.find
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.noButton
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.yesButton
 
 /**
  * This class is our settings.
@@ -19,7 +21,7 @@ class Settings: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings)
-        setSupportActionBar(find(R.id.settings_toolbar))
+        setSupportActionBar(settings_bar)
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
@@ -32,10 +34,15 @@ class Settings: AppCompatActivity(){
             noteList = NotesRepository(application).getAllNotes()
 
             if (noteList.isEmpty()){
-                Toasty.warning(applicationContext, getString(R.string.delete_all_empty)).show()
+                Snackbar.make(delete_all_notes, getString(R.string.delete_all_empty), Snackbar.LENGTH_SHORT).show()
             } else{
-                NotesRepository(application).deleteAll()
-                Toasty.success(applicationContext, getString(R.string.delete_all_success)).show()
+                alert (R.string.ask_delete){
+                    yesButton {
+                        NotesRepository(application).deleteAll()
+                        Snackbar.make(delete_all_notes, R.string.delete_all_success, Snackbar.LENGTH_SHORT).show()
+                    }
+                    noButton { it.dismiss() }
+                }.show()
             }
         }
     }

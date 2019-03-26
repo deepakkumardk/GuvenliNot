@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".NewNoteActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".NewNoteActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
-
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/note_title"
         style="@style/TitleEditText"
         android:layout_width="match_parent"
@@ -19,7 +21,7 @@
         tools:ignore="Autofill"
         tools:text="Note Title" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/note_content"
         style="@style/ContentEditText"
         android:layout_width="match_parent"
@@ -27,3 +29,25 @@
         android:hint="@string/note_content"
         tools:ignore="Autofill" />
 </LinearLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/new_note_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        app:backgroundTint="@color/colorAccent"
+        app:fabAlignmentMode="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabAnimationMode="scale"
+        app:fabCradleRoundedCornerRadius="20dp"
+        app:fabCradleVerticalOffset="0dp"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/new_note_bar"
+        android:id="@+id/save_fab"
+        app:backgroundTint="@color/colorAccent"
+        app:icon="@drawable/check"
+        app:iconTint="@color/colorWhite"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

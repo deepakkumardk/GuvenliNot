@@ -2,14 +2,13 @@ package com.kaancaliskan.guvenlinot
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
-import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.activity_new_note.*
 import kotlinx.android.synthetic.main.activity_update_note.*
 import org.jetbrains.anko.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,7 +29,9 @@ class UpdateNoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_note)
-        setSupportActionBar(find(R.id.toolbar))
+        setSupportActionBar(update_note_bar)
+
+        note_content.requestFocus()
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
@@ -41,19 +42,8 @@ class UpdateNoteActivity : AppCompatActivity() {
         date = intent?.getStringExtra(DATE).toString()
 
         loadNoteInfo()
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.note_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_delete_note -> deleteNote()
-            else -> return false
-        }
-        return super.onOptionsItemSelected(item)
+        delete_fab.onClick { deleteNote() }
     }
 
     private fun loadNoteInfo() {
@@ -65,12 +55,12 @@ class UpdateNoteActivity : AppCompatActivity() {
     }
 
     private fun deleteNote() {
-        alert(getString(R.string.ask_delete)) {
+        alert(R.string.ask_delete) {
             yesButton {
                 val note = Note(noteId, noteTitle.toString(),noteContent.toString(), date.toString())
                 finish()
                 NotesRepository(application).deleteNote(note)
-                Toasty.success(applicationContext, getString(R.string.note_delete_success), Toast.LENGTH_SHORT, true).show()
+                Snackbar.make(update_note_content, R.string.note_delete_success, Snackbar.LENGTH_SHORT).show()
             }
             noButton { it.dismiss() }
         }.show()
@@ -95,10 +85,9 @@ class UpdateNoteActivity : AppCompatActivity() {
             val note = Note(noteId, titleSave, contentSave, date)
             if (validateInput(titleSave, contentSave)) {
                 NotesRepository(application).updateNote(note)
-                Toasty.success(applicationContext, getString(R.string.update_success), Toast.LENGTH_SHORT, true).show()
                 finish()
             } else {
-                Toasty.error(applicationContext, getString(R.string.field_empty), Toast.LENGTH_SHORT, true).show()
+                Snackbar.make(update_note_content, R.string.field_empty, Snackbar.LENGTH_SHORT).show()
             }
         }
     }

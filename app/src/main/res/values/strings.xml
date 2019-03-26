@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Güvenli Not</string>
+    <string name="app_name_debug_version" translatable="false">Güvenli Not Debug</string>
+    <string name="app_name_alpha_version" translatable="false">Güvenli Not Alpha</string>
     <string name="save_password">Write password!</string>
     <string name="confirm">CONFIRM</string>
     <string name="save_button">Save</string>
@@ -8,7 +10,8 @@
     <string name="new_password">New password</string>
     <string name="new_password_check">Confirm new password</string>
     <string name="password_check_error">Password is wrong!</string>
-    <string name="new_password_check_error">New passwords are empty or not same!</string>
+    <string name="new_password_check_error">New passwords are not same!</string>
+    <string name="empty">Can\'t be empty!</string>
     <string name="hashed_password" translatable="false">hashed_password</string>
     <string name="saved">Saved!</string>
     <string name="change_password">Please select a password</string>
@@ -36,11 +39,9 @@
     <string name="dev1_country">India</string>
     <string name="note_title">Note Title</string>
     <string name="note_content">Note Content</string>
-    <string name="update_success">Note updated successfully!</string>
     <string name="field_empty">Field is empty!</string>
     <string name="ask_delete">Are you sure you want to delete?</string>
     <string name="note_delete_success">Note deleted successfully!</string>
-    <string name="insert_note">Note inserted successfully!</string>
     <string name="delete">Delete</string>
     <string name="new_note">New Note</string>
     <string name="update_note">Update Note</string>
@@ -48,4 +49,6 @@
     <string name="delete_all_notes">Delete All Notes</string>
     <string name="delete_all_success">All notes deleted successfully!</string>
     <string name="delete_all_empty">It\'s already empty!</string>
+    <string name="login_helper">Case Sensitive</string>
+    <string name="discard_changes">Are you sure you want to discard changes?</string>
 </resources>

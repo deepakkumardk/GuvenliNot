@@ -31,7 +31,7 @@ open class AboutActivity : MaterialAboutActivity() {
         appCardBuilder.addItem(MaterialAboutActionItem.Builder()
                 .text(getString(R.string.version))
                 .subText(BuildConfig.VERSION_NAME)
-                .icon(getDrawable(R.drawable.update))
+                .icon(getDrawable(R.drawable.baseline_update_24))
                 .build())
 
         appCardBuilder.addItem(MaterialAboutActionItem.Builder()
@@ -48,7 +48,7 @@ open class AboutActivity : MaterialAboutActivity() {
 
         appCardBuilder.addItem(MaterialAboutActionItem.Builder()
                 .text(getString(R.string.licenses))
-                .icon(getDrawable(R.drawable.book))
+                .icon(getDrawable(R.drawable.baseline_book_24))
                 .setOnClickAction {
                     val intent = Intent(context, LicenseActivity::class.java)
                     context.startActivity(intent)
@@ -58,7 +58,7 @@ open class AboutActivity : MaterialAboutActivity() {
         appCardBuilder.addItem( MaterialAboutActionItem.Builder()
                 .text(R.string.report_issue)
                 .subText(R.string.report_issue_sub)
-                .icon(ContextCompat.getDrawable(context, R.drawable.bug))
+                .icon(ContextCompat.getDrawable(context, R.drawable.baseline_bug_report_24))
                 .setOnClickAction(ConvenienceBuilder.createWebsiteOnClickAction(context, Uri.parse("https://github.com/hakkikaancaliskan/GuvenliNot/issues/new/choose")))
                 .build())
 
@@ -78,7 +78,7 @@ open class AboutActivity : MaterialAboutActivity() {
                 .build())
 
         authorCardBuilder.addItem(ConvenienceBuilder.createEmailItem(context,
-                getDrawable(R.drawable.email),
+                getDrawable(R.drawable.baseline_mail_24),
                 getString(R.string.send_mail),
                 true,
                 getString(R.string.dev_mail),
@@ -106,41 +106,34 @@ open class AboutActivity : MaterialAboutActivity() {
         fun createMaterialAboutLicenseList(c: Context): MaterialAboutList {
 
             val materialAboutLibraryLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                    ContextCompat.getDrawable(c, R.drawable.book),
+                    ContextCompat.getDrawable(c, R.drawable.baseline_book_24),
                     "material-about-library",
                     "2016",
                     "Daniel Stone",
                     OpenSourceLicense.APACHE_2)
 
-            val toastyLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                    ContextCompat.getDrawable(c, R.drawable.book),
-                    "Toasty",
-                    "2017",
-                    "Daniel Morales",
-                    OpenSourceLicense.GNU_GPL_3)
-
             val supportLibraryLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                    ContextCompat.getDrawable(c, R.drawable.book),
+                    ContextCompat.getDrawable(c, R.drawable.baseline_book_24),
                     "AOSP Support Libraries",
                     "2011",
                     "The Android Open Source Project",
                     OpenSourceLicense.APACHE_2)
 
             val kotlinLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-                    ContextCompat.getDrawable(c, R.drawable.book),
+                    ContextCompat.getDrawable(c, R.drawable.baseline_book_24),
                     "Kotlin",
                     "2010",
                     "JetBrains s.r.o",
                     OpenSourceLicense.APACHE_2)
 
             val ankoLicenseCard: MaterialAboutCard = ConvenienceBuilder.createLicenseCard(c,
-                    ContextCompat.getDrawable(c, R.drawable.book),
+                    ContextCompat.getDrawable(c, R.drawable.baseline_book_24),
                     "Anko",
                     "2014",
                     "JetBrains s.r.o",
                     OpenSourceLicense.APACHE_2)
 
-        return MaterialAboutList(materialAboutLibraryLicenseCard, toastyLicenseCard, supportLibraryLicenseCard, kotlinLicenseCard, ankoLicenseCard)
+        return MaterialAboutList(materialAboutLibraryLicenseCard, supportLibraryLicenseCard, kotlinLicenseCard, ankoLicenseCard)
     }}
     /**
      * This function names the activity.

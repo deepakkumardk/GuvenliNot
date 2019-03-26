@@ -12,27 +12,26 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kaancaliskan.guvenlinot.db.GuvenliNotDatabase
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
-import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.main_activity.*
-import org.jetbrains.anko.find
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
+
 
 /**
  * This activity saves note and encode/decode note.
  */
 class MainActivity : AppCompatActivity() {
     private lateinit var adapter: GuvenliNotAdapter
-    private lateinit var noteList: List<Note>
+    private lateinit var noteList: MutableList<Note>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        setSupportActionBar(find(R.id.toolbar))
+        setSupportActionBar(main_bar)
 
         if (!check_for_intent) {
             //For restrict accessing without password check.
-            Toasty.error(this, getString(R.string.restrict_access), Toast.LENGTH_SHORT, true).show()
+            Toast.makeText(this, R.string.restrict_access, Toast.LENGTH_LONG).show()
             finishAffinity()
         }
 
@@ -42,12 +41,11 @@ class MainActivity : AppCompatActivity() {
         val itemDecoration = DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL)
         recycler_view.addItemDecoration(itemDecoration)
         recycler_view.layoutManager = LinearLayoutManager(applicationContext)
-        recycler_view.hasFixedSize()
         adapter = GuvenliNotAdapter(noteList) { note -> onItemClick(note) }
         recycler_view.adapter = adapter
         adapter.notifyDataSetChanged()
 
-        fab.onClick { startActivity<NewNoteActivity>() }
+        add_note_fab.onClick { startActivity<NewNoteActivity>() }
     }
 
     private fun onItemClick(note: Note?) {
@@ -70,7 +68,6 @@ class MainActivity : AppCompatActivity() {
         isListEmpty()
         adapter = GuvenliNotAdapter(noteList) { note -> onItemClick(note) }
         recycler_view.adapter = adapter
-        adapter.notifyDataSetChanged()
     }
 
     private fun isListEmpty() {

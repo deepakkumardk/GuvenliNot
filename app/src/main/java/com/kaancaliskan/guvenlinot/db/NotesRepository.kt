@@ -11,12 +11,12 @@ import org.jetbrains.anko.doAsync
  */
 class NotesRepository(context: Context) {
     private var database: GuvenliNotDatabase? = GuvenliNotDatabase.getInstance(context)
-    private lateinit var noteList: List<Note>
+    private lateinit var noteList: MutableList<Note>
 
     /**
      * fetch all notes from database
      */
-    fun getAllNotes(): List<Note> {
+    fun getAllNotes(): MutableList<Note> {
         runBlocking {
             async(Dispatchers.Default) {
                 noteList = database?.noteDao()?.getAllNotes()!!

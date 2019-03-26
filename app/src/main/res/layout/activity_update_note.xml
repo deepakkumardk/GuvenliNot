@@ -1,35 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".UpdateNoteActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <include layout="@layout/toolbar" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/update_note_title"
+            style="@style/TitleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/note_title"
+            tools:ignore="Autofill"
+            tools:text="Note Title" />
 
-    <EditText
-        android:id="@+id/update_note_title"
-        style="@style/TitleEditText"
+        <TextView
+            android:id="@+id/date_text"
+            style="@style/DateText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Date" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/update_note_content"
+            style="@style/ContentEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/note_content"
+            tools:ignore="Autofill" />
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/update_note_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        app:backgroundTint="@color/colorAccent"
+        app:fabAlignmentMode="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/note_title"
-        tools:ignore="Autofill"
-        tools:text="Note Title" />
+        android:layout_gravity="bottom"
+        app:fabAnimationMode="scale"
+        app:fabCradleRoundedCornerRadius="20dp"
+        app:fabCradleVerticalOffset="0dp"/>
 
-    <TextView
-        android:id="@+id/date_text"
-        style="@style/DateText"
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Date" />
-
-    <EditText
-        android:id="@+id/update_note_content"
-        style="@style/ContentEditText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/note_content"
-        tools:ignore="Autofill" />
-</LinearLayout>
+        app:layout_anchor="@id/update_note_bar"
+        android:id="@+id/delete_fab"
+        app:backgroundTint="@color/colorAccent"
+        app:icon="@drawable/baseline_delete_24"
+        app:iconTint="@color/colorWhite"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -2,11 +2,14 @@ package com.kaancaliskan.guvenlinot
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
-import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_new_note.*
-import org.jetbrains.anko.*
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.noButton
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.yesButton
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -18,12 +21,25 @@ class NewNoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_note)
-        setSupportActionBar(find(R.id.toolbar))
+        setSupportActionBar(new_note_bar)
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
         note_title.requestFocus()
+
+        save_fab.onClick {
+            val titleSave = Hash.encode(note_title.text.toString())
+            val contentSave = Hash.encode(note_content.text.toString())
+            val date = getDate()
+            val note = Note(noteTitle = titleSave, noteContent = contentSave, date = date)
+            if (validateInput(titleSave, contentSave)) {
+                NotesRepository(application).insertNote(note)
+                finish()
+            } else {
+                Snackbar.make(note_content, R.string.field_empty, Snackbar.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun validateInput(title: String, content: String): Boolean {
@@ -40,18 +56,14 @@ class NewNoteActivity : AppCompatActivity() {
         val content = note_content.text.toString()
 
         if (title.isNotEmpty() || content.isNotEmpty()) {
-            val titleSave = Hash.encode(note_title.text.toString())
-            val contentSave = Hash.encode(note_content.text.toString())
-            val date = getDate()
-            val note = Note(noteTitle = titleSave, noteContent = contentSave, date = date)
-            if (validateInput(titleSave, contentSave)) {
-                NotesRepository(application).insertNote(note)
-                Toasty.success(applicationContext, getString(R.string.insert_note)).show()
-                finish()
-            } else {
-                Toasty.warning(applicationContext, getString(R.string.field_empty)).show()
-            }
-        } else {
+            alert(getString(R.string.discard_changes)) {
+                yesButton {
+                    finish()
+                    super.onBackPressed()
+                }
+                noButton { it.dismiss() }
+            }.show()
+        }else {
             finish()
         }
     }

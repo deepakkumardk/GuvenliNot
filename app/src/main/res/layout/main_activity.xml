@@ -5,23 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     tools:context=".MainActivity">
-
-    <include layout="@layout/toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
         tools:listitem="@layout/item_note" />
 
     <LinearLayout
         android:id="@+id/empty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorGrey"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone"
@@ -32,28 +27,43 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:contentDescription="Pencil Logo"
-            android:src="@drawable/pencil"
+            android:src="@drawable/magnifier"
             tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Click + to Add Note"
+            android:text="Looks like you have no note :("
             android:textSize="24sp"
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/main_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        app:backgroundTint="@color/colorAccent"
+        app:fabAlignmentMode="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabAnimationMode="scale"
+        app:fabCradleRoundedCornerRadius="20dp"
+        app:fabCradleVerticalOffset="0dp"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/add_note_fab"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_add"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
         app:backgroundTint="@color/colorAccent"
-        app:fabSize="normal" />
+        app:icon="@drawable/baseline_add_24"
+        app:iconGravity="start"
+        app:layout_anchor="@id/main_bar"
+        app:iconTint="@color/colorWhite"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -11,8 +11,7 @@ interface NoteDao {
      * Fetch all the notes from the database
      */
     @Query("SELECT * FROM guvenli_not")
-    fun getAllNotes(): List<Note>
-
+    fun getAllNotes(): MutableList<Note>
     /**
      * insert the note into database
      */
@@ -31,6 +30,9 @@ interface NoteDao {
     @Delete
     fun deleteNote(note: Note)
 
+    /**
+     * delete all notes from database
+     */
     @Query("DELETE FROM guvenli_not")
     fun deleteAll()
 }

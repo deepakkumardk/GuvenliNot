@@ -21,7 +21,7 @@ object LocalData {
     /**
      * This function reads note.
      */
-    fun read(context: Context, title: String): String {
+    fun read(context: Context, title: String): String? {
         val sharedPreferences : SharedPreferences= context.getSharedPreferences(sharedPref, Context.MODE_PRIVATE)
         return sharedPreferences.getString(title, "")
     }

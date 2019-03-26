@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
-import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
 
@@ -16,31 +14,28 @@ var check_for_intent = false
  * @author Hakkı Kaan Çalışkan
  */
 class LoginActivity : AppCompatActivity() {
-    override fun onCreate(confirmdInstanceState: Bundle?) {
-        super.onCreate(confirmdInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        setSupportActionBar(findViewById(R.id.toolbar))
-        confirm_EditText.requestFocus()
+        setSupportActionBar(login_bar)
+
+        confirm_layout.requestFocus()
 
         if (LocalData.read(this, getString(R.string.hashed_password)) == "" ){
             startActivity<FirstLogin>()
             finish()
         }
-        confirm_button.setOnClickListener{
+        confirm_fab.setOnClickListener{
             if (Hash.sha512(confirm_EditText.text.toString())==LocalData.read(this, getString(R.string.hashed_password))){
                 check_for_intent=true //For restrict accessing without password check.
                 startActivity<MainActivity>()
                 finish()
             } else{
-                Toasty.error(this, getString(R.string.password_check_error), Toast.LENGTH_SHORT, true).show()
+                confirm_layout.error = getString(R.string.password_check_error)
             }
         }
     }
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.action_settings -> {
-            startActivity<Settings>()
-            true
-        }
         R.id.action_about ->{
             startActivity<AboutActivity>()
             true
@@ -49,8 +44,13 @@ class LoginActivity : AppCompatActivity() {
             super.onOptionsItemSelected(item)
         }
     }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
+        menu.removeItem(R.id.action_settings)
         return true
     }
 }
