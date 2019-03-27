@@ -1,5 +1,6 @@
 package com.kaancaliskan.guvenlinot
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
@@ -13,6 +14,7 @@ class ChangePassword: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.change_password)
         setSupportActionBar(change_password_bar)
+        change_password_fab.setColorFilter(Color.WHITE)
 
         password_check_layout.requestFocus()
 

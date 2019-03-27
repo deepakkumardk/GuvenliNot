@@ -6,48 +6,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".NewNoteActivity"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/note_title"
-        style="@style/TitleEditText"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/note_title_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:hint="@string/note_title"
-        android:textAlignment="viewStart"
-        tools:ignore="Autofill"
-        tools:text="Note Title" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:hintAnimationEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        app:boxCornerRadiusBottomEnd="4dp"
+        app:boxCornerRadiusBottomStart="4dp"
+        app:boxCornerRadiusTopEnd="4dp"
+        app:boxCornerRadiusTopStart="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/note_content_layout"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/note_content"
-        style="@style/ContentEditText"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/note_title"
+            style="@style/TitleEditText"
+            android:maxLength="50"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/note_content_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:hint="@string/note_content"
-        tools:ignore="Autofill" />
-</LinearLayout>
+        app:hintAnimationEnabled="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxCornerRadiusBottomEnd="4dp"
+        app:boxCornerRadiusBottomStart="4dp"
+        app:boxCornerRadiusTopEnd="4dp"
+        app:boxCornerRadiusTopStart="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/note_title_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/note_content"
+            style="@style/ContentEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="Autofill" />
+    </com.google.android.material.textfield.TextInputLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/new_note_bar"
         style="@style/Widget.MaterialComponents.BottomAppBar"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/colorPrimary"
         app:fabAlignmentMode="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:fabAnimationMode="scale"
-        app:fabCradleRoundedCornerRadius="20dp"
-        app:fabCradleVerticalOffset="0dp"/>
+        android:layout_gravity="bottom"/>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_anchor="@id/new_note_bar"
         android:id="@+id/save_fab"
         app:backgroundTint="@color/colorAccent"
-        app:icon="@drawable/check"
-        app:iconTint="@color/colorWhite"/>
+        android:src="@drawable/check"
+        android:tint="@android:color/white"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

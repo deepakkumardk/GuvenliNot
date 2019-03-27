@@ -39,6 +39,7 @@
         <activity
             android:name=".ChangePassword"
             android:label="@string/change_password_menu"
+            android:parentActivityName=".Settings"
             android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
@@ -55,6 +56,7 @@
         <activity
             android:name=".LicenseActivity"
             android:label="@string/licenses"
+            android:parentActivityName=".AboutActivity"
             android:theme="@style/AppTheme.MaterialAboutActivity">
         </activity>
         <activity
@@ -65,10 +67,12 @@
         <activity
             android:name=".NewNoteActivity"
             android:label="@string/new_note"
+            android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".UpdateNoteActivity"
             android:label="@string/update_note"
+            android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize"/>
     </application>
 </manifest>

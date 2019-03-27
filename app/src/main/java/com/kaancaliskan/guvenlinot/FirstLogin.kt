@@ -1,5 +1,6 @@
 package com.kaancaliskan.guvenlinot
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
@@ -13,9 +14,11 @@ class FirstLogin: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_login)
+        setSupportActionBar(first_login_bar)
+        save_password_fab.setColorFilter(Color.WHITE)
         write_password.requestFocus()
 
-        confirm_password_button.setOnClickListener {
+        save_password_fab.setOnClickListener {
             if (write_password.text.toString()==confirm_password.text.toString() &&  write_password.text.toString()!=""){
                 LocalData.write(this, getString(R.string.hashed_password), Hash.sha512(write_password.text.toString()))
 
@@ -24,7 +27,7 @@ class FirstLogin: AppCompatActivity(){
                 finish()
             }
             else{
-                Snackbar.make(confirm_password_button, R.string.cant_save, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(save_password_fab, R.string.cant_save, Snackbar.LENGTH_LONG).show()
             }
         }
     }

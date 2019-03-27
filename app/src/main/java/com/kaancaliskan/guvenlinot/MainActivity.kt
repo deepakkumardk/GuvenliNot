@@ -1,5 +1,6 @@
 package com.kaancaliskan.guvenlinot
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -15,8 +16,6 @@ import com.kaancaliskan.guvenlinot.db.NotesRepository
 import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
-
-
 /**
  * This activity saves note and encode/decode note.
  */
@@ -28,6 +27,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         setSupportActionBar(main_bar)
+        add_note_fab.setColorFilter(Color.WHITE)
+
+        /**
+         * TO DO
+         *
+         * add buttons to cards
+         * fix fab icons
+         * change firstlogin
+         * nested for changepassword and others
+         */
 
         if (!check_for_intent) {
             //For restrict accessing without password check.

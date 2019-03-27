@@ -44,26 +44,19 @@
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/main_bar"
         style="@style/Widget.MaterialComponents.BottomAppBar"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/colorPrimary"
         app:fabAlignmentMode="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:fabAnimationMode="scale"
-        app:fabCradleRoundedCornerRadius="20dp"
-        app:fabCradleVerticalOffset="0dp"/>
+        android:layout_gravity="bottom" />
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:id="@+id/add_note_fab"
-        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp"
         app:backgroundTint="@color/colorAccent"
-        app:icon="@drawable/baseline_add_24"
-        app:iconGravity="start"
-        app:layout_anchor="@id/main_bar"
-        app:iconTint="@color/colorWhite"/>
+        android:src="@drawable/baseline_add_24"
+        app:layout_anchor="@id/main_bar"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

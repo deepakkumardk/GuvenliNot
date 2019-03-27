@@ -1,11 +1,11 @@
 package com.kaancaliskan.guvenlinot
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
-import kotlinx.android.synthetic.main.activity_new_note.*
 import kotlinx.android.synthetic.main.activity_update_note.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -30,8 +30,9 @@ class UpdateNoteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_note)
         setSupportActionBar(update_note_bar)
+        delete_fab.setColorFilter(Color.WHITE)
 
-        note_content.requestFocus()
+        update_note_content.requestFocus()
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)

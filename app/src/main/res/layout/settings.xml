@@ -19,7 +19,7 @@
         android:layout_marginTop="64dp"
         android:backgroundTint="@color/colorAccent"
         android:text="@string/change_password_menu"
-        android:textColor="@color/colorWhite"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         android:layout_marginTop="64dp"
         android:backgroundTint="@color/colorAccent"
         android:text="@string/delete_all_notes"
-        android:textColor="@color/colorWhite"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/settings_bar"
         style="@style/Widget.MaterialComponents.BottomAppBar"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"/>

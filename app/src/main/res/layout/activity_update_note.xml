@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -40,21 +41,18 @@
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/update_note_bar"
         style="@style/Widget.MaterialComponents.BottomAppBar"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/colorPrimary"
         app:fabAlignmentMode="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:fabAnimationMode="scale"
-        app:fabCradleRoundedCornerRadius="20dp"
-        app:fabCradleVerticalOffset="0dp"/>
+        android:layout_gravity="bottom"/>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_anchor="@id/update_note_bar"
         android:id="@+id/delete_fab"
         app:backgroundTint="@color/colorAccent"
-        app:icon="@drawable/baseline_delete_24"
-        app:iconTint="@color/colorWhite"/>
+        android:src="@drawable/baseline_delete_24"
+        android:tint="@android:color/white"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

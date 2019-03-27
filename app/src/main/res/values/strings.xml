@@ -3,8 +3,6 @@
     <string name="app_name_debug_version" translatable="false">Güvenli Not Debug</string>
     <string name="app_name_alpha_version" translatable="false">Güvenli Not Alpha</string>
     <string name="save_password">Write password!</string>
-    <string name="confirm">CONFIRM</string>
-    <string name="save_button">Save</string>
     <string name="change_password_menu">Change Password</string>
     <string name="password_check">Current password</string>
     <string name="new_password">New password</string>
@@ -42,7 +40,6 @@
     <string name="field_empty">Field is empty!</string>
     <string name="ask_delete">Are you sure you want to delete?</string>
     <string name="note_delete_success">Note deleted successfully!</string>
-    <string name="delete">Delete</string>
     <string name="new_note">New Note</string>
     <string name="update_note">Update Note</string>
     <string name="settings">Settings</string>

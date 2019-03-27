@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.MaterialComponents.CardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    style="@style/Widget.MaterialComponents.CardView">
+    android:checkable="true"
+    android:nestedScrollingEnabled="true"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbars="vertical"
+    app:cardElevation="3dp"
+    tools:actionBarNavMode="list">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/item_note_title"
@@ -20,13 +29,21 @@
             android:padding="2dp"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:text="GuvenliNot Title" />
+            app:boxCornerRadiusBottomEnd="4dp"
+            app:boxCornerRadiusBottomStart="4dp"
+            app:boxCornerRadiusTopEnd="4dp"
+            app:boxCornerRadiusTopStart="4dp"
+            tools:text="GuvenliNot Title"/>
 
         <TextView
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp"
+            app:boxCornerRadiusBottomEnd="4dp"
+            app:boxCornerRadiusBottomStart="4dp"
+            app:boxCornerRadiusTopEnd="4dp"
+            app:boxCornerRadiusTopStart="4dp"
             tools:text="Date goes here" />
 
         <TextView
@@ -36,6 +53,10 @@
             android:maxLines="2"
             android:padding="2dp"
             android:textSize="16sp"
+            app:boxCornerRadiusBottomEnd="4dp"
+            app:boxCornerRadiusBottomStart="4dp"
+            app:boxCornerRadiusTopEnd="4dp"
+            app:boxCornerRadiusTopStart="4dp"
             tools:text="My Note Content goes here and it can be at max of two lines" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

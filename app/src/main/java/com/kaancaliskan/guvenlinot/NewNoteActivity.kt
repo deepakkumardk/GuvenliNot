@@ -1,5 +1,6 @@
 package com.kaancaliskan.guvenlinot
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -22,6 +23,7 @@ class NewNoteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_note)
         setSupportActionBar(new_note_bar)
+        save_fab.setColorFilter(Color.WHITE)
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
