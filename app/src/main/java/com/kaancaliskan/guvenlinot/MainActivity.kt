@@ -22,7 +22,6 @@ import android.view.Window
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import org.jetbrains.anko.*
-import android.util.Pair as UtilPair
 /**
  * This activity saves note and encode/decode note.
  */
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         /**
          * TO DO
-         * add gestures to cards
+         * add pull to refresh
          * change layout with transition
          */
 
@@ -84,10 +83,7 @@ class MainActivity : AppCompatActivity() {
         val content = note?.noteContent.toString()
         val date = note?.date.toString()
 
-        startActivity(intentFor<UpdateNoteActivity>(NOTE_ID to id, NOTE_TITLE to title, NOTE_CONTENT to content, DATE to date), ActivityOptions.makeSceneTransitionAnimation(this,
-                UtilPair.create(find(R.id.item_note_title),"note_title"),
-                UtilPair.create(find(R.id.item_note_content),"note_content"),
-                UtilPair.create(find(R.id.date), "date")).toBundle())
+        startActivity(intentFor<UpdateNoteActivity>(NOTE_ID to id, NOTE_TITLE to title, NOTE_CONTENT to content, DATE to date), ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
     }
 
     override fun onResume() {
