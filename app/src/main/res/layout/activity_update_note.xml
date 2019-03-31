@@ -14,6 +14,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/update_note_title"
+            android:transitionName="note_title"
             style="@style/TitleEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,6 +24,7 @@
 
         <TextView
             android:id="@+id/date_text"
+            android:transitionName="date"
             style="@style/DateText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,6 +32,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/update_note_content"
+            android:transitionName="note_content"
             style="@style/ContentEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,17 +45,7 @@
         android:id="@+id/update_note_bar"
         style="@style/Widget.MaterialComponents.BottomAppBar"
         app:backgroundTint="@color/colorPrimary"
-        app:fabAlignmentMode="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_anchor="@id/update_note_bar"
-        android:id="@+id/delete_fab"
-        app:backgroundTint="@color/colorAccent"
-        android:src="@drawable/baseline_delete_24"
-        android:tint="@android:color/white"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

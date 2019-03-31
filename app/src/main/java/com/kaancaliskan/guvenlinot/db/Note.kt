@@ -11,7 +11,7 @@ import androidx.annotation.NonNull
 data class Note(
         @PrimaryKey(autoGenerate = true)
         @NonNull
-        var Id: Int = 0,
+        var Id: Long = 0,
         var noteTitle: String,
         var noteContent: String,
         var date: String

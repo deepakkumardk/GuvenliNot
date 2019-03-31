@@ -29,13 +29,15 @@
     <string name="note_title">Not Başlığı</string>
     <string name="note_content">Not İçeriği</string>
     <string name="field_empty">Alan boş!</string>
-    <string name="ask_delete">Silmek istediğine emin misin?</string>
-    <string name="note_delete_success">Not başarıyla silindi!</string>
+    <string name="ask_delete_all">Tüm notları silmek istediğine emin misin?</string>
+    <string name="ask_delete">Notu silmek istediğine emin misin?</string>
     <string name="new_note">Yeni Not</string>
     <string name="update_note">Notu Güncelle</string>
-    <string name="settings">Ayarlar</string>
+    <string name="show_note">Notu Göster</string>
+    <string name="delete_note">Notu Sil</string>
     <string name="delete_all_notes">Tüm Notları Sil</string>
     <string name="delete_all_success">Tüm notlar başarıyla silindi!</string>
+    <string name="note_delete_success">Not başarıyla silindi!</string>
     <string name="delete_all_empty">Zaten boş!</string>
     <string name="login_helper">Büyük-küçük harf duyarlıdır</string>
 </resources>

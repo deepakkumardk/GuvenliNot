@@ -40,7 +40,7 @@ class ChangePassword: AppCompatActivity() {
 
                 LocalData.write(this, getString(R.string.hashed_password), newPw)
                 change_password_fab.hide()
-                Snackbar.make(change_password_fab, R.string.saved, Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(change_password_fab, R.string.saved, Snackbar.LENGTH_SHORT).setAnchorView(change_password_fab).show()
             }
         }
     }

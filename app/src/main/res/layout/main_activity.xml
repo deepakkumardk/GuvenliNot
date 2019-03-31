@@ -48,6 +48,8 @@
         app:fabAlignmentMode="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:hideOnScroll="true"
+        app:fabCradleRoundedCornerRadius="5dp"
         android:layout_gravity="bottom" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

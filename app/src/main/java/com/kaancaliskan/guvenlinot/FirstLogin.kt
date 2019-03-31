@@ -27,7 +27,7 @@ class FirstLogin: AppCompatActivity(){
                 finish()
             }
             else{
-                Snackbar.make(save_password_fab, R.string.cant_save, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(save_password_fab, R.string.cant_save, Snackbar.LENGTH_LONG).setAnchorView(save_password_fab).show()
             }
         }
     }

@@ -32,12 +32,12 @@ class NotesRepository(context: Context) {
     fun insertNote(note: Note) = doAsync { database?.noteDao()?.insertNote(note) }
 
     /**
-     * update the note into database
+     * update the note on database
      */
     fun updateNote(note: Note) = doAsync { database?.noteDao()?.updateNote(note) }
 
     /**
-     * delete the note into database
+     * delete note from database
      */
     fun deleteNote(note: Note) = doAsync { database?.noteDao()?.deleteNote(note) }
 

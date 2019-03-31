@@ -25,6 +25,7 @@
             android:id="@+id/item_note_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:transitionName="note_title"
             android:maxLines="1"
             android:padding="2dp"
             android:textSize="24sp"
@@ -37,6 +38,7 @@
 
         <TextView
             android:id="@+id/date"
+            android:transitionName="date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp"
@@ -48,6 +50,7 @@
 
         <TextView
             android:id="@+id/item_note_content"
+            android:transitionName="note_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="2"

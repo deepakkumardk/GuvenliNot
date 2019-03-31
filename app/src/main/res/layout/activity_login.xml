@@ -1,66 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    tools:context=".LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".LoginActivity">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/confirm_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="128dp"
-                android:hint="@string/save_password"
-                app:boxCornerRadiusBottomEnd="4dp"
-                app:boxCornerRadiusBottomStart="4dp"
-                app:boxCornerRadiusTopEnd="4dp"
-                app:boxCornerRadiusTopStart="4dp"
-                app:helperText="@string/login_helper"
-                app:hintAnimationEnabled="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:passwordToggleEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/confirm_EditText"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:selectAllOnFocus="true"
-                    android:singleLine="true"
-                    android:textSize="20sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/login_bar"
-            style="@style/Widget.MaterialComponents.BottomAppBar"
-            app:backgroundTint="@color/colorPrimary"
-            app:fabAlignmentMode="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirm_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_anchor="@id/login_bar"
-            android:id="@+id/confirm_fab"
-            app:backgroundTint="@color/colorAccent"
-            android:src="@drawable/login"
-            android:tint="@android:color/white"/>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</androidx.core.widget.NestedScrollView>
+            android:layout_marginTop="128dp"
+            android:hint="@string/save_password"
+            app:boxCornerRadiusBottomEnd="4dp"
+            app:boxCornerRadiusBottomStart="4dp"
+            app:boxCornerRadiusTopEnd="4dp"
+            app:boxCornerRadiusTopStart="4dp"
+            app:helperText="@string/login_helper"
+            app:hintAnimationEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirm_EditText"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textSize="20sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/login_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabAlignmentMode="center"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/confirm_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/login"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/colorAccent"
+        app:layout_anchor="@id/login_bar" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

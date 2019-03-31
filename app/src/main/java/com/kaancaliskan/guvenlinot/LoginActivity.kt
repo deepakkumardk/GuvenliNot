@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivity
 
 var check_for_intent = false
@@ -30,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         confirm_fab.setOnClickListener{
             if (Hash.sha512(confirm_EditText.text.toString())==LocalData.read(this, getString(R.string.hashed_password))){
                 check_for_intent=true //For restrict accessing without password check.
-                startActivity<MainActivity>()
+                startActivity(intentFor<MainActivity>(), null)
                 finish()
             } else{
                 confirm_layout.error = getString(R.string.password_check_error)
@@ -38,7 +39,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.action_about ->{
+        R.id.action_change_password -> {
+            startActivity<ChangePassword>()
+            true
+        }
+        R.id.action_about -> {
             startActivity<AboutActivity>()
             true
         }
@@ -52,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
-        menu.removeItem(R.id.action_settings)
+        menu.removeItem(R.id.action_delete_all)
         return true
     }
 }

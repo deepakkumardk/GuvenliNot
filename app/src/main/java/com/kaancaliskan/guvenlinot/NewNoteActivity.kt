@@ -39,7 +39,7 @@ class NewNoteActivity : AppCompatActivity() {
                 NotesRepository(application).insertNote(note)
                 finish()
             } else {
-                Snackbar.make(note_content, R.string.field_empty, Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(note_content, R.string.field_empty, Snackbar.LENGTH_SHORT).setAnchorView(save_fab).show()
             }
         }
     }
