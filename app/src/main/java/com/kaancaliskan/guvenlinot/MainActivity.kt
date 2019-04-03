@@ -57,8 +57,8 @@ class MainActivity : AppCompatActivity() {
                 noteList.removeAt(viewHolder.adapterPosition)
                 adapter.notifyItemRemoved(viewHolder.adapterPosition)
                 adapter.notifyItemRangeChanged(viewHolder.adapterPosition, noteList.size)
-                isListEmpty()
                 //to change other note's position change accordingly
+                isListEmpty()
             }
         }
         val itemTouchHelper = ItemTouchHelper(swipeHandler)

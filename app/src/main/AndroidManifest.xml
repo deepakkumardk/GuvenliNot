@@ -62,7 +62,7 @@
         <activity
             android:name=".UpdateNoteActivity"
             android:label="@string/update_note"
-            android:parentActivityName=".ShowNoteActivity"
+            android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize"/>
     </application>
 </manifest>
