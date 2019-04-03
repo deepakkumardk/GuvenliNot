@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.GuvenliNotDatabase
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
@@ -33,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         with(window) {
             requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
-
             exitTransition = Explode()
             enterTransition = Explode()
         }
@@ -43,7 +41,6 @@ class MainActivity : AppCompatActivity() {
 
         /**
          * TO DO
-         * add pull to refresh
          * change layout with transition
          */
 
@@ -57,8 +54,11 @@ class MainActivity : AppCompatActivity() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val deleteNote = noteList[viewHolder.adapterPosition]
                 NotesRepository(applicationContext).deleteNote(deleteNote)
+                noteList.removeAt(viewHolder.adapterPosition)
                 adapter.notifyItemRemoved(viewHolder.adapterPosition)
-                refreshRecyclerView()
+                adapter.notifyItemRangeChanged(viewHolder.adapterPosition, noteList.size)
+                isListEmpty()
+                //to change other note's position change accordingly
             }
         }
         val itemTouchHelper = ItemTouchHelper(swipeHandler)
@@ -88,7 +88,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        isListEmpty()
         refreshRecyclerView()
     }
 
@@ -124,10 +123,6 @@ class MainActivity : AppCompatActivity() {
             startActivity<ChangePassword>()
             true
         }
-        R.id.action_delete_all -> {
-            cleanAllNotes()
-            true
-        }
         R.id.action_about -> {
             startActivity<AboutActivity>()
             true
@@ -140,22 +135,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
-    }
-    private fun cleanAllNotes(){
-        noteList = NotesRepository(application).getAllNotes()
-
-        if (noteList.isEmpty()){
-            Snackbar.make(add_note_fab, getString(R.string.delete_all_empty), Snackbar.LENGTH_SHORT).setAnchorView(add_note_fab).show()
-        } else{
-            alert (R.string.ask_delete_all){
-                yesButton {
-                    NotesRepository(application).deleteAll()
-                    noteList.clear()
-                    isListEmpty()
-                    Snackbar.make(add_note_fab, R.string.delete_all_success, Snackbar.LENGTH_SHORT).setAnchorView(add_note_fab).show()
-                }
-                noButton { it.dismiss() }
-            }.show()
-        }
     }
 }

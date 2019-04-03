@@ -6,13 +6,11 @@
     style="@style/Widget.MaterialComponents.CardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:checkable="true"
+    android:animateLayoutChanges="true"
     android:nestedScrollingEnabled="true"
     android:orientation="vertical"
-    android:scrollbarAlwaysDrawVerticalTrack="true"
-    android:scrollbars="vertical"
-    app:cardElevation="3dp"
-    tools:actionBarNavMode="list">
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,23 +23,23 @@
             android:id="@+id/item_note_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:transitionName="note_title"
             android:maxLines="1"
             android:padding="2dp"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:transitionName="note_title"
             app:boxCornerRadiusBottomEnd="4dp"
             app:boxCornerRadiusBottomStart="4dp"
             app:boxCornerRadiusTopEnd="4dp"
             app:boxCornerRadiusTopStart="4dp"
-            tools:text="GuvenliNot Title"/>
+            tools:text="GuvenliNot Title" />
 
         <TextView
             android:id="@+id/date"
-            android:transitionName="date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp"
+            android:transitionName="date"
             app:boxCornerRadiusBottomEnd="4dp"
             app:boxCornerRadiusBottomStart="4dp"
             app:boxCornerRadiusTopEnd="4dp"
@@ -50,12 +48,12 @@
 
         <TextView
             android:id="@+id/item_note_content"
-            android:transitionName="note_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="2"
             android:padding="2dp"
             android:textSize="16sp"
+            android:transitionName="note_content"
             app:boxCornerRadiusBottomEnd="4dp"
             app:boxCornerRadiusBottomStart="4dp"
             app:boxCornerRadiusTopEnd="4dp"

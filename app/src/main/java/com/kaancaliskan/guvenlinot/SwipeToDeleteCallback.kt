@@ -11,25 +11,19 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.Callback() {
 
     private val deleteIcon = ContextCompat.getDrawable(context, R.drawable.baseline_delete_24)
     private val intrinsicWidth = deleteIcon!!.intrinsicWidth
     private val intrinsicHeight = deleteIcon!!.intrinsicHeight
     private val background = ColorDrawable()
-    private val backgroundColor = Color.RED
     private val clearPaint = Paint().apply { xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR) }
 
 
     override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
-        /**
-         * To disable "swipe" for specific item return 0 here.
-         * For example:
-         * if (viewHolder?.itemViewType == YourAdapter.SOME_TYPE) return 0
-         * if (viewHolder?.adapterPosition == 0) return 0
-         */
-        if (viewHolder.adapterPosition == 10) return 0
-        return super.getMovementFlags(recyclerView, viewHolder)
+        val dragFlags = ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END
+        return makeMovementFlags(dragFlags, swipeFlags)
     }
 
     override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
@@ -52,15 +46,26 @@ abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.SimpleC
         }
 
         // Draw the red delete background
-        background.color = backgroundColor
-        background.setBounds(itemView.right + dX.toInt(), itemView.top, itemView.right, itemView.bottom)
+        background.color = getBackgroundColor(dX, viewHolder)
+        if(dX >0) {
+            background.setBounds(itemView.left + dX.toInt(), itemView.top, itemView.left, itemView.bottom)
+        } else {
+            background.setBounds(itemView.right + dX.toInt(), itemView.top, itemView.right, itemView.bottom)
+        }
         background.draw(c)
 
         // Calculate position of delete icon
         val deleteIconTop = itemView.top + (itemHeight - intrinsicHeight) / 2
         val deleteIconMargin = (itemHeight - intrinsicHeight) / 2
-        val deleteIconLeft = itemView.right - deleteIconMargin - intrinsicWidth
-        val deleteIconRight = itemView.right - deleteIconMargin
+        val deleteIconLeft : Int
+        val deleteIconRight : Int
+        if(dX >0) {
+            deleteIconRight = itemView.left + deleteIconMargin + intrinsicWidth
+            deleteIconLeft = itemView.left + deleteIconMargin
+        } else {
+            deleteIconLeft = itemView.right - deleteIconMargin - intrinsicWidth
+            deleteIconRight = itemView.right - deleteIconMargin
+        }
         val deleteIconBottom = deleteIconTop + intrinsicHeight
 
         // Draw the delete icon
@@ -72,5 +77,15 @@ abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.SimpleC
 
     private fun clearCanvas(c: Canvas?, left: Float, top: Float, right: Float, bottom: Float) {
         c?.drawRect(left, top, right, bottom, clearPaint)
+    }
+    private fun getBackgroundColor(dX: Float,viewHolder: RecyclerView.ViewHolder): Int {
+        val itemView = viewHolder.itemView
+        return when (willActionBeTriggered(dX, itemView.width)) {
+            true -> Color.RED
+            false -> Color.GRAY
+        }
+    }
+    private fun willActionBeTriggered(dX: Float, viewWidth: Int): Boolean {
+        return Math.abs(dX) >= viewWidth / 2
     }
 }

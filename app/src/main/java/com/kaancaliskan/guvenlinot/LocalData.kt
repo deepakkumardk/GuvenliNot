@@ -7,7 +7,6 @@ private const val sharedPref = "preferences"
 
 /**
  * This class makes easier to write SharedPreferences.
- * @author Hakkı Kaan Çalışkan
  */
 object LocalData {
     /**

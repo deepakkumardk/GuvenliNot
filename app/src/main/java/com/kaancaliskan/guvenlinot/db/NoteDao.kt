@@ -29,10 +29,4 @@ interface NoteDao {
      */
     @Delete
     fun deleteNote(note: Note)
-
-    /**
-     * delete all notes from database
-     */
-    @Query("DELETE FROM guvenli_not")
-    fun deleteAll()
 }

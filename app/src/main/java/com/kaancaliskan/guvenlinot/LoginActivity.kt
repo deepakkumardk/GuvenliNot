@@ -13,7 +13,6 @@ var check_for_intent = false
 
 /**
  * This class is the checkpoint of password.
- * @author Hakkı Kaan Çalışkan
  */
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +56,6 @@ class LoginActivity : AppCompatActivity() {
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
-        menu.removeItem(R.id.action_delete_all)
         return true
     }
 }

@@ -7,7 +7,6 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.change_password.*
 /**
  * This class provides us to change password.
- * @author Hakkı Kaan Çalışkan
  */
 class ChangePassword: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
