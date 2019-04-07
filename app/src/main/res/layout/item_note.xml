@@ -6,8 +6,6 @@
     style="@style/Widget.MaterialComponents.CardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:animateLayoutChanges="true"
-    android:nestedScrollingEnabled="true"
     android:orientation="vertical"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true">
@@ -15,7 +13,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
         android:orientation="vertical"
         android:padding="5dp">
 
@@ -25,9 +22,9 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:padding="2dp"
+            android:textColor="@color/primary_text"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:transitionName="note_title"
             app:boxCornerRadiusBottomEnd="4dp"
             app:boxCornerRadiusBottomStart="4dp"
             app:boxCornerRadiusTopEnd="4dp"
@@ -38,8 +35,8 @@
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
             android:textSize="12sp"
-            android:transitionName="date"
             app:boxCornerRadiusBottomEnd="4dp"
             app:boxCornerRadiusBottomStart="4dp"
             app:boxCornerRadiusTopEnd="4dp"
@@ -52,8 +49,8 @@
             android:layout_height="wrap_content"
             android:maxLines="2"
             android:padding="2dp"
+            android:textColor="@color/secondary_text"
             android:textSize="16sp"
-            android:transitionName="note_content"
             app:boxCornerRadiusBottomEnd="4dp"
             app:boxCornerRadiusBottomStart="4dp"
             app:boxCornerRadiusTopEnd="4dp"

@@ -1,7 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" translatable="false">Güvenli Not</string>
     <string name="app_name_debug_version" translatable="false">Güvenli Not Debug</string>
-    <string name="app_name_alpha_version" translatable="false">Güvenli Not Alpha</string>
+    <string name="app_name_alpha_version" translatable="false" tools:keep="@string/app_name_alpha_version">Güvenli Not Alpha</string>
     <string name="save_password">Write password!</string>
     <string name="change_password_menu">Change Password</string>
     <string name="password_check">Current password</string>
@@ -38,16 +38,9 @@
     <string name="note_title">Note Title</string>
     <string name="note_content">Note Content</string>
     <string name="field_empty">Field is empty!</string>
-    <string name="ask_delete_all">Are you sure you want to delete all notes?</string>
-    <string name="ask_delete">Are you sure you want to delete note?</string>
     <string name="new_note">New Note</string>
     <string name="update_note">Update Note</string>
-    <string name="show_note">Show Note</string>
-    <string name="delete_note">Delete Note</string>
-    <string name="delete_all_notes">Delete All Notes</string>
-    <string name="delete_all_success">All notes deleted successfully!</string>
-    <string name="note_delete_success">Note deleted successfully!</string>
-    <string name="delete_all_empty">It\'s already empty!</string>
     <string name="login_helper">Case Sensitive</string>
     <string name="discard_changes">Are you sure you want to discard changes?</string>
+    <string name="no_note_found">Create note with + button</string>
 </resources>

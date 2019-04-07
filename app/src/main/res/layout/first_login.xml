@@ -45,8 +45,7 @@
                 android:layout_height="wrap_content"
                 android:selectAllOnFocus="true"
                 android:inputType="textPassword"
-                android:singleLine="true"
-                android:textAlignment="center" />
+                android:singleLine="true"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -74,7 +73,6 @@
                 android:selectAllOnFocus="true"
                 android:inputType="textPassword"
                 android:singleLine="true"
-                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -83,20 +81,22 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
-    android:id="@+id/first_login_bar"
-    style="@style/Widget.MaterialComponents.BottomAppBar"
-    app:backgroundTint="@color/colorPrimary"
-    app:fabAlignmentMode="center"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom" />
+        android:id="@+id/first_login_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        app:backgroundTint="@color/primary"
+        app:fabAlignmentMode="center"
+        android:layout_width="match_parent"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/icons"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-    style="@style/Widget.MaterialComponents.FloatingActionButton"
-    android:id="@+id/save_password_fab"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:backgroundTint="@color/colorAccent"
-    android:src="@drawable/check"
-    app:layout_anchor="@id/first_login_bar"/>
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:id="@+id/save_password_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/accent"
+        android:src="@drawable/check"
+        app:layout_anchor="@id/first_login_bar"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

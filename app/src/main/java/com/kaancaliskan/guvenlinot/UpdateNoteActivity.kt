@@ -28,8 +28,6 @@ class UpdateNoteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_update_note)
         setSupportActionBar(update_note_bar)
 
-        update_note_content.requestFocus()
-
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
@@ -45,8 +43,6 @@ class UpdateNoteActivity : AppCompatActivity() {
         update_note_title.setText(noteTitle)
         update_note_content.setText(noteContent)
         date_text.text = date
-        update_note_content.selectionEnd
-        update_note_content.requestFocus()
     }
 
     private fun validateInput(title: String, content: String): Boolean {
@@ -58,7 +54,7 @@ class UpdateNoteActivity : AppCompatActivity() {
         val content = update_note_content.text.toString()
 
         if (title == noteTitle && content == noteContent) {
-            finishAfterTransition()
+            finish()
             super.onBackPressed()
         }else if (title.isNotEmpty() || content.isNotEmpty()) {
             val titleSave = Hash.encode(update_note_title.text.toString())
@@ -68,7 +64,7 @@ class UpdateNoteActivity : AppCompatActivity() {
             val note = Note(noteId, titleSave, contentSave, date)
             if (validateInput(titleSave, contentSave)) {
                 NotesRepository(application).updateNote(note)
-                finishAfterTransition()
+                finish()
             } else {
                 Snackbar.make(update_note_content, R.string.field_empty, Snackbar.LENGTH_SHORT).show()
             }

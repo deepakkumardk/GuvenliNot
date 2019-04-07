@@ -1,6 +1,5 @@
 package com.kaancaliskan.guvenlinot
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -8,6 +7,8 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kaancaliskan.guvenlinot.db.GuvenliNotDatabase
@@ -15,9 +16,6 @@ import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
 import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import android.app.ActivityOptions
-import android.transition.Explode
-import android.view.Window
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import org.jetbrains.anko.*
@@ -30,19 +28,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        with(window) {
-            requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
-            exitTransition = Explode()
-            enterTransition = Explode()
-        }
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         setContentView(R.layout.main_activity)
         setSupportActionBar(main_bar)
-        add_note_fab.setColorFilter(Color.WHITE)
-
-        /**
-         * TO DO
-         * change layout with transition
-         */
 
         if (!check_for_intent) {
             //For restrict accessing without password check.
@@ -68,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         isListEmpty()
 
         val itemDecoration = DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL)
+        itemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.divider)!!)
         recycler_view.addItemDecoration(itemDecoration)
         recycler_view.layoutManager = LinearLayoutManager(applicationContext)
         adapter = GuvenliNotAdapter(noteList) { note -> onItemClick(note) }
@@ -83,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         val content = note?.noteContent.toString()
         val date = note?.date.toString()
 
-        startActivity(intentFor<UpdateNoteActivity>(NOTE_ID to id, NOTE_TITLE to title, NOTE_CONTENT to content, DATE to date), ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+        startActivity<UpdateNoteActivity>(NOTE_ID to id, NOTE_TITLE to title, NOTE_CONTENT to content, DATE to date)
     }
 
     override fun onResume() {

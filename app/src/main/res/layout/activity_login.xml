@@ -48,7 +48,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/colorPrimary"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/icons"
+        app:backgroundTint="@color/primary"
         app:fabAlignmentMode="center"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -56,7 +58,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/login"
-        android:tint="@android:color/white"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/accent"
         app:layout_anchor="@id/login_bar" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

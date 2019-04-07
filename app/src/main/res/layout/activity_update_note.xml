@@ -7,45 +7,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".UpdateNoteActivity">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/update_note_title"
-            android:transitionName="note_title"
-            style="@style/TitleEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/note_title"
-            tools:ignore="Autofill"
-            tools:text="Note Title" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="56dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/date_text"
-            android:transitionName="date"
             style="@style/DateText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Date" />
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/update_note_title"
+            style="@style/TitleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/note_title"
+            tools:ignore="AutoFill"
+            tools:text="Note Title" />
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/update_note_content"
-            android:transitionName="note_content"
             style="@style/ContentEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/note_content"
-            tools:ignore="Autofill" />
-
+            tools:ignore="AutoFill" />
     </LinearLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/update_note_bar"
         style="@style/Widget.MaterialComponents.BottomAppBar"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:title="@string/update_note"
+        app:titleTextColor="@color/icons"
         android:layout_gravity="bottom"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

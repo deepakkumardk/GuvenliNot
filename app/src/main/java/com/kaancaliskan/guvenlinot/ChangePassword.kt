@@ -1,6 +1,5 @@
 package com.kaancaliskan.guvenlinot
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
@@ -13,9 +12,6 @@ class ChangePassword: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.change_password)
         setSupportActionBar(change_password_bar)
-        change_password_fab.setColorFilter(Color.WHITE)
-
-        password_check_layout.requestFocus()
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
@@ -50,28 +46,26 @@ class ChangePassword: AppCompatActivity() {
     private fun checkBox(): Boolean {
         val password = LocalData.read(this, getString(R.string.hashed_password))
         val pw = Hash.sha512(password_check.text.toString())
-        var a = 1
 
-        if (password != pw) {
-            password_check_layout.error = getString(R.string.password_check_error)
-            a++
+        when {
+            password != pw -> {
+                password_check_layout.error = getString(R.string.password_check_error)
+                return false
+            }
+            new_password.text!!.isBlank() -> {
+                new_password_layout.error = getString(R.string.empty)
+                return false
+            }
+            new_password_check.text!!.isBlank() -> {
+                new_password_check_layout.error = getString(R.string.empty)
+                return false
+            }
+            new_password.text.toString() != new_password_check.text.toString() && !new_password.text!!.isBlank() -> {
+                new_password_layout.error = getString(R.string.new_password_check_error)
+                new_password_check_layout.error = getString(R.string.new_password_check_error)
+                return false
+            }
+            else -> return true
         }
-
-        if (new_password.text!!.isBlank()) {
-            new_password_layout.error = getString(R.string.empty)
-            a++
-        }
-
-        if (new_password_check.text!!.isBlank()){
-            new_password_check_layout.error = getString(R.string.empty)
-            a++
-        }
-
-        if (new_password.text.toString() != new_password_check.text.toString() && !new_password.text!!.isBlank()) {
-            new_password_layout.error = getString(R.string.new_password_check_error)
-            new_password_check_layout.error = getString(R.string.new_password_check_error)
-            a++
-        }
-        return a == 1
     }
 }

@@ -9,16 +9,17 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
+        android:nestedScrollingEnabled="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_note" />
+        tools:listitem="@layout/item_note"/>
 
     <LinearLayout
         android:id="@+id/empty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:orientation="vertical"
+        android:gravity="center"
         android:visibility="gone"
         tools:ignore="UseCompoundDrawables">
 
@@ -34,8 +35,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Looks like you haven't got any note"
+            android:text="@string/no_note_found"
             android:textSize="24sp"
+            android:textColor="@color/primary_text"
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
@@ -44,12 +46,13 @@
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/main_bar"
         style="@style/Widget.MaterialComponents.BottomAppBar"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/primary"
         app:fabAlignmentMode="center"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/icons"
+        app:hideOnScroll="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hideOnScroll="true"
-        app:fabCradleRoundedCornerRadius="5dp"
         android:layout_gravity="bottom" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -57,8 +60,7 @@
         android:id="@+id/add_note_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/accent"
         android:src="@drawable/baseline_add_24"
         app:layout_anchor="@id/main_bar"/>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -9,6 +9,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="56dp"
     android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -58,18 +59,19 @@
             style="@style/ContentEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:ignore="Autofill" />
+            tools:ignore="AutoFill" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/new_note_bar"
         style="@style/Widget.MaterialComponents.BottomAppBar"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/primary"
         app:fabAlignmentMode="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hideOnScroll="true"
+        app:title="@string/new_note"
+        app:titleTextColor="@color/icons"
         android:layout_gravity="bottom"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -77,7 +79,6 @@
         android:layout_height="wrap_content"
         app:layout_anchor="@id/new_note_bar"
         android:id="@+id/save_fab"
-        app:backgroundTint="@color/colorAccent"
-        android:src="@drawable/check"
-        android:tint="@android:color/white"/>
+        app:backgroundTint="@color/accent"
+        android:src="@drawable/check"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

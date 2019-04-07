@@ -1,6 +1,5 @@
 package com.kaancaliskan.guvenlinot
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -19,7 +18,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         setSupportActionBar(login_bar)
-        confirm_fab.setColorFilter(Color.WHITE)
 
         confirm_layout.requestFocus()
 
