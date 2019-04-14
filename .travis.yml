@@ -1,10 +1,10 @@
 language: android
-jdk: oraclejdk11
+jdk: oraclejdk12
 android:
   components:
     - platform-tools
     - tools
-    - build-tools-28.0.2
+    - build-tools
     - android-28
    
 script:

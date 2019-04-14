@@ -1,4 +1,4 @@
-package com.kaancaliskan.guvenlinot
+package com.kaancaliskan.guvenlinot.util
 
 import android.content.Context
 import android.content.SharedPreferences

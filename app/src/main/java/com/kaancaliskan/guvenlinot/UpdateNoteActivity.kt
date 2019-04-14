@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
+import com.kaancaliskan.guvenlinot.util.Hash
 import kotlinx.android.synthetic.main.activity_update_note.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -67,6 +68,11 @@ class UpdateNoteActivity : AppCompatActivity() {
                 finish()
             } else {
                 Snackbar.make(update_note_content, R.string.field_empty, Snackbar.LENGTH_SHORT).show()
+                if (titleSave.isEmpty()){
+                    update_note_title.requestFocus()
+                } else{
+                    update_note_content.requestFocus()
+                }
             }
         }
     }
