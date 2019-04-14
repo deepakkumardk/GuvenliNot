@@ -1,11 +1,10 @@
-package com.kaancaliskan.guvenlinot.util
+package com.kaancaliskan.guvenlinot
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.kaancaliskan.guvenlinot.R
 import com.kaancaliskan.guvenlinot.db.Note
 import org.jetbrains.anko.find
 

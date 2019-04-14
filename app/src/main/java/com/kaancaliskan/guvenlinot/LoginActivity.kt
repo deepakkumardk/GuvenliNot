@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import com.kaancaliskan.guvenlinot.util.Hash
-import com.kaancaliskan.guvenlinot.util.LocalData
-import com.kaancaliskan.guvenlinot.util.UiThreadHelper
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivity
 
 var check_for_intent = false
@@ -30,11 +28,10 @@ class LoginActivity : AppCompatActivity() {
         confirm_fab.setOnClickListener{
             if (Hash.sha512(confirm_EditText.text.toString())==LocalData.read(this, getString(R.string.hashed_password))){
                 check_for_intent=true //For restrict accessing without password check.
-                startActivity<MainActivity>()
+                startActivity(intentFor<MainActivity>(), null)
                 finish()
             } else{
                 confirm_layout.error = getString(R.string.password_check_error)
-                hideKeyboard()
             }
         }
     }
@@ -54,12 +51,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
-    }
-    private fun hideKeyboard(){
-        val view = this.currentFocus
-        if (view != null){
-            UiThreadHelper.hideKeyboardAsync(applicationContext, view.windowToken)
-        }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)

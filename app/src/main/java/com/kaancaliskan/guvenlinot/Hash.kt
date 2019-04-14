@@ -1,4 +1,4 @@
-package com.kaancaliskan.guvenlinot.util
+package com.kaancaliskan.guvenlinot
 
 import android.os.Build
 import java.security.MessageDigest
