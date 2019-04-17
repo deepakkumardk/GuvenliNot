@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
+import com.kaancaliskan.guvenlinot.util.Hash
 import kotlinx.android.synthetic.main.activity_new_note.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.noButton

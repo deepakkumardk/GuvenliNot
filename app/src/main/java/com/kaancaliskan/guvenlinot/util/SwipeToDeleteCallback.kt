@@ -1,4 +1,4 @@
-package com.kaancaliskan.guvenlinot
+package com.kaancaliskan.guvenlinot.util
 
 import android.content.Context
 import android.graphics.Canvas
@@ -10,7 +10,7 @@ import android.graphics.drawable.ColorDrawable
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-
+import com.kaancaliskan.guvenlinot.R
 
 
 abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.Callback() {

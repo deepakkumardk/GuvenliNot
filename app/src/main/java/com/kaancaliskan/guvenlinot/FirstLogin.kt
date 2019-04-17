@@ -3,6 +3,8 @@ package com.kaancaliskan.guvenlinot
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import com.kaancaliskan.guvenlinot.util.Hash
+import com.kaancaliskan.guvenlinot.util.LocalData
 import kotlinx.android.synthetic.main.first_login.*
 import org.jetbrains.anko.startActivity
 

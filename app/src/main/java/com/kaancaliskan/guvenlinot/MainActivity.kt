@@ -18,6 +18,8 @@ import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.kaancaliskan.guvenlinot.util.GuvenliNotAdapter
+import com.kaancaliskan.guvenlinot.util.SwipeToDeleteCallback
 import org.jetbrains.anko.*
 /**
  * This activity saves note and encode/decode note.
