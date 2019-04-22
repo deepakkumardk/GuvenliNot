@@ -4,14 +4,6 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    signingConfigs {
-        release {
-            storeFile file('D:\\imza.jks')
-            storePassword "kaancaliskan38"
-            keyAlias "kaankey1"
-            keyPassword "kaancaliskan38"
-        }
-    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.kaancaliskan.guvenlinot"
@@ -26,7 +18,6 @@ android {
             minifyEnabled true
             manifestPlaceholders = [app_name: "@string/app_name"]
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
         debug {
             signingConfig signingConfigs.debug

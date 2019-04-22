@@ -28,4 +28,5 @@
 
 ##---------------End: proguard configuration for Gson  ----------
 
--keep class me.jfenn.attribouter.**
+-keep class com.google.gson.** { *; }
+-keep class me.jfenn.attribouter.** { *; }

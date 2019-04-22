@@ -15,11 +15,9 @@ This app supports 5.0-9.0 Android versions.
 
 - [Toasty](https://github.com/GrenderG/Toasty) for error/success messages
 - [Attribouter](https://github.com/fennifith/Attribouter) for beautiful about page
-- [Kotlin](https://github.com/JetBrains/kotlin) app is written in Kotlin
 - [Anko](https://github.com/Kotlin/anko) for Pleasant Android Development
-- [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) for robust Database handling
-- **Androidx libraries**, of course
+- **Android support libraries**, of course
 
 ## Screenshots
 
-<img src="Screenshot/1.png" width=20%><img src="Screenshot/2.png" width=20%><img src="Screenshot/3.png" width=20%><img src="Screenshot/4.png" width=20%><img src="Screenshot/5.png" width=20%><img src="Screenshot/6.png" width=20%><img src="Screenshot/7.png" width=20%><img src="Screenshot/8.png" width=20%><img src="Screenshot/9.png" width=20%><img src="Screenshot/10.png" width=20%>
+<img src="Screenshot/1.png" width=40%><img src="Screenshot/2.png" width=40%><img src="Screenshot/3.png" width=40%><img src="Screenshot/4.png" width=40%><img src="Screenshot/5.png" width=40%>

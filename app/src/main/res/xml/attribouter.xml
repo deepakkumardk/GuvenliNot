@@ -5,9 +5,6 @@
         icon="@mipmap/ic_launcher_round"
         description="^@string/about_app_description">
         <me.jfenn.attribouter.wedges.link.LinkWedge
-            hidden="true"
-            id="playStore" />
-        <me.jfenn.attribouter.wedges.link.LinkWedge
             name="^GitHub"
             id="github" />
 
@@ -19,7 +16,6 @@
 
         <!-- Lead Dev: Hakkı Kaan Çalışkan -->
         <me.jfenn.attribouter.wedges.ContributorWedge
-            bio="^@string/about_bio_kaan"
             login="hakkikaancaliskan"
             position="1"
             task="^@string/about_role_lead">
@@ -31,7 +27,6 @@
         <!-- Dev: Deepak Kumar -->
         <me.jfenn.attribouter.wedges.ContributorWedge
             login="deepakkumardk"
-            bio="^@string/about_bio_deepak"
             task="^@string/about_role_dev">
             <me.jfenn.attribouter.wedges.link.LinkWedge
                 hidden="true"

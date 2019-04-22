@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="save_password">Şifreyi yaz!</string>
     <string name="password_check_error">Şifre yanlış!</string>
     <string name="new_password_check">Yeni şifreyi doğrula</string>
@@ -12,7 +12,7 @@
     <string name="saved">Kaydedildi!</string>
     <string name="restrict_access">Şifre girmeden notlara erişemezsin!</string>
     <string name="title_attribouter_about">Hakkında</string>
-    <string name="licenses">Lisanslar</string>
+    <string name="licenses" tools:keep="@string/licenses">Lisanslar</string>
     <string name="discard_changes">Değişiklikleri iptal etmek istediğine emin misin?</string>
     <string name="write_password">Şifreyi yaz</string>
     <string name="confirm_password">Şifreyi doğrula</string>
@@ -24,11 +24,9 @@
     <string name="update_note">Notu Güncelle</string>
     <string name="login_helper">Büyük-küçük harf duyarlıdır</string>
     <string name="no_note_found">+ tuşuna basarak notu oluştur</string>
-    <string name="about_our_team">Geliştiriciler</string>
-    <string name="about_app_description">Basit Not Uygulaması</string>
-    <string name="about_role_lead">Lider Geliştirici</string>
-    <string name="about_role_dev">Geliştirici</string>
-    <string name="about_role_graphicer">Tasarımcı</string>
-    <string name="about_bio_kaan">Yazılımı seven biri!</string>
-    <string name="about_bio_deepak">Yazılımı seven biri!</string>
+    <string name="about_our_team" tools:keep="@string/about_our_team">Geliştiriciler</string>
+    <string name="about_app_description" tools:keep="@string/about_app_description">Basit Not Uygulaması</string>
+    <string name="about_role_lead" tools:keep="@string/about_role_lead">Lider Geliştirici</string>
+    <string name="about_role_dev" tools:keep="@string/about_role_dev">Geliştirici</string>
+    <string name="about_role_graphicer" tools:keep="@string/about_role_graphicer">Tasarımcı</string>
 </resources>
