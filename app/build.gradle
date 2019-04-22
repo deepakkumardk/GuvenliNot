@@ -35,7 +35,8 @@ android {
             manifestPlaceholders = [app_name: "@string/app_name_debug_version"]
         }
         alpha {
-            initWith release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             applicationIdSuffix ".alpha"
             versionNameSuffix "-alpha"
             manifestPlaceholders = [app_name: "@string/app_name_alpha_version"]

@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
             true
         }
         R.id.action_about -> {
-            Attribouter.from(this).withGitHubToken("b47a2d0cb1c0b444b531723c3d075cbe1d8fbbc1").show()
+            Attribouter.from(this).show()
             true
         }
         else -> {

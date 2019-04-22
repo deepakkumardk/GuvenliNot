@@ -27,3 +27,5 @@
 -keep class * implements com.google.gson.JsonDeserializer
 
 ##---------------End: proguard configuration for Gson  ----------
+
+-keep class me.jfenn.attribouter.**
