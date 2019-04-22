@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<about>
+    <me.jfenn.attribouter.wedges.AppWedge
+        repo="hakkikaancaliskan/GuvenliNot"
+        icon="@mipmap/ic_launcher_round"
+        description="^@string/about_app_description">
+        <me.jfenn.attribouter.wedges.link.LinkWedge
+            hidden="true"
+            id="playStore" />
+        <me.jfenn.attribouter.wedges.link.LinkWedge
+            name="^GitHub"
+            id="github" />
+
+    </me.jfenn.attribouter.wedges.AppWedge>
+
+    <me.jfenn.attribouter.wedges.ContributorsWedge
+        showDefaults="false"
+        title="@string/about_our_team">
+
+        <!-- Lead Dev: Hakkı Kaan Çalışkan -->
+        <me.jfenn.attribouter.wedges.ContributorWedge
+            bio="^@string/about_bio_kaan"
+            login="hakkikaancaliskan"
+            position="1"
+            task="^@string/about_role_lead">
+            <me.jfenn.attribouter.wedges.link.LinkWedge
+                hidden="true"
+                id="website" />
+        </me.jfenn.attribouter.wedges.ContributorWedge>
+
+        <!-- Dev: Deepak Kumar -->
+        <me.jfenn.attribouter.wedges.ContributorWedge
+            login="deepakkumardk"
+            bio="^@string/about_bio_deepak"
+            task="^@string/about_role_dev">
+            <me.jfenn.attribouter.wedges.link.LinkWedge
+                hidden="true"
+                id="website" />
+        </me.jfenn.attribouter.wedges.ContributorWedge>
+
+        <!-- Graphicer: Zularizal -->
+        <me.jfenn.attribouter.wedges.ContributorWedge
+            login="zularizal"
+            task="^@string/about_role_graphicer">
+            <me.jfenn.attribouter.wedges.link.LinkWedge
+                hidden="true"
+                id="website" />
+        </me.jfenn.attribouter.wedges.ContributorWedge>
+    </me.jfenn.attribouter.wedges.ContributorsWedge>
+
+    <me.jfenn.attribouter.wedges.LicensesWedge
+        title="^@string/licenses">
+
+        <!-- Anko-Library -->
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            repo="Kotlin/anko" />
+
+        <!-- Toasty-Library -->
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            repo="GrenderG/Toasty" />
+
+    </me.jfenn.attribouter.wedges.LicensesWedge>
+</about>

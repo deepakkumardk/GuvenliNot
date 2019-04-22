@@ -14,27 +14,11 @@
     <string name="saved">Saved!</string>
     <string name="change_password">Please select a password</string>
     <string name="restrict_access">You can\'t access to notes without password!</string>
-    <string name="about">About</string>
+    <string name="title_attribouter_about">About</string>
     <string name="licenses">Licenses</string>
-    <string name="copyright" translatable="false">© 2019 Hakkı Kaan Çalışkan</string>
-    <string name="version">Current App Version</string>
-    <string name="dev_country">Turkey</string>
-    <string name="project_github" translatable="false">Project GitHub</string>
-    <string name="kaan_github" translatable="false">GitHub - Hakkı Kaan Çalışkan</string>
-    <string name="deepak_github" translatable="false">GitHub - Deepak Kumar</string>
-    <string name="send_mail">Send an email to Kaan</string>
-    <string name="dev_mail" translatable="false">caliskanhkaan@gmail.com</string>
-    <string name="dev_name" translatable="false">Hakkı Kaan Çalışkan</string>
-    <string name="mail_title">Question concerning Güvenli Not</string>
-    <string name="changelog">Changelog</string>
-    <string name="dev">Developers</string>
-    <string name="report_issue">Report an issue</string>
-    <string name="report_issue_sub">Having an issue? Let me know.</string>
     <string name="write_password">Write password</string>
     <string name="confirm_password">Confirm password</string>
     <string name="cant_save">Can\'t saved!</string>
-    <string name="dev1_name" translatable="false">Deepak Kumar</string>
-    <string name="dev1_country">India</string>
     <string name="note_title">Note Title</string>
     <string name="note_content">Note Content</string>
     <string name="field_empty">Field is empty!</string>
@@ -43,4 +27,11 @@
     <string name="login_helper">Case Sensitive</string>
     <string name="discard_changes">Are you sure you want to discard changes?</string>
     <string name="no_note_found">Create note with + button</string>
+    <string name="about_our_team">Developers</string>
+    <string name="about_app_description">Simple Note App</string>
+    <string name="about_role_lead">Leader Developer</string>
+    <string name="about_role_dev">Developer</string>
+    <string name="about_role_graphicer">Graphicer</string>
+    <string name="about_bio_kaan">Someone who loves coding!</string>
+    <string name="about_bio_deepak">Someone who loves coding!</string>
 </resources>

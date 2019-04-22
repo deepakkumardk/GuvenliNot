@@ -14,7 +14,7 @@ This app supports 5.0-9.0 Android versions.
 ## Open Source Libraries:
 
 - [Toasty](https://github.com/GrenderG/Toasty) for error/success messages
-- [material-about-library](https://github.com/daniel-stoneuk/material-about-library) for beautiful about page
+- [Attribouter](https://github.com/fennifith/Attribouter) for beautiful about page
 - [Kotlin](https://github.com/JetBrains/kotlin) app is written in Kotlin
 - [Anko](https://github.com/Kotlin/anko) for Pleasant Android Development
 - [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) for robust Database handling
@@ -22,8 +22,4 @@ This app supports 5.0-9.0 Android versions.
 
 ## Screenshots
 
-<img src="Screenshot/1.png" width=20%><img src="Screenshot/2.png" width=20%><img src="Screenshot/3.png" width=20%><img src="Screenshot/4.png" width=20%><img src="Screenshot/5.png" width=20%><img src="Screenshot/6.png" width=20%><img src="Screenshot/7.png" width=20%><img src="Screenshot/8.png" width=20%><img src="Screenshot/9.png" width=20%><img src="Screenshot/20.png" width=20%>
-
-## GüvenliNot Logo
-
-**Güvenli Not** logo is designed by [zularizal](https://github.com/zularizal).
+<img src="Screenshot/1.png" width=20%><img src="Screenshot/2.png" width=20%><img src="Screenshot/3.png" width=20%><img src="Screenshot/4.png" width=20%><img src="Screenshot/5.png" width=20%><img src="Screenshot/6.png" width=20%><img src="Screenshot/7.png" width=20%><img src="Screenshot/8.png" width=20%><img src="Screenshot/9.png" width=20%><img src="Screenshot/10.png" width=20%>

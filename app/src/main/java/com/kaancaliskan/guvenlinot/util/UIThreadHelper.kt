@@ -12,7 +12,7 @@ import android.view.inputmethod.InputMethodManager
 /**
  * Utility class for offloading some class from UI thread
  */
-object UiThreadHelper {
+object UIThreadHelper {
 
     private var sHandlerThread: HandlerThread? = null
     private var sHandler: Handler? = null
@@ -22,7 +22,7 @@ object UiThreadHelper {
     private val backgroundLooper: Looper
         get() {
             if (sHandlerThread == null) {
-                sHandlerThread = HandlerThread("UiThreadHelper", Process.THREAD_PRIORITY_FOREGROUND)
+                sHandlerThread = HandlerThread("UIThreadHelper", Process.THREAD_PRIORITY_FOREGROUND)
                 sHandlerThread!!.start()
             }
             return sHandlerThread!!.looper

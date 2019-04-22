@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.kaancaliskan.guvenlinot">
 
     <application
-        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:label="${app_name}"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".LoginActivity"
             android:label="${app_name}"
@@ -31,23 +34,6 @@
             android:name=".ChangePassword"
             android:label="@string/change_password_menu"
             android:windowSoftInputMode="adjustResize">
-        </activity>
-        <activity
-            android:name=".AboutActivity"
-            android:label="@string/about"
-            android:theme="@style/AppTheme.MaterialAboutActivity"
-            android:windowSoftInputMode="stateAlwaysHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.INFO" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".LicenseActivity"
-            android:label="@string/licenses"
-            android:parentActivityName=".AboutActivity"
-            android:theme="@style/AppTheme.MaterialAboutActivity">
         </activity>
         <activity
             android:name=".FirstLogin"

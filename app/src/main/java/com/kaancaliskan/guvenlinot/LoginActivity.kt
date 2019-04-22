@@ -6,8 +6,9 @@ import android.view.Menu
 import android.view.MenuItem
 import com.kaancaliskan.guvenlinot.util.Hash
 import com.kaancaliskan.guvenlinot.util.LocalData
-import com.kaancaliskan.guvenlinot.util.UiThreadHelper
+import com.kaancaliskan.guvenlinot.util.UIThreadHelper
 import kotlinx.android.synthetic.main.activity_login.*
+import me.jfenn.attribouter.Attribouter
 import org.jetbrains.anko.startActivity
 
 var check_for_intent = false
@@ -29,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         }
         confirm_fab.setOnClickListener{
             if (Hash.sha512(confirm_EditText.text.toString())==LocalData.read(this, getString(R.string.hashed_password))){
-                check_for_intent=true //For restrict accessing without password check.
+                check_for_intent = true //For restrict accessing without password check.
                 startActivity<MainActivity>()
                 finish()
             } else{
@@ -44,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
             true
         }
         R.id.action_about -> {
-            startActivity<AboutActivity>()
+            Attribouter.from(this).withGitHubToken("b47a2d0cb1c0b444b531723c3d075cbe1d8fbbc1").show()
             true
         }
         else -> {
@@ -58,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
     private fun hideKeyboard(){
         val view = this.currentFocus
         if (view != null){
-            UiThreadHelper.hideKeyboardAsync(applicationContext, view.windowToken)
+            UIThreadHelper.hideKeyboardAsync(applicationContext, view.windowToken)
         }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

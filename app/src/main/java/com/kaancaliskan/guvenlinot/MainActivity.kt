@@ -7,7 +7,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +19,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.kaancaliskan.guvenlinot.util.GuvenliNotAdapter
 import com.kaancaliskan.guvenlinot.util.SwipeToDeleteCallback
+import me.jfenn.attribouter.Attribouter
 import org.jetbrains.anko.*
 /**
  * This activity saves note and encode/decode note.
@@ -30,14 +30,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         setContentView(R.layout.main_activity)
         setSupportActionBar(main_bar)
 
         if (!check_for_intent) {
             //For restrict accessing without password check.
             Toast.makeText(this, R.string.restrict_access, Toast.LENGTH_LONG).show()
-            finishAffinity()
+            System.exit(0)
         }
 
         val swipeHandler = object : SwipeToDeleteCallback(this) {
@@ -99,11 +98,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         GuvenliNotDatabase.destroyInstance()
@@ -115,7 +109,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
         R.id.action_about -> {
-            startActivity<AboutActivity>()
+            Attribouter.from(this).withGitHubToken("b47a2d0cb1c0b444b531723c3d075cbe1d8fbbc1").show()
             true
         }
         else -> {

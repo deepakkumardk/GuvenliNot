@@ -11,21 +11,12 @@
     <string name="change_password">Lütfen bir şifre seç</string>
     <string name="saved">Kaydedildi!</string>
     <string name="restrict_access">Şifre girmeden notlara erişemezsin!</string>
-    <string name="about">Hakkında</string>
+    <string name="title_attribouter_about">Hakkında</string>
     <string name="licenses">Lisanslar</string>
-    <string name="version">Şu anki versiyon</string>
-    <string name="dev_country">Türkiye</string>
-    <string name="send_mail">Kaan\'a mail atın</string>
-    <string name="mail_title">Güvenli Not ile alakalı sorular</string>
-    <string name="changelog">Değişiklikler</string>
     <string name="discard_changes">Değişiklikleri iptal etmek istediğine emin misin?</string>
-    <string name="dev">Geliştiriciler</string>
-    <string name="report_issue">Sorun bildir</string>
-    <string name="report_issue_sub">Bir sorun mu var? Haberdar edin.</string>
     <string name="write_password">Şifreyi yaz</string>
     <string name="confirm_password">Şifreyi doğrula</string>
     <string name="cant_save">Kaydedilemedi!</string>
-    <string name="dev1_country">Hindistan</string>
     <string name="note_title">Not Başlığı</string>
     <string name="note_content">Not İçeriği</string>
     <string name="field_empty">Alan boş!</string>
@@ -33,4 +24,11 @@
     <string name="update_note">Notu Güncelle</string>
     <string name="login_helper">Büyük-küçük harf duyarlıdır</string>
     <string name="no_note_found">+ tuşuna basarak notu oluştur</string>
+    <string name="about_our_team">Geliştiriciler</string>
+    <string name="about_app_description">Basit Not Uygulaması</string>
+    <string name="about_role_lead">Lider Geliştirici</string>
+    <string name="about_role_dev">Geliştirici</string>
+    <string name="about_role_graphicer">Tasarımcı</string>
+    <string name="about_bio_kaan">Yazılımı seven biri!</string>
+    <string name="about_bio_deepak">Yazılımı seven biri!</string>
 </resources>
