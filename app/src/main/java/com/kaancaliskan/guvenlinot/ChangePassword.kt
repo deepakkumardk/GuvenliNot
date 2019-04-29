@@ -15,8 +15,7 @@ class ChangePassword: AppCompatActivity() {
         setContentView(R.layout.change_password)
         setSupportActionBar(change_password_bar)
 
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        password_check.requestFocus()
 
         password_check.setOnTouchListener { _, _ ->
             password_check_layout.isErrorEnabled = false
@@ -31,19 +30,18 @@ class ChangePassword: AppCompatActivity() {
             false
         }
 
-        change_password_fab.setOnClickListener {
+        change_password_button.setOnClickListener {
             if (checkBox()){
                 val newPw = Hash.sha512(new_password.text.toString())
 
                 LocalData.write(this, getString(R.string.hashed_password), newPw)
-                change_password_fab.hide()
-                Snackbar.make(change_password_fab, R.string.saved, Snackbar.LENGTH_SHORT).setAnchorView(change_password_fab).show()
+                Snackbar.make(change_password_button, R.string.saved, Snackbar.LENGTH_SHORT).show()
             }
         }
     }
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+    override fun onBackPressed() {
+        finishAfterTransition()
+        super.onBackPressed()
     }
     private fun checkBox(): Boolean {
         val password = LocalData.read(this, getString(R.string.hashed_password))

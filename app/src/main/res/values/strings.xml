@@ -1,5 +1,4 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name" translatable="false">Güvenli Not</string>
     <string name="app_name_debug_version" translatable="false">Güvenli Not Debug</string>
     <string name="app_name_alpha_version" translatable="false" tools:keep="@string/app_name_alpha_version">Güvenli Not Alpha</string>
     <string name="save_password">Write password!</string>
@@ -32,4 +31,8 @@
     <string name="about_role_lead">Leader Developer</string>
     <string name="about_role_dev">Developer</string>
     <string name="about_role_graphicer">Graphicer</string>
+    <string name="enter">Enter</string>
+    <string name="date">Date</string>
+    <string name="settings_key_back_action_note_edit" translatable="false">back_action_note_edit</string>
+    <string name="search_title">Search</string>
 </resources>

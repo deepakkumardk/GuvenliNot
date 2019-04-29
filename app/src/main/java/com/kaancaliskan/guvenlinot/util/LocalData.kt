@@ -1,7 +1,6 @@
 package com.kaancaliskan.guvenlinot.util
 
 import android.content.Context
-import android.content.SharedPreferences
 
 private const val sharedPref = "preferences"
 
@@ -10,18 +9,15 @@ private const val sharedPref = "preferences"
  */
 object LocalData {
     /**
-     * This function writes the parameters.
+     * This function writes the string.
      */
     fun write(context: Context, title: String, content: String) {
-        val sharedPreferences : SharedPreferences= context.getSharedPreferences(sharedPref, Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor= sharedPreferences.edit()
-        editor.putString(title, content).apply()
+        context.getSharedPreferences(sharedPref, Context.MODE_PRIVATE).edit().putString(title, content).apply()
     }
     /**
-     * This function reads note.
+     * This function reads string.
      */
     fun read(context: Context, title: String): String? {
-        val sharedPreferences : SharedPreferences= context.getSharedPreferences(sharedPref, Context.MODE_PRIVATE)
-        return sharedPreferences.getString(title, "")
+        return context.getSharedPreferences(sharedPref, Context.MODE_PRIVATE).getString(title, null)
     }
 }

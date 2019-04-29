@@ -1,14 +1,15 @@
 package com.kaancaliskan.guvenlinot
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.ActivityOptions
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.kaancaliskan.guvenlinot.util.Hash
 import com.kaancaliskan.guvenlinot.util.LocalData
-import com.kaancaliskan.guvenlinot.util.UIThreadHelper
 import kotlinx.android.synthetic.main.activity_login.*
 import me.jfenn.attribouter.Attribouter
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivity
 
 var check_for_intent = false
@@ -20,50 +21,42 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        setSupportActionBar(login_bar)
 
-        confirm_layout.requestFocus()
-
-        if (LocalData.read(this, getString(R.string.hashed_password)) == "" ){
+        if (LocalData.read(this, getString(R.string.hashed_password)) == null ){
             startActivity<FirstLogin>()
             finish()
         }
-        confirm_fab.setOnClickListener{
+
+        confirm_EditText.requestFocus()
+
+        confirm_button.setOnClickListener{
             if (Hash.sha512(confirm_EditText.text.toString())==LocalData.read(this, getString(R.string.hashed_password))){
                 check_for_intent = true //For restrict accessing without password check.
-                startActivity<MainActivity>()
-                finish()
+                startActivity(intentFor<MainActivity>(), ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+                finishAfterTransition()
             } else{
                 confirm_layout.error = getString(R.string.password_check_error)
-                hideKeyboard()
             }
         }
     }
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_change_password -> {
-            startActivity<ChangePassword>()
+            startActivity(intentFor<ChangePassword>(), ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
             true
         }
         R.id.action_about -> {
-            Attribouter.from(this).show()
+            Attribouter.from(this, this)
+                    .withGitHubToken(System.getenv("GITHUB_TOKEN"))
+                    .show()
             true
         }
         else -> {
             super.onOptionsItemSelected(item)
         }
     }
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }
-    private fun hideKeyboard(){
-        val view = this.currentFocus
-        if (view != null){
-            UIThreadHelper.hideKeyboardAsync(applicationContext, view.windowToken)
-        }
-    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
+        menu.removeItem(R.id.action_search)
         return true
     }
 }

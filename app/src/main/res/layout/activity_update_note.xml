@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    tools:context=".UpdateNoteActivity">
-
+    android:transitionGroup="true"
+    android:nestedScrollingEnabled="true">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="56dp"
         android:orientation="vertical">
 
         <TextView
@@ -19,7 +16,7 @@
             style="@style/DateText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Date" />
+            android:hint="@string/date"/>
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/update_note_title"
@@ -27,25 +24,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/note_title"
-            tools:ignore="AutoFill"
-            tools:text="Note Title" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/update_note_content"
-            style="@style/ContentEditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/note_content"
             tools:ignore="AutoFill" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/update_note_content"
+                style="@style/ContentEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/note_content"
+                tools:ignore="AutoFill" />
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/update_note_bar"
-        style="@style/Widget.MaterialComponents.BottomAppBar"
-        app:backgroundTint="@color/primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/update_note"
-        app:titleTextColor="@color/icons"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom"
+        app:backgroundTint="@color/primary"
+        app:hideOnScroll="true"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

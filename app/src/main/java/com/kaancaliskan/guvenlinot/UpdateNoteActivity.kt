@@ -1,7 +1,7 @@
 package com.kaancaliskan.guvenlinot
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
@@ -29,15 +29,15 @@ class UpdateNoteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_update_note)
         setSupportActionBar(update_note_bar)
 
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
-
         noteId = intent.getLongExtra(NOTE_ID, 0)
         noteTitle = Hash.decode(intent?.getStringExtra(NOTE_TITLE).toString())
         noteContent = Hash.decode(intent?.getStringExtra(NOTE_CONTENT).toString())
         date = intent?.getStringExtra(DATE).toString()
 
         loadNoteInfo()
+
+        update_note_content.selectionEnd
+        update_note_content.requestFocus()
     }
 
     private fun loadNoteInfo() {
@@ -55,8 +55,7 @@ class UpdateNoteActivity : AppCompatActivity() {
         val content = update_note_content.text.toString()
 
         if (title == noteTitle && content == noteContent) {
-            finish()
-            super.onBackPressed()
+            finishAfterTransition()
         }else if (title.isNotEmpty() || content.isNotEmpty()) {
             val titleSave = Hash.encode(update_note_title.text.toString())
             val contentSave = Hash.encode(update_note_content.text.toString())
@@ -65,7 +64,7 @@ class UpdateNoteActivity : AppCompatActivity() {
             val note = Note(noteId, titleSave, contentSave, date)
             if (validateInput(titleSave, contentSave)) {
                 NotesRepository(application).updateNote(note)
-                finish()
+                finishAfterTransition()
             } else {
                 Snackbar.make(update_note_content, R.string.field_empty, Snackbar.LENGTH_SHORT).show()
                 if (titleSave.isEmpty()){
@@ -76,10 +75,7 @@ class UpdateNoteActivity : AppCompatActivity() {
             }
         }
     }
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }
+
     private fun getDate(): String{
         return SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.ROOT).format(Date()).toString()
     }

@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:nestedScrollingEnabled="true"
+    android:transitionGroup="true"
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:nestedScrollingEnabled="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_note"/>
@@ -40,24 +41,21 @@
             android:textColor="@color/primary_text"
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
-
     </LinearLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/main_bar"
-        style="@style/Widget.MaterialComponents.BottomAppBar"
-        app:backgroundTint="@color/primary"
-        app:fabAlignmentMode="center"
-        app:title="@string/app_name"
-        app:titleTextColor="@color/icons"
-        app:hideOnScroll="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom"
+        app:backgroundTint="@color/primary"
+        app:fabAlignmentMode="center"
+        app:fabAnimationMode="scale"
+        app:hideOnScroll="true"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:id="@+id/add_note_fab"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:backgroundTint="@color/accent"

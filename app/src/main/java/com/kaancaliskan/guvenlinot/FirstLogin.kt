@@ -15,9 +15,8 @@ class FirstLogin: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_login)
-        setSupportActionBar(first_login_bar)
 
-        save_password_fab.setOnClickListener {
+        save_password_button.setOnClickListener {
             if (write_password.text.toString()==confirm_password.text.toString() &&  write_password.text.toString()!=""){
                 LocalData.write(this, getString(R.string.hashed_password), Hash.sha512(write_password.text.toString()))
 
@@ -26,7 +25,7 @@ class FirstLogin: AppCompatActivity(){
                 finish()
             }
             else{
-                Snackbar.make(save_password_fab, R.string.cant_save, Snackbar.LENGTH_LONG).setAnchorView(save_password_fab).show()
+                Snackbar.make(save_password_button, R.string.cant_save, Snackbar.LENGTH_LONG).show()
             }
         }
     }

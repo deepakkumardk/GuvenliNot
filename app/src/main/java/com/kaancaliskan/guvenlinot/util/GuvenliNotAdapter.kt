@@ -1,13 +1,13 @@
 package com.kaancaliskan.guvenlinot.util
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.kaancaliskan.guvenlinot.R
 import com.kaancaliskan.guvenlinot.db.Note
-import org.jetbrains.anko.find
+import kotlinx.android.synthetic.main.item_note.view.*
 
 /**
  * Adapter for the recyclerView to be shown in the main activity
@@ -42,8 +42,8 @@ class GuvenliNotAdapter(private val noteList: MutableList<Note>, private val lis
      * ViewHolder class to cache the views for fast accessing
      */
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var noteTitle: TextView = itemView.find(R.id.item_note_title)
-        var noteContent: TextView = itemView.find(R.id.item_note_content)
-        var date: TextView = itemView.find(R.id.date)
+        var noteTitle: TextView = itemView.item_note_title
+        var noteContent: TextView = itemView.item_note_content
+        var date: TextView = itemView.date
     }
 }

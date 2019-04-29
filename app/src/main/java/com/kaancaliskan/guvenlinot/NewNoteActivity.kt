@@ -1,7 +1,7 @@
 package com.kaancaliskan.guvenlinot
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
@@ -24,8 +24,7 @@ class NewNoteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_note)
         setSupportActionBar(new_note_bar)
 
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        note_title.requestFocus()
 
         save_fab.onClick {
             val titleSave = Hash.encode(note_title.text.toString())
@@ -34,12 +33,11 @@ class NewNoteActivity : AppCompatActivity() {
             val note = Note(noteTitle = titleSave, noteContent = contentSave, date = date)
             if (validateInput(titleSave, contentSave)) {
                 NotesRepository(application).insertNote(note)
-                finish()
+                finishAfterTransition()
             } else {
                 Snackbar.make(note_content, R.string.field_empty, Snackbar.LENGTH_SHORT).setAnchorView(save_fab).show()
             }
         }
-        note_title_layout.requestFocus()
     }
 
     private fun validateInput(title: String, content: String): Boolean {
@@ -58,19 +56,20 @@ class NewNoteActivity : AppCompatActivity() {
         if (title.isNotEmpty() || content.isNotEmpty()) {
             alert(getString(R.string.discard_changes)) {
                 yesButton {
-                    finish()
-                    super.onBackPressed()
+                    finishAfterTransition()
                 }
                 noButton { it.dismiss() }
             }.show()
         }else {
-            finish()
+            finishAfterTransition()
         }
     }
+
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        super.onBackPressed()
         return true
     }
+
     private fun getDate(): String{
         return SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.ROOT).format(Date()).toString()
     }

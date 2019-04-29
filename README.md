@@ -13,7 +13,6 @@ This app supports 5.0-9.0 Android versions.
 
 ## Open Source Libraries:
 
-- [Toasty](https://github.com/GrenderG/Toasty) for error/success messages
 - [Attribouter](https://github.com/fennifith/Attribouter) for beautiful about page
 - [Anko](https://github.com/Kotlin/anko) for Pleasant Android Development
 - **Android support libraries**, of course

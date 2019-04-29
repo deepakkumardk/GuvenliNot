@@ -1,5 +1,6 @@
 package com.kaancaliskan.guvenlinot.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 /**
@@ -29,4 +30,7 @@ interface NoteDao {
      */
     @Delete
     fun deleteNote(note: Note)
+
+    @Query("SELECT * FROM guvenli_not WHERE noteContent or noteTitle LIKE :text")
+    fun search(text: String): LiveData<List<Note>>
 }

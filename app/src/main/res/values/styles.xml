@@ -4,8 +4,15 @@
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
         <item name="android:fontFamily">@font/rubik</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/fade</item>
+        <item name="android:windowExitTransition">@android:transition/fade</item>
     </style>
-    <style name="AttribouterTheme" parent="AppTheme" />
+    <style name="AttribouterTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
     <style name="EditTextStyle" parent="Base.Widget.AppCompat.EditText">
         <item name="android:layout_margin">4dp</item>
         <item name="android:background">@android:color/transparent</item>

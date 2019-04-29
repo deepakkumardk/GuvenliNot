@@ -1,6 +1,7 @@
 package com.kaancaliskan.guvenlinot.db
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
@@ -12,6 +13,7 @@ import org.jetbrains.anko.doAsync
 class NotesRepository(context: Context) {
     private var database: GuvenliNotDatabase? = GuvenliNotDatabase.getInstance(context)
     private lateinit var noteList: MutableList<Note>
+    private lateinit var searchList: LiveData<List<Note>>
 
     /**
      * fetch all notes from database
@@ -40,4 +42,14 @@ class NotesRepository(context: Context) {
      * delete note from database
      */
     fun deleteNote(note: Note) = doAsync { database?.noteDao()?.deleteNote(note) }
+
+    fun search(text: String): LiveData<List<Note>>{
+        runBlocking {
+            async(Dispatchers.Default) {
+                searchList = database?.noteDao()?.search(text)!!
+                return@async searchList
+            }.await()
+        }
+        return searchList
+    }
 }
