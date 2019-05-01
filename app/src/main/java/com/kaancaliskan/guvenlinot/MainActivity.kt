@@ -11,6 +11,7 @@ import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,7 +32,8 @@ import java.util.Collections
  */
 class MainActivity : AppCompatActivity() {
     private lateinit var adapter: GuvenliNotAdapter
-    private lateinit var noteList: MutableList<Note>
+    private lateinit var noteList: MutableList<Note> //should converted to LiveData<MutableList<Note>>
+    private lateinit var searchList: LiveData<MutableList<Note>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -184,17 +186,16 @@ class MainActivity : AppCompatActivity() {
         search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
-                //WORKING
                 //DO SEARCH!!
+                //use searchList
                 return false
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-                //WORKING
                 //DO SEARCH!!
+                //use searchList
                 return false
             }
-
         })
         return true
     }

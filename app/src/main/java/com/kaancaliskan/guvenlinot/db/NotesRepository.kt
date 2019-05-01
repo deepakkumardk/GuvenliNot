@@ -13,7 +13,7 @@ import org.jetbrains.anko.doAsync
 class NotesRepository(context: Context) {
     private var database: GuvenliNotDatabase? = GuvenliNotDatabase.getInstance(context)
     private lateinit var noteList: MutableList<Note>
-    private lateinit var searchList: LiveData<List<Note>>
+    private lateinit var searchList: LiveData<MutableList<Note>>
 
     /**
      * fetch all notes from database
@@ -43,10 +43,10 @@ class NotesRepository(context: Context) {
      */
     fun deleteNote(note: Note) = doAsync { database?.noteDao()?.deleteNote(note) }
 
-    fun search(text: String): LiveData<List<Note>>{
+    fun search(query: String): LiveData<MutableList<Note>> {
         runBlocking {
             async(Dispatchers.Default) {
-                searchList = database?.noteDao()?.search(text)!!
+                searchList = database?.noteDao()?.search(query)!!
                 return@async searchList
             }.await()
         }
