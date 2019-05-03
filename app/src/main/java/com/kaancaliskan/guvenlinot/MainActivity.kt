@@ -25,7 +25,6 @@ import kotlinx.android.synthetic.main.main_activity.*
 import me.jfenn.attribouter.Attribouter
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import java.util.Collections
 
 /**
  * This activity saves note and encode/decode note.
@@ -54,32 +53,6 @@ class MainActivity : AppCompatActivity() {
                 adapter.notifyItemRangeChanged(viewHolder.adapterPosition, noteList.size - viewHolder.adapterPosition + 1)
                 //to change other note's position change accordingly
                 isListEmpty()
-            }
-
-            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-                Collections.swap(noteList, viewHolder.adapterPosition, target.adapterPosition)
-                adapter.notifyItemMoved(viewHolder.adapterPosition, target.adapterPosition)
-
-                //swap content
-                val currentNote = Note(
-                        Id = noteList[viewHolder.adapterPosition].Id,
-                        noteTitle = noteList[target.adapterPosition].noteTitle,
-                        noteContent = noteList[target.adapterPosition].noteContent,
-                        date = noteList[target.adapterPosition].date)
-
-                val newNote = Note(
-                        Id = noteList[target.adapterPosition].Id,
-                        noteTitle = noteList[viewHolder.adapterPosition].noteTitle,
-                        noteContent = noteList[viewHolder.adapterPosition].noteContent,
-                        date = noteList[viewHolder.adapterPosition].date)
-
-                //save changes to database
-                NotesRepository(applicationContext).updateNote(currentNote)
-                NotesRepository(applicationContext).updateNote(newNote)
-
-                //this method works with just 1 swipe up or down :(
-
-                return super.onMove(recyclerView, viewHolder, target)
             }
         }
         ItemTouchHelper(swipeHandler).attachToRecyclerView(recycler_view)
@@ -186,13 +159,13 @@ class MainActivity : AppCompatActivity() {
         search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
-                //DO SEARCH!!
+                //WORKING!!
                 //use searchList
                 return false
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-                //DO SEARCH!!
+                //WORKING!!
                 //use searchList
                 return false
             }

@@ -23,7 +23,7 @@ abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.Callbac
         return makeMovementFlags(dragFlags, swipeFlags)
     }
     override fun isLongPressDragEnabled(): Boolean {
-        return true
+        return false
     }
 
     override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {

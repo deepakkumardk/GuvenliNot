@@ -1,0 +1,14 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="shortcut"
+        android:enabled="true"
+        android:icon="@drawable/baseline_add_24"
+        android:shortcutShortLabel="@string/shortcut_short_label">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.kaancaliskan.guvenlinot"
+            android:targetClass="com.kaancaliskan.guvenlinot.NewNoteActivity" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>
+    <!-- you have to change targetPackage if you build apk on alpha or debug :( sorry -->
