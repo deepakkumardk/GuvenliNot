@@ -15,6 +15,9 @@ class ChangePassword: AppCompatActivity() {
         setContentView(R.layout.change_password)
         setSupportActionBar(change_password_bar)
 
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24)
+
         password_check.requestFocus()
 
         password_check.setOnTouchListener { _, _ ->

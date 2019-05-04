@@ -33,4 +33,6 @@
     <string name="date">Tarih</string>
     <string name="search_title">Ara</string>
     <string name="shortcut_short_label">Yeni Not Ekle</string>
+    <string name="note_delete_success">Not başarıyla silindi!</string>
+    <string name="undo">Geri Al</string>
 </resources>

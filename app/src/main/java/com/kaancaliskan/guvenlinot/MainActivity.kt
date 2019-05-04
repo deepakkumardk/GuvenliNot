@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.GuvenliNotDatabase
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
@@ -47,12 +48,20 @@ class MainActivity : AppCompatActivity() {
         val swipeHandler = object : SwipeToDeleteCallback(this) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val deleteNote = noteList[viewHolder.adapterPosition]
+                val position = viewHolder.adapterPosition
                 NotesRepository(applicationContext).deleteNote(deleteNote)
-                noteList.removeAt(viewHolder.adapterPosition)
-                adapter.notifyItemRemoved(viewHolder.adapterPosition)
-                adapter.notifyItemRangeChanged(viewHolder.adapterPosition, noteList.size - viewHolder.adapterPosition + 1)
-                //to change other note's position change accordingly
+                noteList.removeAt(position)
+                adapter.notifyItemRemoved(position)
+                adapter.notifyItemRangeChanged(position, noteList.size - position + 1)
                 isListEmpty()
+
+                Snackbar.make(recycler_view, getString(R.string.note_delete_success), Snackbar.LENGTH_LONG)
+                    .setAnchorView(add_note_fab)
+                    .setAction(getString(R.string.undo)) {
+                        NotesRepository(applicationContext).insertNote(deleteNote)
+                        refreshRecyclerView()
+                    }
+                    .show()
             }
         }
         ItemTouchHelper(swipeHandler).attachToRecyclerView(recycler_view)
@@ -132,7 +141,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
         R.id.action_about -> {
-            Attribouter.from(this, this)
+            Attribouter.from(this)
                     .withGitHubToken(System.getenv("GITHUB_TOKEN"))
                     .show()
             true

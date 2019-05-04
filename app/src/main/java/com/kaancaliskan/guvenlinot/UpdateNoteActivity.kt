@@ -29,6 +29,9 @@ class UpdateNoteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_update_note)
         setSupportActionBar(update_note_bar)
 
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24)
+
         noteId = intent.getLongExtra(NOTE_ID, 0)
         noteTitle = Hash.decode(intent?.getStringExtra(NOTE_TITLE).toString())
         noteContent = Hash.decode(intent?.getStringExtra(NOTE_CONTENT).toString())
@@ -74,6 +77,11 @@ class UpdateNoteActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        super.onBackPressed()
+        return true
     }
 
     private fun getDate(): String{

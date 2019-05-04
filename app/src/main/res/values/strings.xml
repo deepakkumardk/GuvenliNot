@@ -33,7 +33,8 @@
     <string name="about_role_graphicer">Graphicer</string>
     <string name="enter">Enter</string>
     <string name="date">Date</string>
-    <string name="settings_key_back_action_note_edit" translatable="false">back_action_note_edit</string>
     <string name="search_title">Search</string>
     <string name="shortcut_short_label">Add New Note</string>
+    <string name="note_delete_success">Note deleted successfully!</string>
+    <string name="undo">Undo</string>
 </resources>

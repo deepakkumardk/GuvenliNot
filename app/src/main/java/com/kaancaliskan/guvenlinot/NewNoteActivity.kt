@@ -26,6 +26,9 @@ class NewNoteActivity : AppCompatActivity() {
 
         note_title.requestFocus()
 
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24)
+
         save_fab.onClick {
             val titleSave = Hash.encode(note_title.text.toString())
             val contentSave = Hash.encode(note_content.text.toString())

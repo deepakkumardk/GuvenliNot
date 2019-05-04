@@ -28,6 +28,7 @@
         <activity
             android:name=".MainActivity"
             android:label="${app_name"
+            android:theme="@style/MainActivityTheme"
             android:autoRemoveFromRecents="true"
             android:windowSoftInputMode="stateAlwaysHidden">
             <meta-data android:name="android.app.searchable"
@@ -51,8 +52,6 @@
             android:autoRemoveFromRecents="true"
             android:noHistory="true"
             android:parentActivityName=".MainActivity">
-            <meta-data android:name="android.app.shortcuts"
-                android:resource="@xml/shortcuts"/>
         </activity>
         <activity
             android:name=".UpdateNoteActivity"

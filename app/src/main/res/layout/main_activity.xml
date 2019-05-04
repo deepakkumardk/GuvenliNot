@@ -50,7 +50,6 @@
         android:layout_gravity="bottom"
         app:backgroundTint="@color/primary"
         app:fabAlignmentMode="center"
-        app:fabAnimationMode="scale"
         app:hideOnScroll="true"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
