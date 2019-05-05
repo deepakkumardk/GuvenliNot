@@ -9,6 +9,10 @@
         <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.kaancaliskan.guvenlinot"
+            android:targetClass="com.kaancaliskan.guvenlinot.LoginActivity" />
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.kaancaliskan.guvenlinot"
             android:targetClass="com.kaancaliskan.guvenlinot.NewNoteActivity" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>

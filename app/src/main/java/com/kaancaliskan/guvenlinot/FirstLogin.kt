@@ -11,20 +11,22 @@ import org.jetbrains.anko.startActivity
 /**
  * This class helps us to take the first password.
  */
-class FirstLogin: AppCompatActivity(){
+class FirstLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_login)
 
         save_password_button.setOnClickListener {
-            if (write_password.text.toString()==confirm_password.text.toString() &&  write_password.text.toString()!=""){
-                LocalData.write(this, getString(R.string.hashed_password), Hash.sha512(write_password.text.toString()))
+            val newPassword = write_password.text.toString()
+            val newPasswordConfirm = confirm_password.text.toString()
 
-                check_for_intent=true
+            if (newPassword == newPasswordConfirm && newPassword != "") {
+                LocalData.write(this, getString(R.string.hashed_password), Hash.sha512(newPassword))
+
+                check_for_intent = true
                 startActivity<MainActivity>()
                 finish()
-            }
-            else{
+            } else {
                 Snackbar.make(save_password_button, R.string.cant_save, Snackbar.LENGTH_LONG).show()
             }
         }

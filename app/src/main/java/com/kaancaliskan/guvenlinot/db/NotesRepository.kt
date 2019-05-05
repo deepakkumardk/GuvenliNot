@@ -43,6 +43,9 @@ class NotesRepository(context: Context) {
      */
     fun deleteNote(note: Note) = doAsync { database?.noteDao()?.deleteNote(note) }
 
+    /**
+     * search note in database
+     */
     fun search(query: String): LiveData<MutableList<Note>> {
         runBlocking {
             async(Dispatchers.Default) {

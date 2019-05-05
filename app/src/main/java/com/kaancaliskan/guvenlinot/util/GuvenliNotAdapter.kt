@@ -12,7 +12,10 @@ import kotlinx.android.synthetic.main.item_note.view.*
 /**
  * Adapter for the recyclerView to be shown in the main activity
  */
-class GuvenliNotAdapter(private val noteList: MutableList<Note>, private val listener: (Note) -> Unit) : RecyclerView.Adapter<GuvenliNotAdapter.MyViewHolder>() {
+class GuvenliNotAdapter(
+    private val noteList: MutableList<Note>,
+    private val listener: (Note) -> Unit
+) : RecyclerView.Adapter<GuvenliNotAdapter.MyViewHolder>() {
     /**
      * override the onCreateViewHolder method
      */

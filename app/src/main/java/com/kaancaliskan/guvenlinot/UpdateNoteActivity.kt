@@ -8,7 +8,8 @@ import com.kaancaliskan.guvenlinot.db.NotesRepository
 import com.kaancaliskan.guvenlinot.util.Hash
 import kotlinx.android.synthetic.main.activity_update_note.*
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 
 const val NOTE_ID = "NOTE_ID"
 const val NOTE_TITLE = "NOTE_TITLE"
@@ -58,8 +59,8 @@ class UpdateNoteActivity : AppCompatActivity() {
         val content = update_note_content.text.toString()
 
         if (title == noteTitle && content == noteContent) {
-            finishAfterTransition()
-        }else if (title.isNotEmpty() || content.isNotEmpty()) {
+            finish()
+        } else if (title.isNotEmpty() || content.isNotEmpty()) {
             val titleSave = Hash.encode(update_note_title.text.toString())
             val contentSave = Hash.encode(update_note_content.text.toString())
             val date = getDate()
@@ -67,12 +68,12 @@ class UpdateNoteActivity : AppCompatActivity() {
             val note = Note(noteId, titleSave, contentSave, date)
             if (validateInput(titleSave, contentSave)) {
                 NotesRepository(application).updateNote(note)
-                finishAfterTransition()
+                finish()
             } else {
                 Snackbar.make(update_note_content, R.string.field_empty, Snackbar.LENGTH_SHORT).show()
-                if (titleSave.isEmpty()){
+                if (titleSave.isEmpty()) {
                     update_note_title.requestFocus()
-                } else{
+                } else {
                     update_note_content.requestFocus()
                 }
             }
@@ -81,10 +82,10 @@ class UpdateNoteActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         super.onBackPressed()
-        return true
+        return false
     }
 
-    private fun getDate(): String{
+    private fun getDate(): String {
         return SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.ROOT).format(Date()).toString()
     }
 }

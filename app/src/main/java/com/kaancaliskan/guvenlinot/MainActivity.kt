@@ -1,6 +1,5 @@
 package com.kaancaliskan.guvenlinot
 
-import android.app.ActivityOptions
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
@@ -24,15 +23,15 @@ import com.kaancaliskan.guvenlinot.util.GuvenliNotAdapter
 import com.kaancaliskan.guvenlinot.util.SwipeToDeleteCallback
 import kotlinx.android.synthetic.main.main_activity.*
 import me.jfenn.attribouter.Attribouter
-import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
 
 /**
  * This activity saves note and encode/decode note.
  */
 class MainActivity : AppCompatActivity() {
     private lateinit var adapter: GuvenliNotAdapter
-    private lateinit var noteList: MutableList<Note> //should converted to LiveData<MutableList<Note>>
+    private lateinit var noteList: MutableList<Note> // should converted to LiveData<MutableList<Note>>
     private lateinit var searchList: LiveData<MutableList<Note>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(main_bar)
 
         if (!check_for_intent) {
-            //For restrict accessing without password check.
+            // For restrict accessing without password check.
             Toast.makeText(this, R.string.restrict_access, Toast.LENGTH_LONG).show()
             System.exit(0)
         }
@@ -77,12 +76,7 @@ class MainActivity : AppCompatActivity() {
         adapter.notifyDataSetChanged()
 
         add_note_fab.onClick {
-            startActivity(
-                    intentFor<NewNoteActivity>(),
-                    ActivityOptions
-                            .makeSceneTransitionAnimation(
-                                    this@MainActivity)
-                            .toBundle())
+            startActivity<NewNoteActivity>()
         }
     }
 
@@ -92,17 +86,11 @@ class MainActivity : AppCompatActivity() {
         val content = note?.noteContent.toString()
         val date = note?.date.toString()
 
-        startActivity(
-                intentFor<UpdateNoteActivity>(
-                        NOTE_ID to id,
-                        NOTE_TITLE to title,
-                        NOTE_CONTENT to content,
-                        DATE to date),
-                ActivityOptions
-                        .makeSceneTransitionAnimation(
-                                this)
-                        .toBundle())
-
+        startActivity<UpdateNoteActivity>(
+                NOTE_ID to id,
+                NOTE_TITLE to title,
+                NOTE_CONTENT to content,
+                DATE to date)
     }
 
     override fun onResume() {
@@ -134,10 +122,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_change_password -> {
-            startActivity(
-                    intentFor<ChangePassword>(),
-                    ActivityOptions
-                            .makeSceneTransitionAnimation(this).toBundle())
+            startActivity<ChangePassword>()
             true
         }
         R.id.action_about -> {
@@ -149,11 +134,6 @@ class MainActivity : AppCompatActivity() {
         else -> {
             super.onOptionsItemSelected(item)
         }
-    }
-
-    override fun onBackPressed() {
-        finish()
-        super.onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -168,14 +148,14 @@ class MainActivity : AppCompatActivity() {
         search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
-                //WORKING!!
-                //use searchList
+                // WORKING
+                // use searchList
                 return false
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-                //WORKING!!
-                //use searchList
+                // WORKING
+                // use searchList
                 return false
             }
         })

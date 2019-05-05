@@ -23,7 +23,13 @@ abstract class GuvenliNotDatabase : RoomDatabase() {
         fun getInstance(context: Context): GuvenliNotDatabase? {
             if (INSTANCE == null) {
                 synchronized(GuvenliNotDatabase::class) {
-                    INSTANCE = Room.databaseBuilder(context, GuvenliNotDatabase::class.java, "guvenli_not_db.sql").fallbackToDestructiveMigration().build()
+                    INSTANCE = Room
+                            .databaseBuilder(
+                                context,
+                                GuvenliNotDatabase::class.java,
+                                "guvenli_not_db.sql")
+                            .fallbackToDestructiveMigration()
+                            .build()
                 }
             }
             return INSTANCE

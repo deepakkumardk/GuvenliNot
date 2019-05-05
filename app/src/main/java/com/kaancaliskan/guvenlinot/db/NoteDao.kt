@@ -1,7 +1,11 @@
 package com.kaancaliskan.guvenlinot.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+import androidx.room.Update
+import androidx.room.Delete
 
 /**
  * Dao interface to contain all the CRUD methods
@@ -31,6 +35,9 @@ interface NoteDao {
     @Delete
     fun deleteNote(note: Note)
 
+    /**
+     * search the note in database
+     */
     @Query("SELECT * FROM guvenli_not WHERE noteContent or noteTitle LIKE :text")
     fun search(text: String): LiveData<MutableList<Note>>
 }

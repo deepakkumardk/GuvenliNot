@@ -9,10 +9,10 @@ import androidx.annotation.NonNull
  */
 @Entity(tableName = "guvenli_not")
 data class Note(
-        @PrimaryKey(autoGenerate = true)
-        @NonNull
-        var Id: Long = 0,
-        var noteTitle: String,
-        var noteContent: String,
-        var date: String
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    var Id: Long = 0,
+    var noteTitle: String,
+    var noteContent: String,
+    var date: String
 )

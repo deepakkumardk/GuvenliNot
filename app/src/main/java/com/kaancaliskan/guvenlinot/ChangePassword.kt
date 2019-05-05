@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.change_password.*
 /**
  * This class provides us to change password.
  */
-class ChangePassword: AppCompatActivity() {
+class ChangePassword : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.change_password)
@@ -34,41 +34,58 @@ class ChangePassword: AppCompatActivity() {
         }
 
         change_password_button.setOnClickListener {
-            if (checkBox()){
-                val newPw = Hash.sha512(new_password.text.toString())
+            if (checkBox()) {
+                val newPassword = Hash.sha512(new_password.text.toString())
 
-                LocalData.write(this, getString(R.string.hashed_password), newPw)
-                Snackbar.make(change_password_button, R.string.saved, Snackbar.LENGTH_SHORT).show()
+                LocalData.write(this, getString(R.string.hashed_password), newPassword)
+                Snackbar.make(
+                            change_password_button,
+                            R.string.saved,
+                            Snackbar.LENGTH_SHORT)
+                        .setAnchorView(change_password_bar)
+                        .show()
             }
         }
     }
     override fun onBackPressed() {
-        finishAfterTransition()
+        finish()
         super.onBackPressed()
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        super.onBackPressed()
+        return true
+    }
+
+    /**
+     * this function checks this conditions
+     * 1- requested current password is correct
+     * 2- new password strings are same
+     * 3- new password string isn't empty
+     */
     private fun checkBox(): Boolean {
-        val password = LocalData.read(this, getString(R.string.hashed_password))
-        val pw = Hash.sha512(password_check.text.toString())
+        val currentPassword = LocalData.read(this, getString(R.string.hashed_password))
+        val currentPasswordCheck = Hash.sha512(password_check.text.toString())
+        val newPassword = new_password.text.toString()
+        val newPasswordCheck = new_password_check.text.toString()
+        var boolean = false
 
         when {
-            password != pw -> {
+            currentPassword != currentPasswordCheck -> {
                 password_check_layout.error = getString(R.string.password_check_error)
-                return false
             }
-            new_password.text!!.isBlank() -> {
+            newPassword.isBlank() -> {
                 new_password_layout.error = getString(R.string.empty)
-                return false
             }
-            new_password_check.text!!.isBlank() -> {
+            newPasswordCheck.isBlank() -> {
                 new_password_check_layout.error = getString(R.string.empty)
-                return false
             }
-            new_password.text.toString() != new_password_check.text.toString() && !new_password.text!!.isBlank() -> {
+            newPassword != newPasswordCheck && !newPassword.isBlank() -> {
                 new_password_layout.error = getString(R.string.new_password_check_error)
                 new_password_check_layout.error = getString(R.string.new_password_check_error)
-                return false
             }
-            else -> return true
+            else -> boolean = true
         }
+        return boolean
     }
 }
