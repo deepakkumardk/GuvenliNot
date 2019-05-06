@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.change_password.*
  */
 class ChangePassword : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        delegate.applyDayNight()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.change_password)
         setSupportActionBar(change_password_bar)
@@ -53,7 +54,7 @@ class ChangePassword : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        super.onBackPressed()
+        onBackPressed()
         return true
     }
 

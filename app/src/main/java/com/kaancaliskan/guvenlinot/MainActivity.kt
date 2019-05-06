@@ -9,17 +9,20 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.kaancaliskan.guvenlinot.db.GuvenliNotDatabase
 import com.kaancaliskan.guvenlinot.db.Note
 import com.kaancaliskan.guvenlinot.db.NotesRepository
 import com.kaancaliskan.guvenlinot.util.GuvenliNotAdapter
+import com.kaancaliskan.guvenlinot.util.LocalData
 import com.kaancaliskan.guvenlinot.util.SwipeToDeleteCallback
 import kotlinx.android.synthetic.main.main_activity.*
 import me.jfenn.attribouter.Attribouter
@@ -35,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var searchList: LiveData<MutableList<Note>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        delegate.applyDayNight()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         setSupportActionBar(main_bar)
@@ -114,7 +118,6 @@ class MainActivity : AppCompatActivity() {
             empty_view.visibility = GONE
         }
     }
-
     override fun onDestroy() {
         super.onDestroy()
         GuvenliNotDatabase.destroyInstance()
@@ -123,6 +126,23 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_change_password -> {
             startActivity<ChangePassword>()
+            true
+        }
+        R.id.theme -> {
+            MaterialAlertDialogBuilder(this)
+                    .setTitle(getString(R.string.select_theme))
+                    .setMessage(getString(R.string.choose_theme))
+                    .setPositiveButton(getString(R.string.light)) { _, _ ->
+                        LocalData.write(this@MainActivity, getString(R.string.night_mode), "false")
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                        delegate.applyDayNight()
+                    }
+                    .setNegativeButton(getString(R.string.dark)) { _, _ ->
+                        LocalData.write(this@MainActivity, getString(R.string.night_mode), "true")
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                        delegate.applyDayNight()
+                    }
+                    .show()
             true
         }
         R.id.action_about -> {

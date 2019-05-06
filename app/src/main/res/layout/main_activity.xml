@@ -24,31 +24,22 @@
         android:visibility="gone"
         tools:ignore="UseCompoundDrawables">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="Pencil Logo"
-            android:src="@drawable/magnifier"
-            tools:ignore="HardcodedText" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/no_note_found"
             android:textSize="24sp"
-            android:textColor="@color/primary_text"
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
     </LinearLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/main_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/primary"
         app:fabAlignmentMode="center"
         app:hideOnScroll="true"/>
 
@@ -57,7 +48,6 @@
         style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/accent"
         android:src="@drawable/baseline_add_24"
         app:layout_anchor="@id/main_bar"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -16,14 +16,13 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/item_note_title"
             android:transitionName="title_transition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:padding="2dp"
-            android:textColor="@color/primary_text"
             android:textSize="24sp"
             android:textStyle="bold"
             app:boxCornerRadiusBottomEnd="4dp"
@@ -32,11 +31,10 @@
             app:boxCornerRadiusTopStart="4dp"
             tools:text="GuvenliNot Title" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/secondary_text"
             android:textSize="12sp"
             app:boxCornerRadiusBottomEnd="4dp"
             app:boxCornerRadiusBottomStart="4dp"
@@ -44,14 +42,13 @@
             app:boxCornerRadiusTopStart="4dp"
             tools:text="Date goes here" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/item_note_content"
             android:transitionName="content_transition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="2"
             android:padding="2dp"
-            android:textColor="@color/secondary_text"
             android:textSize="16sp"
             app:boxCornerRadiusBottomEnd="4dp"
             app:boxCornerRadiusBottomStart="4dp"

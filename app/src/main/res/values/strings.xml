@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name" translatable="false">Güvenli Not</string>
+    <string name="app_name" translatable="false" tools:keep="@string/app_name">Güvenli Not</string>
     <string name="app_name_debug_version" translatable="false">Güvenli Not Debug</string>
     <string name="app_name_alpha_version" translatable="false" tools:keep="@string/app_name_alpha_version">Güvenli Not Alpha</string>
     <string name="save_password">Write password!</string>
@@ -11,6 +11,7 @@
     <string name="new_password_check_error">New passwords are not same!</string>
     <string name="empty">Can\'t be empty!</string>
     <string name="hashed_password" translatable="false">hashed_password</string>
+    <string name="night_mode" translatable="false">night_mode</string>
     <string name="saved">Saved!</string>
     <string name="change_password">Please select a password</string>
     <string name="restrict_access">You can\'t access to notes without password!</string>
@@ -25,7 +26,6 @@
     <string name="new_note">New Note</string>
     <string name="update_note">Update Note</string>
     <string name="login_helper">Case Sensitive</string>
-    <string name="discard_changes">Are you sure you want to discard changes?</string>
     <string name="no_note_found">Create note with + button</string>
     <string name="about_our_team">Developers</string>
     <string name="about_app_description">Simple Note App</string>
@@ -38,4 +38,10 @@
     <string name="shortcut_short_label">Add New Note</string>
     <string name="note_delete_success">Note deleted successfully!</string>
     <string name="undo">Undo</string>
+    <string name="select_theme">Select theme</string>
+    <string name="dark">Dark</string>
+    <string name="light">Light</string>
+    <string name="choose_theme">Choose the theme you want to use</string>
+    <string name="exit_without_save">Exit without saving?</string>
+    <string name="sure_exit_without_save">Are you sure you want to exit without saving?</string>
 </resources>

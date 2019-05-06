@@ -1,14 +1,9 @@
 <resources>
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:fontFamily">@font/rubik</item>
     </style>
     <style name="AttribouterTheme" parent="AppTheme">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
+
     </style>
     <style name="MainActivityTheme" parent="AppTheme">
         <item name="android:textColorSecondary">@android:color/white</item>

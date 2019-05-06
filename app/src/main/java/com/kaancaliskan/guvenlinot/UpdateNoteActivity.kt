@@ -26,6 +26,7 @@ class UpdateNoteActivity : AppCompatActivity() {
     private var date: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        delegate.applyDayNight()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_note)
         setSupportActionBar(update_note_bar)
@@ -81,7 +82,7 @@ class UpdateNoteActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        super.onBackPressed()
+        onBackPressed()
         return false
     }
 

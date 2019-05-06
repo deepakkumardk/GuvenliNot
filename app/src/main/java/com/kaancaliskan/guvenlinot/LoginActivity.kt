@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.kaancaliskan.guvenlinot.util.Hash
 import com.kaancaliskan.guvenlinot.util.LocalData
 import kotlinx.android.synthetic.main.activity_login.*
@@ -17,6 +18,12 @@ var check_for_intent = false
  */
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (LocalData.read(this, getString(R.string.night_mode)) == "true") {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+        delegate.applyDayNight()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -24,9 +31,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity<FirstLogin>()
             finish()
         }
-
-        confirm_EditText.requestFocus()
-
         confirm_button.setOnClickListener {
             val hashedPassword = Hash.sha512(confirm_EditText.text.toString())
             val hashedCurrentPassword = LocalData.read(this, getString(R.string.hashed_password))
@@ -38,6 +42,7 @@ class LoginActivity : AppCompatActivity() {
                 confirm_layout.error = getString(R.string.password_check_error)
             }
         }
+        confirm_EditText.requestFocus()
     }
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_change_password -> {
@@ -57,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         menu.removeItem(R.id.action_search)
+        menu.removeItem(R.id.theme)
         return true
     }
 }

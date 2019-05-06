@@ -13,7 +13,6 @@
     <string name="restrict_access">Şifre girmeden notlara erişemezsin!</string>
     <string name="title_attribouter_about">Hakkında</string>
     <string name="licenses" tools:keep="@string/licenses">Lisanslar</string>
-    <string name="discard_changes">Değişiklikleri iptal etmek istediğine emin misin?</string>
     <string name="write_password">Şifreyi yaz</string>
     <string name="confirm_password">Şifreyi doğrula</string>
     <string name="cant_save">Kaydedilemedi!</string>
@@ -35,4 +34,10 @@
     <string name="shortcut_short_label">Yeni Not Ekle</string>
     <string name="note_delete_success">Not başarıyla silindi!</string>
     <string name="undo">Geri Al</string>
+    <string name="select_theme">Tema seç</string>
+    <string name="dark">Karanlık</string>
+    <string name="light">Aydınlık</string>
+    <string name="choose_theme">Kullanmak istediğin temayı seç</string>
+    <string name="exit_without_save">Kaydetmeden çık?</string>
+    <string name="sure_exit_without_save">Kaydetmeden çıkmak istediğinize emin misiniz?</string>
 </resources>

@@ -65,10 +65,10 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/new_note_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/primary"
         app:fabAlignmentMode="center"
         app:hideOnScroll="true"/>
 
@@ -81,7 +81,6 @@
         android:layout_marginBottom="16dp"
         android:src="@drawable/check"
         app:layout_anchor="@id/new_note_bar"
-        android:backgroundTint="@color/accent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
