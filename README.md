@@ -3,7 +3,6 @@
 </h1>
 
 [![Build Status](https://travis-ci.org/hakkikaancaliskan/GuvenliNot.svg?branch=master)](https://travis-ci.org/hakkikaancaliskan/GuvenliNot)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3eb11db12ddc4532b566bd9d9f400674)](https://www.codacy.com/app/hakkikaancaliskan/GuvenliNot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hakkikaancaliskan/GuvenliNot&amp;utm_campaign=Badge_Grade)
 
 # Secure Note App for Android
 
