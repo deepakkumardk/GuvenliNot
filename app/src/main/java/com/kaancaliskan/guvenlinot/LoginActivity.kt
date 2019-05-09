@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.kaancaliskan.guvenlinot.util.Hash
 import com.kaancaliskan.guvenlinot.util.LocalData
 import kotlinx.android.synthetic.main.activity_login.*
@@ -18,22 +19,31 @@ var check_for_intent = false
  */
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        if (LocalData.read(this, getString(R.string.night_mode)) == "true") {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        val hashedCurrentPassword = LocalData.read(this, getString(R.string.hashed_password))
+
+        when (LocalData.read(this, getString(R.string.night_mode))) {
+            "true" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            "false" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            "battery" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
         }
         delegate.applyDayNight()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        setSupportActionBar(login_bar)
 
+        /**
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        contentView!!.systemUiVisibility =
+        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        }
+        Ready to android Q :)
+         */
         if (LocalData.read(this, getString(R.string.hashed_password)) == null) {
             startActivity<FirstLogin>()
             finish()
         }
-        confirm_button.setOnClickListener {
+        confirm_password_fab.setOnClickListener {
             val hashedPassword = Hash.sha512(confirm_EditText.text.toString())
-            val hashedCurrentPassword = LocalData.read(this, getString(R.string.hashed_password))
             if (hashedPassword == hashedCurrentPassword) {
                 check_for_intent = true // For restrict accessing without password check.
                 startActivity<MainActivity>()
@@ -49,6 +59,28 @@ class LoginActivity : AppCompatActivity() {
             startActivity<ChangePassword>()
             true
         }
+        R.id.theme -> {
+            MaterialAlertDialogBuilder(this)
+                    .setTitle(getString(R.string.select_theme))
+                    .setMessage(getString(R.string.choose_theme))
+                    .setPositiveButton(getString(R.string.light)) { _, _ ->
+                        LocalData.write(this, getString(R.string.night_mode), "false")
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                        delegate.applyDayNight()
+                    }
+                    .setNegativeButton(getString(R.string.dark)) { _, _ ->
+                        LocalData.write(this, getString(R.string.night_mode), "true")
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                        delegate.applyDayNight()
+                    }
+                    .setNeutralButton("Set by Battery Saver") { _, _ ->
+                        LocalData.write(this, getString(R.string.night_mode), "battery")
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
+                        delegate.applyDayNight()
+                    }
+                    .show()
+            true
+        }
         R.id.action_about -> {
             Attribouter.from(this)
                     .withGitHubToken(System.getenv("GITHUB_TOKEN"))
@@ -62,7 +94,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         menu.removeItem(R.id.action_search)
-        menu.removeItem(R.id.theme)
         return true
     }
 }

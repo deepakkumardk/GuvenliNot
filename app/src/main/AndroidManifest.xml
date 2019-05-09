@@ -16,8 +16,8 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".LoginActivity"
-            android:label="${app_name}"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            android:label="${app_name}">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -28,7 +28,6 @@
     <string name="about_role_lead" tools:keep="@string/about_role_lead">Lider Geliştirici</string>
     <string name="about_role_dev" tools:keep="@string/about_role_dev">Geliştirici</string>
     <string name="about_role_graphicer" tools:keep="@string/about_role_graphicer">Tasarımcı</string>
-    <string name="enter">Gir</string>
     <string name="date">Tarih</string>
     <string name="search_title">Ara</string>
     <string name="shortcut_short_label">Yeni Not Ekle</string>

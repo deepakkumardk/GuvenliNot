@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0-alpha13'
+        classpath 'com.android.tools.build:gradle:3.5.0-beta01'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -33,13 +33,6 @@ detekt {
     version = "1.0.0.RC14"
     input = files("$projectDir/app/src")
     filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
-
-    reports {
-        html {
-            enabled = true
-            destination = file("$projectDir/build/reports/detekt.html")
-        }
-    }
 }
 
 configurations {

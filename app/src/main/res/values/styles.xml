@@ -1,10 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:fontFamily">@font/rubik</item>
+        <item name="android:navigationBarColor" tools:targetApi="29">@android:color/transparent</item>
+        <item name="android:statusBarColor" tools:targetApi="29">@android:color/transparent</item>
     </style>
-    <style name="AttribouterTheme" parent="AppTheme">
-
-    </style>
+    <style name="AttribouterTheme" parent="AppTheme"/>
     <style name="MainActivityTheme" parent="AppTheme">
         <item name="android:textColorSecondary">@android:color/white</item>
     </style>

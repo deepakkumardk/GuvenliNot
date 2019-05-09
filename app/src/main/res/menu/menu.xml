@@ -6,6 +6,10 @@
         android:title="@string/change_password_menu"
         app:showAsAction="never"/>
 
+    <item android:id="@+id/theme"
+        android:title="@string/select_theme"
+        app:showAsAction="never"/>
+
     <item android:id="@+id/action_about"
         android:title="@string/title_attribouter_about"
         app:showAsAction="never"/>
@@ -16,8 +20,4 @@
         app:showAsAction="collapseActionView|always"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         tools:ignore="AlwaysShowAction" />
-
-    <item android:id="@+id/theme"
-        android:title="@string/select_theme"
-        app:showAsAction="never"/>
 </menu>
