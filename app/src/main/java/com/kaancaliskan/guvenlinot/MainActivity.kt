@@ -1,7 +1,5 @@
 package com.kaancaliskan.guvenlinot
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,7 +8,6 @@ import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -170,26 +167,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
 
+        /**
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val search = menu.findItem(R.id.action_search).actionView as SearchView
 
         search.apply {
-            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        setSearchableInfo(searchManager.getSearchableInfo(componentName))
         }
         search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
-            override fun onQueryTextChange(newText: String): Boolean {
-                // WORKING
-                // use searchList
-                return false
-            }
+        override fun onQueryTextChange(newText: String): Boolean {
+        // WORKING
+        // use searchList
+        return false
+        }
 
-            override fun onQueryTextSubmit(query: String): Boolean {
-                // WORKING
-                // use searchList
-                return false
-            }
+        override fun onQueryTextSubmit(query: String): Boolean {
+        // WORKING
+        // use searchList
+        return false
+        }
         })
+         */
         return true
     }
 }

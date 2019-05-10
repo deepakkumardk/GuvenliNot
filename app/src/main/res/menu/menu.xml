@@ -1,4 +1,4 @@
-<menu xmlns:tools="http://schemas.android.com/tools"
+<menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -14,10 +14,11 @@
         android:title="@string/title_attribouter_about"
         app:showAsAction="never"/>
 
-    <item android:id="@+id/action_search"
+    <!-- <item android:id="@+id/action_search"
         android:title="@string/search_title"
         android:icon="@drawable/baseline_search_24"
         app:showAsAction="collapseActionView|always"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         tools:ignore="AlwaysShowAction" />
+        -->
 </menu>
