@@ -136,7 +136,7 @@ class ChangePassword : AppCompatActivity() {
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
-        // menu.removeItem(R.id.action_search)
+        menu.removeItem(R.id.action_search)
         menu.removeItem(R.id.action_change_password)
         return true
     }

@@ -36,6 +36,7 @@
     <string name="select_theme">Tema seç</string>
     <string name="dark">Karanlık</string>
     <string name="light">Aydınlık</string>
+    <string name="set_by_battery">Pil Tasarrufu modunu takip et</string>
     <string name="choose_theme">Kullanmak istediğin temayı seç</string>
     <string name="exit_without_save">Kaydetmeden çık?</string>
     <string name="sure_exit_without_save">Kaydetmeden çıkmak istediğinize emin misiniz?</string>

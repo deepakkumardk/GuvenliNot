@@ -1,24 +1,27 @@
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <item android:id="@+id/action_change_password"
+    <item
+        android:id="@+id/action_change_password"
         android:title="@string/change_password_menu"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
-    <item android:id="@+id/theme"
+    <item
+        android:id="@+id/theme"
         android:title="@string/select_theme"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
-    <item android:id="@+id/action_about"
+    <item
+        android:id="@+id/action_about"
         android:title="@string/title_attribouter_about"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
-    <!-- <item android:id="@+id/action_search"
-        android:title="@string/search_title"
+    <item
+        android:id="@+id/action_search"
         android:icon="@drawable/baseline_search_24"
-        app:showAsAction="collapseActionView|always"
+        android:title="@string/search_title"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView|always"
         tools:ignore="AlwaysShowAction" />
-        -->
 </menu>

@@ -40,6 +40,7 @@
     <string name="select_theme">Select theme</string>
     <string name="dark">Dark</string>
     <string name="light">Light</string>
+    <string name="set_by_battery">Set by Battery Saver</string>
     <string name="choose_theme">Choose the theme you want to use</string>
     <string name="exit_without_save">Exit without saving?</string>
     <string name="sure_exit_without_save">Are you sure you want to exit without saving?</string>

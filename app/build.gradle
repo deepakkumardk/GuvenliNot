@@ -16,6 +16,7 @@ android {
         exclude 'META-INF/atomicfu.kotlin_module'
     }
     compileSdkVersion 28
+    buildToolsVersion = '29.0.0-rc3'
     defaultConfig {
         applicationId "com.kaancaliskan.guvenlinot"
         minSdkVersion 21
@@ -45,8 +46,8 @@ android {
             debuggable = true
         }
     }
-    buildToolsVersion = '29.0.0-rc3'
 }
+
 static def getDate() {
     return new Date().format('yyyy.MM.dd')
 }
