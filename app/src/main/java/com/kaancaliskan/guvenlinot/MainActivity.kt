@@ -2,7 +2,6 @@ package com.kaancaliskan.guvenlinot
 
 import android.app.SearchManager
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -27,19 +26,15 @@ import com.kaancaliskan.guvenlinot.util.LocalData
 import com.kaancaliskan.guvenlinot.util.SwipeToDeleteCallback
 import kotlinx.android.synthetic.main.main_activity.*
 import me.jfenn.attribouter.Attribouter
-import org.jetbrains.anko.editText
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.textColor
-import java.util.*
-
+import java.util.Collections
 /**
  * This activity saves note and encode/decode note.
  */
 class MainActivity : AppCompatActivity() {
     private lateinit var adapter: GuvenliNotAdapter
-    private lateinit var noteList: MutableList<Note> // should converted to LiveData<MutableList<Note>>
-    // private lateinit var searchList: LiveData<MutableList<Note>>
+    private lateinit var noteList: MutableList<Note>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,9 +73,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onMove(
-                    recyclerView: RecyclerView,
-                    viewHolder: RecyclerView.ViewHolder,
-                    target: RecyclerView.ViewHolder
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
             ): Boolean {
                 Collections.swap(noteList, viewHolder.adapterPosition, target.adapterPosition)
                 adapter.notifyItemMoved(viewHolder.adapterPosition, target.adapterPosition)
@@ -160,7 +155,7 @@ class MainActivity : AppCompatActivity() {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                         delegate.applyDayNight()
                     }
-                    .setNeutralButton("Set by Battery Saver") { _, _ ->
+                    .setNeutralButton(getString(R.string.set_by_battery)) { _, _ ->
                         LocalData.write(this, getString(R.string.night_mode), "battery")
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
                         delegate.applyDayNight()
@@ -189,7 +184,6 @@ class MainActivity : AppCompatActivity() {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
         }
         search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-
             override fun onQueryTextChange(newText: String): Boolean {
                 filter(newText)
                 return true
@@ -204,6 +198,16 @@ class MainActivity : AppCompatActivity() {
             adapter.updateList(noteList)
             return@setOnCloseListener true
         }
+        menu.findItem(R.id.action_search).setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionExpand(menuItem: MenuItem): Boolean {
+                add_note_fab.hide()
+                return true
+            }
+            override fun onMenuItemActionCollapse(menuItem: MenuItem): Boolean {
+                add_note_fab.show()
+                return true
+            }
+        })
         return true
     }
 

@@ -4,14 +4,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    /*signingConfigs {
+    signingConfigs {
         release {
             storeFile file('D:\\key.jks')
             storePassword System.getenv("STORE_PASSWORD")
             keyAlias "GuvenliNot"
             keyPassword System.getenv("KEY_PASSWORD")
         }
-    }*/
+    }
     packagingOptions {
         exclude 'META-INF/atomicfu.kotlin_module'
     }
@@ -30,7 +30,7 @@ android {
             minifyEnabled true
             manifestPlaceholders = [app_name: "@string/app_name"]
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
         debug {
             signingConfig signingConfigs.debug
