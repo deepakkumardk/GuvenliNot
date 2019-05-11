@@ -8,7 +8,7 @@ import android.content.Context
 /**
  * The abstract class to create the instance of the Database which extends the RoomDatabase
  */
-@Database(entities = [Note::class], version = 1)
+@Database(entities = [Note::class], version = 1, exportSchema = false)
 abstract class GuvenliNotDatabase : RoomDatabase() {
     /**
      * Abstract Dao method
@@ -25,9 +25,9 @@ abstract class GuvenliNotDatabase : RoomDatabase() {
                 synchronized(GuvenliNotDatabase::class) {
                     INSTANCE = Room
                             .databaseBuilder(
-                                context,
-                                GuvenliNotDatabase::class.java,
-                                "guvenli_not_db.sql")
+                                    context,
+                                    GuvenliNotDatabase::class.java,
+                                    "guvenli_not_db.sql")
                             .fallbackToDestructiveMigration()
                             .build()
                 }
