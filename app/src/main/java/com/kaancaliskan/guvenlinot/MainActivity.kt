@@ -101,6 +101,13 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
     }
 
+    override fun onPause() {
+        NotesRepository(applicationContext).updateData(noteList)
+        // save changes to database
+        // not saving onMove changes :(
+        super.onPause()
+    }
+
     private fun refreshRecyclerView() {
         noteList = NotesRepository(application).getAllNotes()
         isListEmpty()
@@ -119,8 +126,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        NotesRepository(applicationContext).updateData(noteList)
-        // not saving changes onMove
         super.onDestroy()
         GuvenliNotDatabase.destroyInstance()
     }
