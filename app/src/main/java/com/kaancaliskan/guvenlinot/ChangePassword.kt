@@ -21,14 +21,6 @@ class ChangePassword : AppCompatActivity() {
         setContentView(R.layout.change_password)
         setSupportActionBar(change_password_bar)
 
-        /**
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        contentView!!.systemUiVisibility =
-        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        }
-        Ready to android Q :)
-         */
-
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         password_check.requestFocus()

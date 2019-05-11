@@ -28,14 +28,6 @@ class NewNoteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_note)
         setSupportActionBar(new_note_bar)
 
-        /**
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        contentView!!.systemUiVisibility =
-        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        }
-        Ready to android Q :)
-         */
-
         note_title.requestFocus()
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)

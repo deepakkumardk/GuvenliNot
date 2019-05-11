@@ -16,14 +16,6 @@ class FirstLogin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_login)
 
-        /**
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        contentView!!.systemUiVisibility =
-        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        }
-        Ready to android Q :)
-         */
-
         save_password_button.setOnClickListener {
             val newPassword = write_password.text.toString()
             val newPasswordConfirm = confirm_password.text.toString()

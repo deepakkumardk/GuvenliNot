@@ -41,13 +41,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         setSupportActionBar(main_bar)
 
-        /**
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        contentView!!.systemUiVisibility =
-        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        }
-        Ready to android Q :)
-         */
         if (!check_for_intent) {
             // For restrict accessing without password check.
             Toast.makeText(this, R.string.restrict_access, Toast.LENGTH_LONG).show()
@@ -79,10 +72,6 @@ class MainActivity : AppCompatActivity() {
             ): Boolean {
                 Collections.swap(noteList, viewHolder.adapterPosition, target.adapterPosition)
                 adapter.notifyItemMoved(viewHolder.adapterPosition, target.adapterPosition)
-                /*
-                 database e sırayla yazıyor ama okuyunca farklı çıkıyor
-                  yazılanların id leri de doğru ama bi fark yok olmuyor database de :(
-                 */
                 return true
             }
         }

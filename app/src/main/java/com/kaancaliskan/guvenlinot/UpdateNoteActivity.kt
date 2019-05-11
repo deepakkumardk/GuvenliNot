@@ -36,14 +36,6 @@ class UpdateNoteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_update_note)
         setSupportActionBar(update_note_bar)
 
-        /**
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        contentView!!.systemUiVisibility =
-        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        }
-        Ready to android Q :)
-         */
-
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         noteId = intent.getLongExtra(NOTE_ID, 0)
