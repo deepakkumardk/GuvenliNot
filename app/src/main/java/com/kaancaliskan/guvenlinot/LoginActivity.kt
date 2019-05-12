@@ -39,8 +39,11 @@ class LoginActivity : AppCompatActivity() {
                 intent(0)
             } else {
                 confirm_layout.error = getString(R.string.password_check_error)
+                confirm_EditText.text?.clear()
+                confirm_layout.requestFocus()
             }
         }
+        confirm_layout.requestFocus()
     }
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_change_password -> {
@@ -54,18 +57,15 @@ class LoginActivity : AppCompatActivity() {
                     .setPositiveButton(getString(R.string.light)) { _, _ ->
                         LocalData.write(this, getString(R.string.night_mode), "false")
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                        delegate.applyDayNight()
-                    }
+                        delegate.applyDayNight() }
                     .setNegativeButton(getString(R.string.dark)) { _, _ ->
                         LocalData.write(this, getString(R.string.night_mode), "true")
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                        delegate.applyDayNight()
-                    }
+                        delegate.applyDayNight() }
                     .setNeutralButton("Set by Battery Saver") { _, _ ->
                         LocalData.write(this, getString(R.string.night_mode), "battery")
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
-                        delegate.applyDayNight()
-                    }
+                        delegate.applyDayNight() }
                     .show()
             true
         }
@@ -89,13 +89,11 @@ class LoginActivity : AppCompatActivity() {
             0 -> {
                 check_for_intent = true
                 startActivity<MainActivity>()
-                finish()
-            }
+                finish() }
             1 -> startActivity<ChangePassword>()
             2 -> {
                 startActivity<FirstLogin>()
-                finish()
-            }
+                finish() }
         }
     }
 }

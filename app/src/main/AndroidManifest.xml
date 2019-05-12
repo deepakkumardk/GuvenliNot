@@ -10,9 +10,9 @@
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:label="${app_name}"
+
         android:theme="@style/AppTheme"
-        android:allowBackup="true"
-        android:fullBackupContent="true"
+        android:allowBackup="false"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".LoginActivity"
@@ -28,9 +28,7 @@
         <activity
             android:name=".MainActivity"
             android:label="${app_name"
-            android:theme="@style/MainActivityTheme"
-            android:autoRemoveFromRecents="true"
-            android:windowSoftInputMode="stateAlwaysHidden">
+            android:theme="@style/MainActivityTheme">
             <meta-data android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
             <intent-filter>
@@ -50,15 +48,11 @@
         <activity
             android:name=".NewNoteActivity"
             android:label="@string/new_note"
-            android:autoRemoveFromRecents="true"
-            android:noHistory="true"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".UpdateNoteActivity"
             android:label="@string/update_note"
-            android:noHistory="true"
-            android:autoRemoveFromRecents="true"
             android:parentActivityName=".MainActivity"/>
     </application>
 </manifest>

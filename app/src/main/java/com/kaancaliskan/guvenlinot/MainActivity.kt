@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -41,30 +42,32 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         setSupportActionBar(main_bar)
 
+        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+
         if (!check_for_intent) {
             // For restrict accessing without password check.
             Toast.makeText(this, R.string.restrict_access, Toast.LENGTH_LONG).show()
             System.exit(0)
         }
         val swipeHandler = object : SwipeToDeleteCallback(this) {
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            override fun onSwiped(
+                viewHolder: RecyclerView.ViewHolder,
+                direction: Int
+            ) {
                 val deleteNote = noteList[viewHolder.adapterPosition]
                 val position = viewHolder.adapterPosition
                 noteList.removeAt(position)
                 adapter.notifyItemRemoved(position)
                 adapter.notifyItemRangeChanged(position, noteList.size - position + 1)
                 isListEmpty()
-
                 Snackbar.make(recycler_view, getString(R.string.note_delete_success), Snackbar.LENGTH_LONG)
                         .setAnchorView(add_note_fab)
                         .setAction(getString(R.string.undo)) {
                             noteList.add(deleteNote)
                             adapter.notifyItemInserted(noteList.size)
-                            isListEmpty()
-                        }
+                            isListEmpty() }
                         .show()
             }
-
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
